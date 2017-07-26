@@ -1,4 +1,4 @@
 function doFirst() {
-    document.write("Shantanu");
+    //document.write("Shantanu");
 }
 //window.addEventListener('load', doFirst, false);

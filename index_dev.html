@@ -7,19 +7,14 @@
 
     <link rel="stylesheet" type="text/css" href="assets/css/main.css" />
 
-    <script type="text/javascript" src="main.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script>
-        $(window).load(function() {
-            setTimeout(function() {
-                $("#preloader-bg").fadeOut(2000);
-                $(".main-container").fadeIn(2000);
-            }, 2000);
-        });
-    </script>
-
     <noscript>
-        <style>.preloader-container { display: none; } </style>
+        <style>
+            .preloader-container {
+                display: none;
+            }
+
+        </style>
     </noscript>
 </head>
 
@@ -28,16 +23,30 @@
         <div id="preloader-container">
             <div id="preloader-anim"></div>
             <div id="preloader-text" class="glitch">LOADING</div>
-            <!--            <h3 class="glitch">17</h3>-->
         </div>
     </div>
     <div class="main-container">
-
-        Hi, This is Shantanu.<br/> But unfortunately this website is under construction!!!
-        <p>But u can obviously checkout my resume below : </p>
-
+        <img src="assets/images/logo.png" id="logo">
+        <img src="assets/images/me_bevel.png" id="me">
+        <div class="callouts">
+            <div class="callout" id="main-callout">
+                <div class="gradient"></div>
+                <h1>Hi!</h1>
+            </div>
+            <div class="callout" id="small-callout-3">
+            </div>
+            <div class="callout" id="small-callout-2">
+            </div>
+            <div class="callout" id="small-callout-1">
+            </div>
+        </div>
     </div>
 
+    <script src="//code.jquery.com/jquery.min.js"></script>
+    <script src="assets/libraries/jquery.easing.1.3.js"></script>
+    <script type="text/javascript" src="main.js"></script>
+
 </body>
+
 
 </html>

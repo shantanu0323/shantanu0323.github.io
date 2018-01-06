@@ -2,15 +2,41 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="assets/css/main.css"/>
-    <script type="text/javascript" src="main.js"></script>
     <title>Shantanu Pramanik</title>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="assets/css/main.css" />
+
+    <script type="text/javascript" src="main.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script>
+        $(window).load(function() {
+            setTimeout(function() {
+                $("#preloader-bg").fadeOut(2000);
+                $(".main-container").fadeIn(2000);
+            }, 2000);
+        });
+    </script>
+
+    <noscript>
+        <style>.preloader-container { display: none; } </style>
+    </noscript>
 </head>
 
 <body>
-Hi, This is Shantanu.<br/> But unfortunately this website is under construction!!!
-<p>But u can obviously checkout my resume below : </p>
+    <div id="preloader-bg">
+        <div id="preloader-container">
+            <div id="preloader-anim"></div>
+            <div id="preloader-text" class="glitch">LOADING</div>
+            <!--            <h3 class="glitch">17</h3>-->
+        </div>
+    </div>
+    <div class="main-container">
+
+        Hi, This is Shantanu.<br/> But unfortunately this website is under construction!!!
+        <p>But u can obviously checkout my resume below : </p>
+
+    </div>
 
 </body>
 

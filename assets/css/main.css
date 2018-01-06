@@ -1,13 +1,194 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+}
+
 body {
     font-family: helvetica;
     font-size: 24px;
-    background-image: url("/assets/images/img.png");
+    width: 100%;
+    height: 100%;
+}
+
+.main-container {
+    display: none;
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient( rgba(0, 0, 0, .7), rgba(0, 0, 0, .7)),
+        url("/assets/images/image3.jpg"), 
+        url("/assets/images/pat_comp.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
+    background-blend-mode: multiply;
+    color: white;
+    font-size: 20px;
 }
 
 p {
     color: #0c5;
+}
+
+.glitch:before, .glitch:after {
+    content: 'LOADING';
+    padding-left: 48px;
+    position:absolute;
+    top: 0;
+    left: 0;
+    right:0;
+    overflow: hidden;
+    background-color: rgba(0,0,0,0);
+    color: #fff;
+}
+
+.glitch:before {
+    z-index: -1;
+    color: #0ff;
+    animation: glitch 0.6s infinite linear;
+}
+
+.glitch:after {
+    z-index: -2;
+    color: #f0f;
+    animation: glitch 0.6s infinite reverse linear;
+}
+
+
+
+#preloader-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to bottom, #0af, #d22), url("/assets/images/i4_pat_scomp.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-blend-mode: multiply;
+}
+
+#preloader-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#preloader-anim {
+    position: relative;
+    left: 50%;
+    z-index: 100;
+    margin-top: 10px;
+    transform: translate(-5%, 0%);
+}
+
+#preloader-text {
+    position: relative;
+    margin-top: 90px;
+    padding-left: 48px;
+    z-index: 10;
+    letter-spacing: 100px;
+    font: bold 40px megapolis;
+    color: azure;
+}
+
+
+@font-face {
+    font-family: 'megapolis';
+    src: url('/assets/fonts/megapolis.otf') format('opentype');
+}
+
+@keyframes glitch {
+    0% {
+        transform: translate(0)
+    }
+    10% {
+        transform: translate(-2px, 2px) skewX(10deg) 
+    }
+    20% {
+        transform: translate(-2px, 2px) skewX(-30deg) 
+    }
+    30% {
+        transform: translate(-2px, -3px) skewX(85deg) 
+    }
+    40% {
+        transform: translate(-2px, -3px) skewX(-25deg) 
+    }
+    50% {
+        transform: translate(-2px, -3px) skewX(15deg) 
+    }
+    60% {
+        transform: translate(2px, 2px) skewX(-5deg)
+    }
+    70% {
+        transform: translate(-2px, -3px) skewX(100deg) 
+    }
+    80% {
+        transform: translate(2px, -2px) skewX(-10deg)
+    }
+    90% {
+        transform: translate(-2px, -3px) skewX(25deg) 
+    }
+    100% {
+        transform: translate(0)
+    }
+}
+
+#preloader-anim:before {
+    width: 30px;
+    height: 30px;
+    border-radius: 30px;
+    box-shadow: 0px 0px 6px 2px rgba(100, 100, 100, 0.6);
+    background: blue;
+    content: '';
+    position: absolute;
+    background: #f00;
+    animation: preloader-anim-before 1.5s infinite ease-in-out;
+}
+
+#preloader-anim:after {
+    width: 30px;
+    height: 30px;
+    border-radius: 30px;
+    box-shadow: 0px 0px 6px 2px rgba(100, 100, 100, 0.6);
+    background: blue;
+    content: '';
+    position: absolute;
+    background: #ff0;
+    left: 22px;
+    animation: preloader-anim-after 1.5s infinite ease-in-out;
+}
+
+@keyframes preloader-anim-before {
+    0% {
+        transform: translateX(0px) rotate(0deg)
+    }
+    50% {
+        transform: translateX(100px) scale(1.5) rotate(260deg);
+        background: darkgreen;
+        border-radius: 0px;
+    }
+    100% {
+        transform: translateX(0px) rotate(0deg)
+    }
+}
+
+@keyframes preloader-anim-after {
+    0% {
+        transform: translateX(0px)
+    }
+    50% {
+        transform: translateX(-100px) scale(1.5) rotate(-260deg);
+        background: #037;
+        border-radius: 0px;
+    }
+    100% {
+        transform: translateX(0px)
+    }
 }
 

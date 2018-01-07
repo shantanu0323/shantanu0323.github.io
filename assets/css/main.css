@@ -9,6 +9,11 @@
 }
 body {
     font-family: helvetica;
+    background-image: url('../images/main_bg.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
     width: 100vw;
     height: 100vh;
     margin: 0;
@@ -102,13 +107,13 @@ body {
         transform: scale(1, 1);
     }
     75% {
-        transform: scale(1.1, 1.1);
+        transform: scale(1.1, 1.2);
     }
     87% {
         transform: scale(1, 1);
     }
     100% {
-        transform: scale(1.1, 1.1);
+        transform: scale(1.2, 1.1);
     }
 }
 
@@ -222,9 +227,7 @@ body {
     height: 6vh;
     margin-top: 2vh;
     margin-left: 2vh;
-    transform: translate(0, 0);
-    transition: all 0s;
-    animation: pulse 1s infinite reverse ease-in-out;
+    animation: pulse 1.5s infinite reverse ease-in-out;
 }
 #me {
     position: absolute;
@@ -248,7 +251,7 @@ body {
     right: 0;
     z-index: 10;
     background-repeat: no-repeat;
-    background-image: url('../images/callout.png');
+    background-image: url('../images/main_callout.png');
     background-size: contain;
     opacity: 0;
 }
@@ -300,12 +303,11 @@ body {
 /*----------------------------------------------------------------------------------------*
 /*----------------------------------------------------------------------------------------*/
 
-
 /******************************************************************************************
-/************************************ DESKTOP FRIENDLY ************************************
+/******************************* MOBILE LANDSCAPE FRIENDLY ********************************
 /******************************************************************************************/
 
-@media screen and (min-width: 960px) {
+@media screen and (min-width: 620px) {
     * {
         margin: 0px;
         padding: 0px;
@@ -314,21 +316,12 @@ body {
         display: none;
     }
     #logo {
-        position: absolute;
         width: 7vh;
         height: 7vh;
-        margin-top: 2vh;
-        margin-left: 2vh;
-        transform: translate(0, 0);
-        transition: all 0s;
-        animation: pulse 1s infinite reverse ease-in-out;
     }
     #me {
-        position: absolute;
         top: 0vh;
         left: 23vh;
-        height: 100vh;
-        width: auto;
     }
     .callouts {
         position: absolute;
@@ -336,21 +329,6 @@ body {
         left: 3%;
         width: 20%;
         height: 30%;
-    }
-    .callout {
-        position: absolute;
-        width: 0;
-        height: 0;
-        bottom: 0;
-        right: 0;
-        z-index: 10;
-        background-repeat: no-repeat;
-        background-image: url('../images/callout.png');
-        background-size: contain;
-        opacity: 0;
-    }
-    #main-callout {
-        background-image: url('../images/main_callout.png');
     }
     #small-callout-3 {
         bottom: -2%;
@@ -365,10 +343,57 @@ body {
         right: -3%;
     }
     #main-callout h1 {
-        font-family: megapolis;
-        text-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
-        font-size: 6vw;
+        font-size: 4vw;
+        bottom: 55%;
+        right: 48%;
+    }    
+    
+}
+
+/*----------------------------------------------------------------------------------------*
+/*----------------------------------------------------------------------------------------*/
+
+/******************************************************************************************
+/************************************ DESKTOP FRIENDLY ************************************
+/******************************************************************************************/
+
+@media screen and (min-width: 960px) {
+    * {
+        margin: 0px;
+        padding: 0px;
+    }
+    ::-webkit-scrollbar {
+        display: none;
+    }
+    #logo {
+        width: 7vh;
+        height: 7vh;
+    }
+    #me {
         position: absolute;
+        top: 0vh;
+        left: 23vh;
+    }
+    .callouts {
+        top: 8%;
+        left: 3%;
+        width: 20%;
+        height: 30%;
+    }
+    #small-callout-3 {
+        bottom: -2%;
+        right: 10%;
+    }
+    #small-callout-2 {
+        bottom: -9%;
+        right: 3%;
+    }
+    #small-callout-1 {
+        bottom: -10%;
+        right: -3%;
+    }
+    #main-callout h1 {
+        font-size: 4vw;
         bottom: 50%;
         right: 50%;
         opacity: 0.7;

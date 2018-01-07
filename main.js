@@ -1,7 +1,7 @@
 $(window).load(function () {
     setTimeout(function () {
-        //        $("#preloader-bg").css("display", "none");
-        //        $(".main-container").css("display", "block");
+//                $("#preloader-bg").css("display", "none");
+//                $(".main-container").css("display", "block");
         $("#preloader-bg").fadeOut(2000);
         $(".main-container").fadeIn(2000);
     }, 2000);
@@ -18,28 +18,30 @@ $(window).load(function () {
     var mainCalloutMsg = $("#main-callout h1");
     var callout = $(".callout");
 
-    mainContainer.mousemove(function (e) {
-        var xVal = e.pageX * -1;
-        var yVal = e.pageY * -1;
+    if (screen.width >= 960) {
 
-        logo.css({
-            'transform': 'translate3d(' + xVal / 80 + 'px, ' + yVal / 80 + 'px,0)'
+        mainContainer.mousemove(function (e) {
+            var xVal = e.pageX * -1;
+            var yVal = e.pageY * -1;
+
+            logo.css({
+                'transform': 'translate3d(' + xVal / 80 + 'px, ' + yVal / 80 + 'px,0)'
+            });
+
+            me.css({
+                'transform': 'translate3d(' + xVal / 120 + 'px, ' + yVal / 120 + 'px,0)'
+            });
+
+            callout.css({
+                'transform': 'translate3d(' + xVal / -100 + 'px, ' + yVal / -100 + 'px,0)'
+            });
+
+            mainCalloutMsg.css({
+                'transform': 'translate(70%,70%) translate3d(' + xVal / 20 + 'px, ' + yVal / 20 + 'px,0)'
+            });
+
         });
-
-        me.css({
-            'transform': 'translate3d(' + xVal / 120 + 'px, ' + yVal / 120 + 'px,0)'
-        });
-
-        callout.css({
-            'transform': 'translate3d(' + xVal / -100 + 'px, ' + yVal / -100 + 'px,0)'
-        });
-
-        mainCalloutMsg.css({
-            'transform': 'translate(80%,60%) translate3d(' + xVal / 20 + 'px, ' + yVal / 20 + 'px,0)'
-        });
-
-    });
-
+    }
     /* 200, 300, 400, 800, 800, 4000*/
     setTimeout(function () {
         smallCallout1.animate({
@@ -65,13 +67,17 @@ $(window).load(function () {
                         var letSpaceVal = "2vw";
                         var padLeftVal = "4vw";
                         var fSizeVal = "10vw";
-                        
-                        if (screen.width > 960) {
-                            fSizeVal = "6vw";
+
+                        if (screen.width >= 640) {
+                            fSizeVal = "5vw";
                             letSpaceVal = "1vw";
                             padLeftVal = "0vw";
                         }
                         
+                        if (screen.width >= 960) {
+                            fSizeVal = "6vw";
+                        }
+
                         mainCalloutMsg.animate({
                             "letter-spacing": letSpaceVal,
                             "padding-left": padLeftVal,

@@ -33,7 +33,7 @@ $(window).load(function () {
         });
         
         mainCalloutMsg.css({
-            'transform': 'translate(75%,75%) translate3d(' + xVal / 20 + 'px, ' + yVal / 20 + 'px,0)'
+            'transform': 'translate(80%,60%) translate3d(' + xVal / 20 + 'px, ' + yVal / 20 + 'px,0)'
         });
 
     });
@@ -61,7 +61,7 @@ $(window).load(function () {
                     }, 800, 'easeOutElastic', function () {
                         mainCalloutMsg.animate({
                             "letter-spacing": "10px",
-                            "font-size" : "80px",
+                            "font-size" : "5vw",
                             "opacity": "1"
                         }, 800, 'easeOutElastic', function () {
 

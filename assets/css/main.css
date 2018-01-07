@@ -47,8 +47,8 @@ body {
     }
     50% {
         transform: translateX(15vw) scale(1.5) rotate(270deg);
-        background: darkgreen;
-        border-radius: 0vw;
+        background: #f2e806;
+        border-radius: 1vw;
     }
     100% {
         transform: translateX(0vw) rotate(0deg)
@@ -60,8 +60,8 @@ body {
     }
     50% {
         transform: translateX(-15vw) scale(1.5) rotate(-270deg);
-        background: #037;
-        border-radius: 0vw;
+        background: #9344a5;
+        border-radius: 1vw;
     }
     100% {
         transform: translateX(0vw)
@@ -129,7 +129,7 @@ body {
     position: absolute;
     width: 100%;
     height: 100%;
-    background-image: linear-gradient(to bottom, #0af, #d22), url("../images/i4_pat_scomp.jpg");
+    background-image: linear-gradient(to bottom, #ccc, #69ff47), url("../images/i4_pat_scomp.jpg");
     background-blend-mode: multiply;
     background-repeat: no-repeat;
     background-position: center;
@@ -161,22 +161,20 @@ body {
     width: 4vh;
     height: 4vw;
     border-radius: calc((4vh+4vw)/2);
-    box-shadow: 0px 0px 0.8vh 0.27vh rgba(100, 100, 100, 0.6);
-    background: blue;
+    background: aqua;
     content: '';
     position: absolute;
-    background: #f00;
+    background: #d81532;
     animation: preloader-anim-before 1.5s infinite ease-in-out;
 }
 #preloader-anim:after {
     width: 4vh;
     height: 4vw;
     border-radius: calc((4vh+4vw)/2);
-    box-shadow: 0px 0px 0.8vh 0.27vh rgba(100, 100, 100, 0.6);
-    background: blue;
+    background: aqua;
     content: '';
     position: absolute;
-    background: #ff0;
+    background: #1a191c;
     left: 20vw;
     animation: preloader-anim-after 1.5s infinite ease-in-out;
 }
@@ -193,9 +191,16 @@ body {
     font: bold 6vh megapolis;
     color: azure;
 }
+.glitch-resize:before,
+.glitch-resize:after {
+    content: 'RESIZING';
+}
+.glitch-load:before,
+.glitch-load:after {
+    content: 'LOADING';
+}
 .glitch:before,
 .glitch:after {
-    content: 'LOADING';
     padding-left: 5vw;
     position: absolute;
     top: 0;
@@ -282,6 +287,7 @@ body {
     opacity: 0.7;
     transform: translate(50%, 50%);
 }
+
 /*----------------------------------------------------------------------------------------*
 /*----------------------------------------------------------------------------------------*/
 
@@ -302,6 +308,7 @@ body {
 
 /*----------------------------------------------------------------------------------------*
 /*----------------------------------------------------------------------------------------*/
+
 
 /******************************************************************************************
 /******************************* MOBILE LANDSCAPE FRIENDLY ********************************
@@ -346,12 +353,12 @@ body {
         font-size: 4vw;
         bottom: 55%;
         right: 48%;
-    }    
-    
+    }
 }
 
 /*----------------------------------------------------------------------------------------*
 /*----------------------------------------------------------------------------------------*/
+
 
 /******************************************************************************************
 /************************************ DESKTOP FRIENDLY ************************************

@@ -1,5 +1,7 @@
 $(window).load(function () {
     setTimeout(function () {
+        //        $("#preloader-bg").css("display", "none");
+        //        $(".main-container").css("display", "block");
         $("#preloader-bg").fadeOut(2000);
         $(".main-container").fadeIn(2000);
     }, 2000);
@@ -27,17 +29,18 @@ $(window).load(function () {
         me.css({
             'transform': 'translate3d(' + xVal / 120 + 'px, ' + yVal / 120 + 'px,0)'
         });
-        
+
         callout.css({
             'transform': 'translate3d(' + xVal / -100 + 'px, ' + yVal / -100 + 'px,0)'
         });
-        
+
         mainCalloutMsg.css({
             'transform': 'translate(80%,60%) translate3d(' + xVal / 20 + 'px, ' + yVal / 20 + 'px,0)'
         });
 
     });
 
+    /* 200, 300, 400, 800, 800, 4000*/
     setTimeout(function () {
         smallCallout1.animate({
             "width": "5%",
@@ -59,9 +62,20 @@ $(window).load(function () {
                         "height": "100%",
                         "opacity": "1"
                     }, 800, 'easeOutElastic', function () {
+                        var letSpaceVal = "2vw";
+                        var padLeftVal = "4vw";
+                        var fSizeVal = "10vw";
+                        
+                        if (screen.width > 960) {
+                            fSizeVal = "6vw";
+                            letSpaceVal = "1vw";
+                            padLeftVal = "0vw";
+                        }
+                        
                         mainCalloutMsg.animate({
-                            "letter-spacing": "10px",
-                            "font-size" : "5vw",
+                            "letter-spacing": letSpaceVal,
+                            "padding-left": padLeftVal,
+                            "font-size": fSizeVal,
                             "opacity": "1"
                         }, 800, 'easeOutElastic', function () {
 

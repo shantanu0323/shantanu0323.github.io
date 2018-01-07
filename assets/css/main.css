@@ -351,7 +351,8 @@ body {
     top: 35vh;
     transform: scale(1, 1.5);
     padding-left: 2vw;
-    border-radius: 2vh;
+    padding-top: 0.5vh;
+    border-radius: 1vh;
     background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0) 40%);
     opacity: 0;
 }
@@ -364,7 +365,8 @@ body {
     top: 45vh;
     transform: scale(1, 1.5);
     padding-left: 2vw;
-    border-radius: 2vh;
+    padding-top: 0.5vh;
+    border-radius: 1vh;
     background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0) 40%);
     opacity: 0;
 }
@@ -484,7 +486,7 @@ body {
         background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0) 70%);
     }
     #lastname {
-        top: 34vh;
+        top: 34.5vh;
         right: 30vw;
         font-size: 8vh;
         letter-spacing: 1vw;
@@ -560,12 +562,9 @@ body {
     }
     #firstname {
         top: 9vw;
-        right: 20vw;
         letter-spacing: 2vw;
     }
     #lastname {
-        top: 34vh;
-        right: 30vw;
         letter-spacing: 2vw;
     }
 }

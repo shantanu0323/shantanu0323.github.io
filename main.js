@@ -7,7 +7,7 @@ $(window).load(function () {
         //                $(".main-container").css("display", "block");
         $("#preloader-bg").fadeOut(2000);
         $(".main-container").fadeIn(2000);
-    }, 2000);
+    }, 1500);
 
     if (getCookie("isResizing") == "true") {
         $("#preloader-text").removeClass("glitch-load");
@@ -33,6 +33,9 @@ $(window).load(function () {
     var smallCallout1 = $("#small-callout-1");
     var mainCalloutMsg = $("#main-callout h1");
     var callout = $(".callout");
+    var iam = $("#iam");
+    var firstname = $("#firstname");
+    var lastname = $("#lastname");
 
     if (screen.width >= 960) {
 
@@ -84,7 +87,7 @@ $(window).load(function () {
                         var padLeftVal = "4vw";
                         var fSizeVal = "10vw";
 
-                        if (screen.width >= 640) {
+                        if (screen.width >= 620) {
                             fSizeVal = "5vw";
                             letSpaceVal = "1vw";
                             padLeftVal = "0vw";
@@ -100,13 +103,42 @@ $(window).load(function () {
                             "font-size": fSizeVal,
                             "opacity": "1"
                         }, 800, 'easeOutElastic', function () {
+                            var iamLeft = "14vw";
+                            var firstRight = "2vh";
+                            var lastRight = "14vh";
+                            if (screen.width >= 620) {
+                                iamLeft = "39.5vw";
+                                firstRight = "10vw";
+                                lastRight = "20vw";
+                            }
+                            if (screen.width >= 960) {
+                                iamLeft = "34.5vw";
+                            }
+                            iam.css({
+                                "animation": "iam-anim 1s",
+                                "left": iamLeft,
+                                "transform": "scale(1.2,1.5) skewX(-10deg)",
+                                "opacity": "1"
+                            });
+                            setTimeout(function () {
+                                firstname.css({
+                                    "opacity": "1",
+                                    "right": firstRight,
+                                    "animation": "firstname-anim 1s"
+                                });
+                                lastname.css({
+                                    "opacity": "1",
+                                    "right": lastRight,
+                                    "animation": "lastname-anim 1.5s",
+                                });
+                            }, 1000);
 
                         });
                     });
                 });
             });
         });
-    }, 4000);
+    }, 3500);
 
 });
 

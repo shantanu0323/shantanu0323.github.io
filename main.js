@@ -1,4 +1,7 @@
+var prevWidth = screen.width;
+var currentWidth = prevWidth;
 $(window).load(function () {
+    prevWidth = screen.width;
     setTimeout(function () {
         //                $("#preloader-bg").css("display", "none");
         //                $(".main-container").css("display", "block");
@@ -108,10 +111,13 @@ $(window).load(function () {
 });
 
 window.onresize = function (e) {
-    $("#preloader-bg").fadeIn(400);
-    $(".main-container").fadeIn(400);
-    setCookie("isResizing", "true", 1);
-    location.reload();
+    currentWidth = screen.width;
+    if (Math.abs(currentWidth - prevWidth) > 0) {
+        $("#preloader-bg").fadeIn(400);
+        $(".main-container").fadeOut(400);
+        setCookie("isResizing", "true", 1);
+        location.reload();
+    }
 };
 
 function setCookie(cname, cvalue, exdays) {

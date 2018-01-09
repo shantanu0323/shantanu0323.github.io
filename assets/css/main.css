@@ -370,6 +370,22 @@ body {
     background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0) 40%);
     opacity: 0;
 }
+#taglines {
+    border-width: 0px;
+    border-top-left-radius: 5vh;
+    border-bottom-left-radius: 5vh;
+    padding: 3vw;
+    font-size: 5vw;
+    position: absolute;
+    display: none;
+    background: #111;
+    align-content: center;
+    white-space: nowrap;
+    color: white;
+    letter-spacing: 0.5vw;
+    bottom: 0;
+    right: 0;
+}
 
 /*----------------------------------------------------------------------------------------*
 /*----------------------------------------------------------------------------------------*/
@@ -491,6 +507,19 @@ body {
         font-size: 8vh;
         letter-spacing: 1vw;
         background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0) 70%);
+    }
+    #taglines {
+        position: absolute;
+        bottom: 35vh;
+        left:50vw;
+        right: auto;
+        border-top-left-radius: 0;
+        border-top-right-radius: 5vh;
+        padding-left: 5vh;
+        padding-top: 2vh;
+        padding-bottom: 2vh;
+        font-size: 2vw;
+        
     }
 }
 

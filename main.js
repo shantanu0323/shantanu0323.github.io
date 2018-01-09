@@ -36,6 +36,7 @@ $(window).load(function () {
     var iam = $("#iam");
     var firstname = $("#firstname");
     var lastname = $("#lastname");
+    var taglines = $("#taglines");
 
     if (screen.width >= 960) {
 
@@ -82,7 +83,7 @@ $(window).load(function () {
                         "width": "100%",
                         "height": "100%",
                         "opacity": "1"
-                    }, 800, 'easeOutElastic', function () {
+                    }, 600, 'easeOutElastic', function () {
                         var letSpaceVal = "2vw";
                         var padLeftVal = "4vw";
                         var fSizeVal = "10vw";
@@ -102,7 +103,7 @@ $(window).load(function () {
                             "padding-left": padLeftVal,
                             "font-size": fSizeVal,
                             "opacity": "1"
-                        }, 800, 'easeOutElastic', function () {
+                        }, 400, 'easeOutElastic', function () {
                             var iamLeft = "14vw";
                             var firstRight = "2vh";
                             var lastRight = "14vh";
@@ -131,8 +132,43 @@ $(window).load(function () {
                                     "right": lastRight,
                                     "animation": "lastname-anim 1.5s",
                                 });
-                            }, 1000);
 
+
+                            }, 1000);
+                            let b = baffle('#firstname,#lastname', {
+                                characters: '░▓░▒▓█░▒█▓█░░█▓▒█▒▓░▒░▒█░▒░▓░█▒▓▒░█░▒░▓█▒░▒▓▒█░░░▓▒███▓▓▒▓▒▒░▒█▓░░▓▓█▓▒▒░█▓▒▒██▓▓▓█▓▒▒▒▒███▒▓███░▒░░▒▓█░▒█▓▓',
+                                speed: 50
+                            });
+                            setInterval(function () {
+                                b.start();
+                                b.reveal(1000, 800);
+                            }, 5000);
+
+                            setTimeout (function () {
+                                taglines.fadeIn(500);
+                                var phrases = [
+                                    'an Android App Developer',
+                                    'a Web Developer',
+                                    'an Enthusiastic Coder',
+                                    'a Creative Designer',
+                                    'a Travelling Lover',
+                                    'an Opportunity Seeker'];
+                                var index = -1;
+                                (function loopAnimation() {
+                                    index = (index + 1) % phrases.length;
+                                    var length = phrases[index].length;
+                                    bubbleText({
+                                        element: taglines,
+                                        newText: phrases[index],
+                                        letterSpeed: 70,
+                                        callback: function () {
+                                            setTimeout(loopAnimation, 2000);
+                                        },
+                                    });
+                                })();
+                            }, 2500);
+                            
+                            
                         });
                     });
                 });
@@ -151,6 +187,39 @@ window.onresize = function (e) {
         location.reload();
     }
 };
+
+function animateWord(targetDivId) {
+    var targetWord = $("#" + targetDivId).text();
+    //    $("#" + targetDivId).html("heather") ;
+
+    x = [0, 1, 2, 3, 4, 5, 6, 7];
+    for (i = 1; i < targetWord.length; i++) {
+        var asciiValue = targetWord.charCodeAt(i);
+        //                alert(i);
+
+        var pointer = 97;
+
+        changeChar();
+
+        var j = i;
+
+        function changeChar() {
+            if (pointer <= asciiValue) {
+                //                alert(i);
+
+                var newText = targetWord.slice(0, j) + String.fromCharCode(pointer) + targetWord.slice(i, targetWord.length);
+                //                alert(newText);
+                $("#" + targetDivId).html(newText);
+
+                pointer++;
+                setTimeout(changeChar, 1000);
+            } else {
+                //                $(this).stop;
+            }
+        }
+    }
+}
+
 
 function setCookie(cname, cvalue, exdays) {
     var d = new Date();

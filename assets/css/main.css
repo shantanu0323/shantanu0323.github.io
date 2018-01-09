@@ -283,6 +283,7 @@ body {
     top: -14.5vh;
     height: 100vh;
     width: auto;
+    display: none;
 }
 .callouts {
     position: absolute;

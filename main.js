@@ -64,6 +64,9 @@ $(window).load(function () {
     }
     /* 200, 300, 400, 800, 800, 4000*/
     setTimeout(function () {
+        me.fadeIn(2500);
+    }, 2500);
+    setTimeout(function () {
         smallCallout1.animate({
             "width": "5%",
             "height": "5%",
@@ -144,7 +147,7 @@ $(window).load(function () {
                                 b.reveal(1000, 800);
                             }, 5000);
 
-                            setTimeout (function () {
+                            setTimeout(function () {
                                 taglines.fadeIn(500);
                                 var phrases = [
                                     'an Android App Developer',
@@ -167,8 +170,8 @@ $(window).load(function () {
                                     });
                                 })();
                             }, 2500);
-                            
-                            
+
+
                         });
                     });
                 });

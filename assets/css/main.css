@@ -172,7 +172,7 @@ body {
     position: absolute;
     width: 100%;
     height: 100%;
-    background-image: linear-gradient(to bottom, #ccc, #69ff47), url("../images/i4_pat_scomp.jpg");
+    background-image: linear-gradient(to bottom, #ccc, #222), url("../images/cover_comp.jpg");
     background-blend-mode: multiply;
     background-repeat: no-repeat;
     background-position: center;
@@ -283,6 +283,7 @@ body {
     top: -14.5vh;
     height: 100vh;
     width: auto;
+    display: none;
 }
 .callouts {
     position: absolute;

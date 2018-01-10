@@ -1,14 +1,6 @@
 var prevWidth = screen.width;
 var currentWidth = prevWidth;
-$(window).load(function () {
-    prevWidth = screen.width;
-    setTimeout(function () {
-        //                $("#preloader-bg").css("display", "none");
-        //                $(".main-container").css("display", "block");
-        $("#preloader-bg").fadeOut(2000);
-        $(".main-container").fadeIn(2000);
-    }, 1500);
-
+(function () {
     if (getCookie("isResizing") == "true") {
         $("#preloader-text").removeClass("glitch-load");
         $("#preloader-text").addClass("glitch-resize");
@@ -22,8 +14,23 @@ $(window).load(function () {
         $("#preloader-text").css("letter-spacing", "7vw");
     }
 
+})();
+$(window).load(function () {
+    prevWidth = screen.width;
+    setTimeout(function () {
+        //                $("#preloader-bg").css("display", "none");
+        //                $(".main-container").css("display", "block");
+        $("#preloader-bg").fadeOut(2000);
+        $(".main-container").fadeIn(2000);
+    }, 1500);
+
+    $('#menu-icon').click(function () {
+        $(this).toggleClass('open');
+    });
+
     var logo = $("#logo");
     var me = $("#me");
+    var menuOpen = false;
 
     var mainContainer = $(".main-container");
     var gradient = $(".gradient");
@@ -37,6 +44,39 @@ $(window).load(function () {
     var firstname = $("#firstname");
     var lastname = $("#lastname");
     var taglines = $("#taglines");
+    var menuContainer = $("#menu-container");
+    var menuIcon = $("#menu-icon");
+    var menuCircleLayer = $("#menu-circle-layer");
+    
+    menuIcon.click(function () {
+        if (!menuOpen) {
+            menuContainer.animate({
+                "height": "70vh",
+                "width": "80vh",
+                "opacity": "0.8"
+            }, 800, 'easeOutElastic', function () {
+                menuOpen = true;
+            });
+            menuCircleLayer.animate({
+                "height": "80vh",
+                "width": "80vh",
+                "opacity": "0.8"
+            }, 800, 'easeOutElastic');
+        } else {
+            menuContainer.animate({
+                "height": "0vh",
+                "width": "0vh",
+                "opacity": "0"
+            }, 500, 'easeOutElastic', function () {
+                menuOpen = false;
+            });
+            menuCircleLayer.animate({
+                "height": "0vh",
+                "width": "0vh",
+                "opacity": "0"
+            }, 800, 'easeOutElastic');
+        }
+    });
 
     if (screen.width >= 960) {
 

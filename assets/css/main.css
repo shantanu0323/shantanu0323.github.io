@@ -356,6 +356,7 @@ body {
     border-radius: 1vh;
     background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0) 40%);
     opacity: 0;
+    z-index: 299;
 }
 #lastname {
     font-family: megapolis;
@@ -370,23 +371,98 @@ body {
     border-radius: 1vh;
     background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0) 40%);
     opacity: 0;
+    z-index: 299;
 }
 #taglines {
-    border-width: 0px;
     border-top-left-radius: 5vh;
     border-bottom-left-radius: 5vh;
     padding: 3vw;
     font-size: 5vw;
-    position: absolute;
+    position: fixed;
     display: none;
     background: #111;
     align-content: center;
-    white-space: nowrap;
     color: white;
     letter-spacing: 0.5vw;
     bottom: 0;
     right: 0;
+    z-index: 999;
 }
+#menu-container{
+    height: 0vh;
+    width: 0vh;
+    background-color: #69b4f8;
+    border-radius: 50%;
+    position: fixed;
+    left: 0%;
+    top: 90%;
+    transform: translate(-50%,-50%);
+    z-index: 99;
+    opacity: 0;
+}
+#menu-icon {
+    width: 4vh;
+    height: 3vh;
+    position: fixed;
+    bottom: 0%;
+    left: 0%;
+    margin: 2vh;
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+    -webkit-transition: .5s ease-in-out;
+    -moz-transition: .5s ease-in-out;
+    -o-transition: .5s ease-in-out;
+    transition: .5s ease-in-out;
+    cursor: pointer;
+    z-index: 500;
+}
+#menu {
+    height: 0vh;
+    width: 0vw;
+    position: absolute;
+    top: 15%;
+    left: 59%;
+    transform: translate(-50%,-50%);
+}
+#menu ul{
+    height: 80%;
+    width: 70%;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+#menu ul li{
+    width: 0vw;
+    font-family: megapolis;
+    color: white;
+    font-size: 3vh;
+    padding: 1.2vh;
+    letter-spacing: 1vw;
+    text-shadow: 0 0 2vh rgba(0,0,0,0.5);
+    transition: all 0.5s;
+}
+#menu ul li:hover {
+    height: 4vh;
+    width: 33vw;
+    background-color: black;
+    border-top-right-radius: 4vh;
+    border-bottom-right-radius: 4vh;
+}
+#menu-circle-layer {
+    height:  0vh;
+    width: 0vh;
+    background-color: #92c7fb;
+    border-radius: 50%;
+    position: fixed;
+    left: 5%;
+    top: 95%;
+    transform: translate(-50%,-50%);
+    z-index: 60;
+    opacity: 0;
+}
+
 
 /*----------------------------------------------------------------------------------------*
 /*----------------------------------------------------------------------------------------*/

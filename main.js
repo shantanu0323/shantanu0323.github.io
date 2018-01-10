@@ -74,7 +74,7 @@ $(window).load(function () {
                 "height": "0vh",
                 "width": "0vh",
                 "opacity": "0"
-            }, 800, 'easeOutElastic');
+            }, 500, 'easeOutElastic');
         }
     });
 

@@ -512,7 +512,7 @@ body {
     #taglines {
         position: absolute;
         bottom: auto;
-        top: 85vh;
+        top: 55vh;
         left:50vw;
         right: auto;
         border-top-left-radius: 0;

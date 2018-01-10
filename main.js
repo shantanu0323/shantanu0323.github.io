@@ -47,21 +47,31 @@ $(window).load(function () {
     var menuContainer = $("#menu-container");
     var menuIcon = $("#menu-icon");
     var menuCircleLayer = $("#menu-circle-layer");
-    
+
+    var height = "70vh";
+    var cHeight = "80vh"
+    var width = "80vh";
+    if (screen.width >= 620) {
+        height = "75vh";
+        cHeight = "85vh";
+        width = "90vh";
+    }
+
     menuIcon.click(function () {
         if (!menuOpen) {
             menuContainer.animate({
-                "height": "70vh",
-                "width": "80vh",
+                "height": height,
+                "width": width,
                 "opacity": "0.8"
             }, 800, 'easeOutElastic', function () {
                 menuOpen = true;
             });
             menuCircleLayer.animate({
-                "height": "80vh",
-                "width": "80vh",
+                "height": cHeight,
+                "width": width,
                 "opacity": "0.8"
             }, 800, 'easeOutElastic');
+            $("#menu-icon span").css("background","white");
         } else {
             menuContainer.animate({
                 "height": "0vh",
@@ -75,6 +85,7 @@ $(window).load(function () {
                 "width": "0vh",
                 "opacity": "0"
             }, 500, 'easeOutElastic');
+            $("#menu-icon span").css("background","#111");
         }
     });
 

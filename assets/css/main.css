@@ -688,6 +688,7 @@ a {
         height: 5vh;
         border: 1.2vh solid #fff;
         top: 15%;
+        border-left: 1.2vh solid transparent;
         border-top-right-radius: 5vh;
         border-bottom-right-radius: 5vh;
     }

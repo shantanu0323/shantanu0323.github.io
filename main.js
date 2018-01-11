@@ -16,6 +16,7 @@ var currentWidth = prevWidth;
 
 })();
 $(window).load(function () {
+    $(window).trigger('resize');
     prevWidth = screen.width;
     setTimeout(function () {
 //                        $("#preloader-bg").css("display", "block");

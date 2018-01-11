@@ -581,6 +581,22 @@ a {
     text-decoration: none;
     color: white;
 }
+#social-links {
+    position: absolute;
+    z-index: 5000;
+    border: 2px solid red;    
+}
+#social-links ul {
+    font-size: 0;
+}
+#social-links ul li{
+    display: inline-block;
+    font-size: large;
+}
+#social-links ul li a img{
+    width: 8vw;
+    margin: 1vw;
+}
 
 /*----------------------------------------------------------------------------------------*
 /*----------------------------------------------------------------------------------------*/

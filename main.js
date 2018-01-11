@@ -16,8 +16,9 @@ var currentWidth = prevWidth;
 
 })();
 $(window).load(function () {
-    $(window).trigger('resize');
-    prevWidth = screen.width;
+    particlesJS.load('particles-js', 'assets/libraries/particles.json', function() {
+        console.log('callback - particles.js config loaded');
+    });    prevWidth = screen.width;
     setTimeout(function () {
 //                        $("#preloader-bg").css("display", "block");
 //                        $(".main-container").css("display", "none");

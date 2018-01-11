@@ -18,8 +18,8 @@ var currentWidth = prevWidth;
 $(window).load(function () {
     prevWidth = screen.width;
     setTimeout(function () {
-        //                $("#preloader-bg").css("display", "none");
-        //                $(".main-container").css("display", "block");
+//                        $("#preloader-bg").css("display", "block");
+//                        $(".main-container").css("display", "none");
         $("#preloader-bg").fadeOut(2000);
         $(".main-container").fadeIn(2000);
     }, 1500);

@@ -159,7 +159,35 @@ body {
         right: 14vh;
     }
 }
-
+@keyframes animate-cup {
+    0% {
+        background-position: 0vw 17vw;
+    }
+    12.5% {
+        background-position: 20vw 15vw;
+    }
+    25% {
+        background-position: 40vw 10vw;
+    }
+    37.5% {
+        background-position: 60vw 5vw;
+    }
+    50% {
+        background-position: 80vw 0vw;
+    }
+    62.5% {
+        background-position: 100vw 5vw;
+    }
+    75% {
+        background-position: 120vw 10vw;
+    }
+    87.5% {
+        background-position: 140vw 15vw;
+    }
+    100% {
+        background-position: 160vw 17vw;
+    }
+}
 /*----------------------------------------------------------------------------------------*
 /*----------------------------------------------------------------------------------------*/
 
@@ -220,6 +248,34 @@ body {
     background: #1a191c;
     left: 20vw;
     animation: preloader-anim-after 1.5s infinite ease-in-out;
+}
+#cup {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 15vw;
+    height: 16vw;
+    border: 1.2vw solid #fff;
+    border-top: 1.2vw solid transparent;
+    border-top-left-radius: 1.2vw;
+    border-top-right-radius: 1.2vw;
+    background: url('../images/water.png');
+    background-repeat: repeat-x;
+    background-size: contain;
+    background-position: 0 0vw;
+    animation: animate-cup 4s linear infinite;
+}
+#cup::before {
+    content: '';
+    position: absolute;
+    width: 5vw;
+    height: 8vw;
+    border: 1.2vw solid #fff;
+    left: 100%;
+    top: 10%;
+    border-top-right-radius: 5vw;
+    border-bottom-right-radius: 5vw;
 }
 #preloader-text {
     overflow-x: hidden;
@@ -589,6 +645,52 @@ a {
             right: 20vw;
         }
     }
+    @keyframes animate-cup {
+        0% {
+            background-position: 0vh 12vh;
+        }
+        12.5% {
+            background-position: 20vh 9vh;
+        }
+        25% {
+            background-position: 40vh 6vh;
+        }
+        37.5% {
+            background-position: 60vh 3vh;
+        }
+        50% {
+            background-position: 80vh 0vh;
+        }
+        62.5% {
+            background-position: 100vh 3vh;
+        }
+        75% {
+            background-position: 120vh 6vh;
+        }
+        87.5% {
+            background-position: 140vh 9vh;
+        }
+        100% {
+            background-position: 160vh 12vh;
+        }
+    }
+    #cup {
+        top: 15%;
+        width: 12vh;
+        height: 13vh;
+        border: 1.2vh solid #fff;
+        border-top: 1.2vh solid transparent;
+        border-top-left-radius: 1.2vh;
+        border-top-right-radius: 1.2vh;
+    }
+    #cup::before {
+        width: 4vh;
+        height: 5vh;
+        border: 1.2vh solid #fff;
+        top: 15%;
+        border-top-right-radius: 5vh;
+        border-bottom-right-radius: 5vh;
+    }
     #logo {
         width: 7vh;
         height: 7vh;
@@ -726,6 +828,24 @@ a {
         100% {
             left: 34.6vw;
         }
+    }
+    #cup {
+        transform: translate(-70%,0%);
+        top: 130%;
+        width: 8vh;
+        height: 9vh;
+        border: 1vh solid #fff;
+        border-top: 1vh solid transparent;
+        border-top-left-radius: 1vh;
+        border-top-right-radius: 1vh;
+    }
+    #cup::before {
+        width: 2vh;
+        height: 3vh;
+        border: 1vh solid #fff;
+        top: 15%;
+        border-top-right-radius: 2vh;
+        border-bottom-right-radius: 2vh;
     }
     #logo {
         width: 7vh;

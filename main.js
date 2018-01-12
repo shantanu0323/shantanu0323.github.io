@@ -16,12 +16,13 @@ var currentWidth = prevWidth;
 
 })();
 $(window).load(function () {
-    particlesJS.load('particles-js', 'assets/libraries/particles.json', function() {
+    particlesJS.load('particles-js', 'assets/libraries/particles.json', function () {
         console.log('callback - particles.js config loaded');
-    });    prevWidth = screen.width;
+    });
+    prevWidth = screen.width;
     setTimeout(function () {
-//                        $("#preloader-bg").css("display", "block");
-//                        $(".main-container").css("display", "none");
+        //                        $("#preloader-bg").css("display", "block");
+        //                        $(".main-container").css("display", "none");
         $("#preloader-bg").fadeOut(2000);
         $(".main-container").fadeIn(2000);
     }, 1500);
@@ -73,7 +74,7 @@ $(window).load(function () {
                 "width": width,
                 "opacity": "0.8"
             }, 800, 'easeOutElastic');
-            $("#menu-icon span").css("background","white");
+            $("#menu-icon span").css("background", "white");
         } else {
             menuContainer.animate({
                 "height": "0vh",
@@ -87,7 +88,7 @@ $(window).load(function () {
                 "width": "0vh",
                 "opacity": "0"
             }, 500, 'easeOutElastic');
-            $("#menu-icon span").css("background","#111");
+            $("#menu-icon span").css("background", "#111");
         }
     });
 
@@ -224,6 +225,36 @@ $(window).load(function () {
                                 })();
                             }, 2500);
 
+                            var c = 1;
+                            var reveal = function () {
+                                var img = $("#social-links ul li:nth-child(" + c + ") a img");
+                                img.css({
+                                    "transform": "translate(0,0)",
+                                    "opacity": "1",
+                                    "filter": "none"
+                                });
+                                c++;
+                                if (c <= 7) {
+                                    setTimeout(reveal, 200);
+                                }
+                            };
+
+                            setTimeout(reveal, 2500);
+
+                            setTimeout(function () {
+                                $("#splash").css("background-color", "red");
+                                setTimeout(function () {
+                                    $(".left-slider").css("height", "100%");
+                                    $(".top-slider, .bottom-slider").css("width", "100%");
+                                    $(".right-slider").css("height", "100%");
+                                    setTimeout(function () {
+                                        setInterval(updateGradient, 10);
+                                        //                                        $("#social-links").css({
+                                        //                                            "box-shadow" : "0 0 5vh 0 rgba(57,255,20,0.5)",
+                                        //                                            "background": "linear-gradient(to top, rgba(0,0,0,0.5), rgba(0,0,0,0))"});
+                                    }, 1000);
+                                }, 1000);
+                            }, 3000);
 
                         });
                     });
@@ -276,6 +307,53 @@ function animateWord(targetDivId) {
     }
 }
 
+
+var colors = new Array(
+    [255, 255, 255], [57, 255, 20], [0, 0, 0], [57, 255, 20], [255, 255, 255], [57, 255, 20], [0, 0, 0]);
+
+var step = 0;
+var colorIndices = [0, 1, 2, 3];
+var gradientSpeed = 0.002;
+
+function updateGradient() {
+
+    if ($ === undefined) return;
+
+    var c0_0 = colors[colorIndices[0]];
+    var c0_1 = colors[colorIndices[1]];
+    var c1_0 = colors[colorIndices[2]];
+    var c1_1 = colors[colorIndices[3]];
+
+    var istep = 1 - step;
+    var r1 = Math.round(istep * c0_0[0] + step * c0_1[0]);
+    var g1 = Math.round(istep * c0_0[1] + step * c0_1[1]);
+    var b1 = Math.round(istep * c0_0[2] + step * c0_1[2]);
+    var color1 = "rgba(" + r1 + "," + g1 + "," + b1 + ",0.2)";
+
+    var r2 = Math.round(istep * c1_0[0] + step * c1_1[0]);
+    var g2 = Math.round(istep * c1_0[1] + step * c1_1[1]);
+    var b2 = Math.round(istep * c1_0[2] + step * c1_1[2]);
+    var color2 = "rgba(" + r2 + "," + g2 + "," + b2 + ",0.2)";
+
+    $('#social-links').css({
+        background: "-webkit-gradient(linear, left top, right top, from(" + color1 + "), to(" + color2 + "))"
+    }).css({
+        background: "-moz-linear-gradient(left, " + color1 + " 0%, " + color2 + " 100%)"
+    });
+
+    step += gradientSpeed;
+    if (step >= 1) {
+        step %= 1;
+        colorIndices[0] = colorIndices[1];
+        colorIndices[2] = colorIndices[3];
+
+        //pick two new target color indices
+        //do not pick the same as the current one
+        colorIndices[1] = (colorIndices[1] + Math.floor(1 + Math.random() * (colors.length - 1))) % colors.length;
+        colorIndices[3] = (colorIndices[3] + Math.floor(1 + Math.random() * (colors.length - 1))) % colors.length;
+
+    }
+}
 
 function setCookie(cname, cvalue, exdays) {
     var d = new Date();

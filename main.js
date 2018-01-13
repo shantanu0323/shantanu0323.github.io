@@ -1,5 +1,7 @@
 var prevWidth = screen.width;
 var currentWidth = prevWidth;
+
+// ******************** FUNCTION HANDLING THE RESIZING OF WINDOW ************************
 (function () {
     if (getCookie("isResizing") == "true") {
         $("#preloader-text").removeClass("glitch-load");
@@ -15,6 +17,7 @@ var currentWidth = prevWidth;
     }
 
 })();
+
 $(window).load(function () {
     particlesJS.load('particles-js', 'assets/libraries/particles.json', function () {
         console.log('callback - particles.js config loaded');
@@ -60,6 +63,7 @@ $(window).load(function () {
         width = "90vh";
     }
 
+    // ************************** ONCLICKLISTENER FOR MENU BUTTON ***************************
     menuIcon.click(function () {
         if (!menuOpen) {
             menuContainer.animate({
@@ -92,6 +96,7 @@ $(window).load(function () {
         }
     });
 
+    // *********************** MOVEMENT ON MOUSEMOVE *************************
     if (screen.width >= 960) {
 
         mainContainer.mousemove(function (e) {
@@ -116,6 +121,8 @@ $(window).load(function () {
 
         });
     }
+
+
     /* 200, 300, 400, 800, 800, 4000*/
     setTimeout(function () {
         me.fadeIn(2500);
@@ -125,22 +132,22 @@ $(window).load(function () {
             "width": "5%",
             "height": "5%",
             "opacity": "1"
-        }, 200, 'easeOutElastic', function () {
+        }, 100, 'easeOutElastic', function () {
             smallCallout2.animate({
                 "width": "10%",
                 "height": "10%",
                 "opacity": "1"
-            }, 300, 'easeOutElastic', function () {
+            }, 200, 'easeOutElastic', function () {
                 smallCallout3.animate({
                     "width": "15%",
                     "height": "15%",
                     "opacity": "1"
-                }, 400, 'easeOutElastic', function () {
+                }, 300, 'easeOutElastic', function () {
                     mainCallout.animate({
                         "width": "100%",
                         "height": "100%",
                         "opacity": "1"
-                    }, 600, 'easeOutElastic', function () {
+                    }, 400, 'easeOutElastic', function () {
                         var letSpaceVal = "2vw";
                         var padLeftVal = "4vw";
                         var fSizeVal = "10vw";
@@ -160,7 +167,7 @@ $(window).load(function () {
                             "padding-left": padLeftVal,
                             "font-size": fSizeVal,
                             "opacity": "1"
-                        }, 400, 'easeOutElastic', function () {
+                        }, 200, 'easeOutElastic', function () {
                             var iamLeft = "14vw";
                             var firstRight = "2vh";
                             var lastRight = "14vh";
@@ -178,6 +185,8 @@ $(window).load(function () {
                                 "transform": "scale(1.2,1.5) skewX(-10deg)",
                                 "opacity": "1"
                             });
+
+                            // ***************** NAME ENTRY ANIMATION ****************
                             setTimeout(function () {
                                 firstname.css({
                                     "opacity": "1",
@@ -189,9 +198,9 @@ $(window).load(function () {
                                     "right": lastRight,
                                     "animation": "lastname-anim 1.5s",
                                 });
+                            }, 500);
 
-
-                            }, 1000);
+                            // ******************** BAFFLE ANIMATION ***********************
                             let b = baffle('#firstname,#lastname', {
                                 characters: '░▓░▒▓█░▒█▓█░░█▓▒█▒▓░▒░▒█░▒░▓░█▒▓▒░█░▒░▓█▒░▒▓▒█░░░▓▒███▓▓▒▓▒▒░▒█▓░░▓▓█▓▒▒░█▓▒▒██▓▓▓█▓▒▒▒▒███▒▓███░▒░░▒▓█░▒█▓▓',
                                 speed: 50
@@ -201,15 +210,16 @@ $(window).load(function () {
                                 b.reveal(1000, 800);
                             }, 5000);
 
+                            // ******************** TAGLINES *****************************
                             setTimeout(function () {
-                                taglines.fadeIn(500);
+                                taglines.fadeIn(800);
                                 var phrases = [
-                                    'an Android App Developer',
-                                    'a Web Developer',
                                     'an Enthusiastic Coder',
+                                    'an Android App Developer',
+                                    'an Opportunity Seeker',
+                                    'a Web Developer',
                                     'a Creative Designer',
-                                    'a Travelling Lover',
-                                    'an Opportunity Seeker'];
+                                    'a Travelling Lover'];
                                 var index = -1;
                                 (function loopAnimation() {
                                     index = (index + 1) % phrases.length;
@@ -223,11 +233,13 @@ $(window).load(function () {
                                         },
                                     });
                                 })();
-                            }, 2500);
+                            }, 2000);
 
+                            // ********************* REVEALING OF SOCIAL LINKS **************
                             var c = 1;
                             var reveal = function () {
                                 var img = $("#social-links ul li:nth-child(" + c + ") a img");
+
                                 img.css({
                                     "transform": "translate(0,0)",
                                     "opacity": "1",
@@ -239,21 +251,15 @@ $(window).load(function () {
                                 }
                             };
 
-                            setTimeout(reveal, 2500);
-
+                            setTimeout(reveal, 2000);
+                            //                            setTimeout(function () {
+                            //
+                            //                            }, 3900);
+                            // **************** SOCIAL LINKS BORDER ANIMATION *******************
                             setTimeout(function () {
-                                $("#splash").css("background-color", "red");
-                                setTimeout(function () {
-                                    $(".left-slider").css("height", "100%");
-                                    $(".top-slider, .bottom-slider").css("width", "100%");
-                                    $(".right-slider").css("height", "100%");
-                                    setTimeout(function () {
-                                        setInterval(updateGradient, 10);
-                                        //                                        $("#social-links").css({
-                                        //                                            "box-shadow" : "0 0 5vh 0 rgba(57,255,20,0.5)",
-                                        //                                            "background": "linear-gradient(to top, rgba(0,0,0,0.5), rgba(0,0,0,0))"});
-                                    }, 1000);
-                                }, 1000);
+                                $(".top-slider, .bottom-slider").css("animation", "social-border-width 5s infinite");
+                                $(".left-slider, .right-slider").css("animation", "social-border-height 5s infinite");
+                                $("#social-links").css("animation", "social-gradient 5s infinite");
                             }, 3000);
 
                         });

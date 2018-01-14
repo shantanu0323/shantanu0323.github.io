@@ -477,8 +477,10 @@ $(window).load(function () {
             //            alert("Home | onEnter");
             setTimeout(function () {
                 $("#overlay-container").animate({
-                    "left": "-100%"
-                }, 1000);
+                    "left": "-150vw"
+                }, 1000, function () {
+                    $("#overlay-container").css("display", "none");
+                });
             }, 1300);
         },
         onEnterCompleted: function () {
@@ -491,8 +493,9 @@ $(window).load(function () {
         onLeave: function () {
             // A new Transition toward a new page has just started.
             //            alert("Home | onLeave");
+            $("#overlay-container").css("display", "block");
             $("#overlay-container").animate({
-                "left": "0%"
+                "left": "-25vw"
             }, 1000);
         },
         onLeaveCompleted: function () {
@@ -511,8 +514,10 @@ $(window).load(function () {
             // The new Container is ready and attached to the DOM.
             //            alert("About | onEnter");
             $("#overlay-container").animate({
-                "left": "100%"
-            }, 1000);
+                "left": "150vw"
+            }, 1000, function () {
+                $("#overlay-container").css("display", "none");
+            });
         },
         onEnterCompleted: function () {
             // The Transition has just finished.
@@ -521,9 +526,11 @@ $(window).load(function () {
         onLeave: function () {
             // A new Transition toward a new page has just started.
             //            alert("About | onLeave");
+            $("#overlay-container").css("display", "block");
             $("#overlay-container").animate({
-                "left": "0%"
+                "left": "-25vw"
             }, 1000);
+
         },
         onLeaveCompleted: function () {
             // The Container has just been removed from the DOM.

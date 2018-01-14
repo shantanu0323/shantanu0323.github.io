@@ -9,10 +9,11 @@ body {
     background-attachment: fixed;
 }
 #under-construction {
-    position: fixed;
+    position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     max-width: 80vw;
     height: auto;
+    transition: all 1s;
 }

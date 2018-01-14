@@ -27,6 +27,14 @@ body {
     width: 100vw;
     background: url('../images/main_bg.jpg');
 }
+#overlay-container {
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    left: -100%;
+    z-index: 9999;
+    background: #39ff14;
+}
 
 /*-----------------------------------------------------------------------------------------*/
 
@@ -501,6 +509,7 @@ body {
     height: 100vh;
     width: auto;
     display: none;
+    z-index: 29;
 }
 .callouts {
     position: absolute;

@@ -24,6 +24,8 @@
 
 <body>
     <div id="barba-wrapper">
+        <div id="overlay-container"></div>
+
         <div id="preloader-bg">
             <div id="preloader-container">
                 <!--            <div id="preloader-anim"></div>-->
@@ -61,10 +63,10 @@
             <div id="menu-container">
                 <div id="menu">
                     <ul>
-                        <li><a href="/">HOME</a></li>
-                        <li><a href="/about/">ABOUT</a></li>
-                        <li><a href="/contact/">CONTACT</a></li>
-                        <li><a href="/projects/">PROJECTS</a></li>
+                        <li><a id="home" class="menu-item" href="/">HOME</a></li>
+                        <li><a id="about" class="menu-item" href="/about/">ABOUT</a></li>
+                        <li><a id="contact" class="menu-item" href="/contact/">CONTACT</a></li>
+                        <li><a id="projects" class="menu-item" href="/projects/">PROJECTS</a></li>
                     </ul>
                 </div>
             </div>
@@ -118,6 +120,7 @@
 
         </div>
     </div>
+
     <script src="https://code.jquery.com/jquery.min.js"></script>
     <script src="assets/libraries/jquery.easing.1.3.js"></script>
     <script src="assets/libraries/jquery.cookie.js"></script>

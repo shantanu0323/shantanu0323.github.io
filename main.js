@@ -101,6 +101,8 @@ $(window).load(function () {
             }
         });
 
+        menuClickListener();
+
         // *********************** MOVEMENT ON MOUSEMOVE *************************
         if (screen.width >= 960) {
 
@@ -462,41 +464,41 @@ $(window).load(function () {
             "opacity": "1",
             "filter": "none"
         });
-        //        var reveal = function () {
-        //            var img = $("#social-links ul li:nth-child(" + c + ") a img");
-        //
-        //            img.css({
-        //                "transform": "translate(0,0)",
-        //                "opacity": "1",
-        //                "filter": "none"
-        //            });
-        //            c++;
-        //            if (c <= 7) {
-        //                setTimeout(reveal, 200);
-        //            }
-        //        };
         $(".top-slider, .bottom-slider").css("animation", "social-border-width 5s infinite");
         $(".left-slider, .right-slider").css("animation", "social-border-height 5s infinite");
         $("#social-links").css("animation", "social-gradient 5s infinite");
-
+        menuClickListener();
     };
 
     var Homepage = Barba.BaseView.extend({
         namespace: 'homepage',
         onEnter: function () {
             // The new Container is ready and attached to the DOM.
+            //            alert("Home | onEnter");
+            setTimeout(function () {
+                $("#overlay-container").animate({
+                    "left": "-100%"
+                }, 1000);
+            }, 1300);
         },
         onEnterCompleted: function () {
             // The Transition has just finished.
+            //            alert("Home | onEnterCompleted");
             if (!firstTimeLoad) {
                 StaticHomePageLoader();
             }
         },
         onLeave: function () {
             // A new Transition toward a new page has just started.
+            //            alert("Home | onLeave");
+            $("#overlay-container").animate({
+                "left": "0%"
+            }, 1000);
         },
         onLeaveCompleted: function () {
             // The Container has just been removed from the DOM.
+            //            alert("Home | onLeaveCompleted");
+
         }
     });
 
@@ -507,16 +509,25 @@ $(window).load(function () {
         namespace: 'about',
         onEnter: function () {
             // The new Container is ready and attached to the DOM.
+            //            alert("About | onEnter");
+            $("#overlay-container").animate({
+                "left": "100%"
+            }, 1000);
         },
         onEnterCompleted: function () {
             // The Transition has just finished.
-            //            HomePageLoader();
+            //            alert("About | onEnterCompleted");
         },
         onLeave: function () {
             // A new Transition toward a new page has just started.
+            //            alert("About | onLeave");
+            $("#overlay-container").animate({
+                "left": "0%"
+            }, 1000);
         },
         onLeaveCompleted: function () {
             // The Container has just been removed from the DOM.
+            //            alert("About | onLeaveCompleted");
         }
     });
 
@@ -529,76 +540,83 @@ $(window).load(function () {
 
     Barba.Prefetch.init();
 
-    //    var FadeTransition = Barba.BaseTransition.extend({
-    //        start: function () {
-    //            /**
-    //             * This function is automatically called as soon the Transition starts
-    //             * this.newContainerLoading is a Promise for the loading of the new container
-    //             * (Barba.js also comes with an handy Promise polyfill!)
-    //             */
-    //
-    //            // As soon the loading is finished and the old page is faded out, let's fade the new page
-    //            Promise
-    //                .all([this.newContainerLoading, this.fadeOut()])
-    //                .then(this.fadeIn.bind(this));
-    //        },
-    //
-    //        fadeOut: function () {
-    //            /**
-    //             * this.oldContainer is the HTMLElement of the old Container
-    //             */
-    //
-    //            return $(this.oldContainer).animate({
-    //                opacity: 0
-    //            }).promise();
-    //        },
-    //
-    //        fadeIn: function () {
-    //            /**
-    //             * this.newContainer is the HTMLElement of the new Container
-    //             * At this stage newContainer is on the DOM (inside our #barba-container and with visibility: hidden)
-    //             * Please note, newContainer is available just after newContainerLoading is resolved!
-    //             */
-    //
-    //            var _this = this;
-    //            var $el = $(this.newContainer);
-    //
-    //            $(this.oldContainer).hide();
-    //
-    //            $el.css({
-    //                visibility: 'visible',
-    //                opacity: 0
-    //            });
-    //
-    //            $el.animate({
-    //                opacity: 1
-    //            }, 400, function () {
-    //                /**
-    //                 * Do not forget to call .done() as soon your transition is finished!
-    //                 * .done() will automatically remove from the DOM the old Container
-    //                 */
-    //
-    //                _this.done();
-    //            });
-    //        }
-    //    });
-    //
-    //    Barba.Pjax.getTransition = function () {
-    //        /**
-    //         * Here you can use your own logic!
-    //         * For example you can use different Transition based on the current page or link...
-    //         */
-    //
-    //        return FadeTransition;
-    //    };
-    //
-    //    Barba.Dispatcher.on('newPageReady', function (currentStatus, oldStatus, container) {
-    //
-    //    });
 
+    var FadeTransition = Barba.BaseTransition.extend({
+        start: function () {
+            /**
+             * This function is automatically called as soon the Transition starts
+             * this.newContainerLoading is a Promise for the loading of the new container
+             * (Barba.js also comes with an handy Promise polyfill!)
+             */
 
+            // As soon the loading is finished and the old page is faded out, let's fade the new page
+            Promise
+                .all([this.newContainerLoading, this.fadeOut()])
+                .then(this.fadeIn.bind(this));
+        },
+
+        fadeOut: function () {
+            /**
+             * this.oldContainer is the HTMLElement of the old Container
+             */
+
+            return $(this.oldContainer).animate({
+                opacity: 0
+            }).promise();
+        },
+
+        fadeIn: function () {
+            /**
+             * this.newContainer is the HTMLElement of the new Container
+             * At this stage newContainer is on the DOM (inside our #barba-container and with visibility: hidden)
+             * Please note, newContainer is available just after newContainerLoading is resolved!
+             */
+
+            var _this = this;
+            var $el = $(this.newContainer);
+
+            $(this.oldContainer).hide();
+
+            $el.css({
+                visibility: 'visible',
+                opacity: 0
+            });
+
+            $el.animate({
+                opacity: 1
+            }, 1000, function () {
+                /**
+                 * Do not forget to call .done() as soon your transition is finished!
+                 * .done() will automatically remove from the DOM the old Container
+                 */
+
+                _this.done();
+            });
+        }
+    });
+
+    Barba.Pjax.getTransition = function () {
+        /**
+         * Here you can use your own logic!
+         * For example you can use different Transition based on the current page or link...
+         */
+
+        return FadeTransition;
+    };
+    //        Barba.Dispatcher.on('newPageReady', function (currentStatus, oldStatus, container) {
+    //
+    //        });
 
 });
+
+var menuClickListener = function () {
+    $('.menu-item').click(function () {
+        //        alert("menu");
+        //        $("#overlay-container").animate({
+        //            "left": "100%"
+        //        }, 1000);
+    });
+};
 
 window.onresize = function (e) {
     currentWidth = screen.width;

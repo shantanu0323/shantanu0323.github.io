@@ -2,16 +2,7 @@
     margin: 0;
     padding: 0;
 }
-body {
-    background-image: url('../images/main_bg.jpg');
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-    background-position: center;
-    width: 100vw;
-    height: 100vh;
-}
-img {
+#under-construction {
     position: fixed;
     top: 50%;
     left: 50%;

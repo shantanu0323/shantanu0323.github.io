@@ -1,6 +1,6 @@
 var prevWidth = screen.width;
 var currentWidth = prevWidth;
-
+var firstTimeLoad = true;
 // ******************** FUNCTION HANDLING THE RESIZING OF WINDOW ************************
 (function () {
     if (getCookie("isResizing") == "true") {
@@ -19,255 +19,584 @@ var currentWidth = prevWidth;
 })();
 
 $(window).load(function () {
-    particlesJS.load('particles-js', 'assets/libraries/particles.json', function () {
-        console.log('callback - particles.js config loaded');
-    });
-    prevWidth = screen.width;
-    setTimeout(function () {
-        //                        $("#preloader-bg").css("display", "block");
-        //                        $(".main-container").css("display", "none");
-        $("#preloader-bg").fadeOut(2000);
-        $(".main-container").fadeIn(2000);
-    }, 1500);
 
-    $('#menu-icon').click(function () {
-        $(this).toggleClass('open');
-    });
 
-    var logo = $("#logo");
-    var me = $("#me");
-    var menuOpen = false;
+    var HomePageLoader = function () {
 
-    var mainContainer = $(".main-container");
-    var gradient = $(".gradient");
-    var mainCallout = $("#main-callout");
-    var smallCallout3 = $("#small-callout-3");
-    var smallCallout2 = $("#small-callout-2");
-    var smallCallout1 = $("#small-callout-1");
-    var mainCalloutMsg = $("#main-callout h1");
-    var callout = $(".callout");
-    var iam = $("#iam");
-    var firstname = $("#firstname");
-    var lastname = $("#lastname");
-    var taglines = $("#taglines");
-    var menuContainer = $("#menu-container");
-    var menuIcon = $("#menu-icon");
-    var menuCircleLayer = $("#menu-circle-layer");
+        var logo = $("#logo");
+        var me = $("#me");
+        var menuOpen = false;
 
-    var height = "70vh";
-    var cHeight = "80vh"
-    var width = "80vh";
-    if (screen.width >= 620) {
-        height = "75vh";
-        cHeight = "85vh";
-        width = "90vh";
-    }
+        var mainContainer = $(".main-container");
+        var gradient = $(".gradient");
+        var mainCallout = $("#main-callout");
+        var smallCallout3 = $("#small-callout-3");
+        var smallCallout2 = $("#small-callout-2");
+        var smallCallout1 = $("#small-callout-1");
+        var mainCalloutMsg = $("#main-callout h1");
+        var callout = $(".callout");
+        var iam = $("#iam");
+        var firstname = $("#firstname");
+        var lastname = $("#lastname");
+        var taglines = $("#taglines");
+        var menuContainer = $("#menu-container");
+        var menuIcon = $("#menu-icon");
+        var menuCircleLayer = $("#menu-circle-layer");
 
-    // ************************** ONCLICKLISTENER FOR MENU BUTTON ***************************
-    menuIcon.click(function () {
-        if (!menuOpen) {
-            menuContainer.animate({
-                "height": height,
-                "width": width,
-                "opacity": "0.8"
-            }, 800, 'easeOutElastic', function () {
-                menuOpen = true;
-            });
-            menuCircleLayer.animate({
-                "height": cHeight,
-                "width": width,
-                "opacity": "0.8"
-            }, 800, 'easeOutElastic');
-            $("#menu-icon span").css("background", "white");
-        } else {
-            menuContainer.animate({
-                "height": "0vh",
-                "width": "0vh",
-                "opacity": "0"
-            }, 500, 'easeOutElastic', function () {
-                menuOpen = false;
-            });
-            menuCircleLayer.animate({
-                "height": "0vh",
-                "width": "0vh",
-                "opacity": "0"
-            }, 500, 'easeOutElastic');
-            $("#menu-icon span").css("background", "#111");
-        }
-    });
-
-    // *********************** MOVEMENT ON MOUSEMOVE *************************
-    if (screen.width >= 960) {
-
-        mainContainer.mousemove(function (e) {
-            var xVal = e.pageX * -1;
-            var yVal = e.pageY * -1;
-
-            logo.css({
-                'transform': 'translate3d(' + xVal / 80 + 'px, ' + yVal / 80 + 'px,0)'
-            });
-
-            me.css({
-                'transform': 'translate3d(' + xVal / 120 + 'px, ' + yVal / 120 + 'px,0)'
-            });
-
-            callout.css({
-                'transform': 'translate3d(' + xVal / -100 + 'px, ' + yVal / -100 + 'px,0)'
-            });
-
-            mainCalloutMsg.css({
-                'transform': 'translate(70%,70%) translate3d(' + xVal / 20 + 'px, ' + yVal / 20 + 'px,0)'
-            });
-
+        particlesJS.load('particles-js', 'assets/libraries/particles.json', function () {
+            console.log('callback - particles.js config loaded');
         });
-    }
+        prevWidth = screen.width;
+        setTimeout(function () {
+            //                        $("#preloader-bg").css("display", "block");
+            //                        $(".main-container").css("display", "none");
+            $("#preloader-bg").fadeOut(2000);
+            $(".main-container").fadeIn(2000);
+        }, 1500);
+
+        $('#menu-icon').click(function () {
+            $(this).toggleClass('open');
+        });
 
 
-    /* 200, 300, 400, 800, 800, 4000*/
-    setTimeout(function () {
-        me.fadeIn(2500);
-    }, 2500);
-    setTimeout(function () {
-        smallCallout1.animate({
-            "width": "5%",
-            "height": "5%",
-            "opacity": "1"
-        }, 100, 'easeOutElastic', function () {
-            smallCallout2.animate({
-                "width": "10%",
-                "height": "10%",
+        var height = "70vh";
+        var cHeight = "80vh"
+        var width = "80vh";
+        if (screen.width >= 620) {
+            height = "75vh";
+            cHeight = "85vh";
+            width = "90vh";
+        }
+
+        // ************************** ONCLICKLISTENER FOR MENU BUTTON ***************************
+        menuIcon.click(function () {
+            if (!menuOpen) {
+                menuContainer.animate({
+                    "height": height,
+                    "width": width,
+                    "opacity": "0.8"
+                }, 800, 'easeOutElastic', function () {
+                    menuOpen = true;
+                });
+                menuCircleLayer.animate({
+                    "height": cHeight,
+                    "width": width,
+                    "opacity": "0.8"
+                }, 800, 'easeOutElastic');
+                $("#menu-icon span").css("background", "white");
+            } else {
+                menuContainer.animate({
+                    "height": "0vh",
+                    "width": "0vh",
+                    "opacity": "0"
+                }, 500, 'easeOutElastic', function () {
+                    menuOpen = false;
+                });
+                menuCircleLayer.animate({
+                    "height": "0vh",
+                    "width": "0vh",
+                    "opacity": "0"
+                }, 500, 'easeOutElastic');
+                $("#menu-icon span").css("background", "#111");
+            }
+        });
+
+        // *********************** MOVEMENT ON MOUSEMOVE *************************
+        if (screen.width >= 960) {
+
+            mainContainer.mousemove(function (e) {
+                var xVal = e.pageX * -1;
+                var yVal = e.pageY * -1;
+
+                logo.css({
+                    'transform': 'translate3d(' + xVal / 80 + 'px, ' + yVal / 80 + 'px,0)'
+                });
+
+                me.css({
+                    'transform': 'translate3d(' + xVal / 120 + 'px, ' + yVal / 120 + 'px,0)'
+                });
+
+                callout.css({
+                    'transform': 'translate3d(' + xVal / -100 + 'px, ' + yVal / -100 + 'px,0)'
+                });
+
+                mainCalloutMsg.css({
+                    'transform': 'translate(70%,70%) translate3d(' + xVal / 20 + 'px, ' + yVal / 20 + 'px,0)'
+                });
+
+            });
+        }
+
+
+        /* 200, 300, 400, 800, 800, 4000*/
+        setTimeout(function () {
+            me.fadeIn(2500);
+        }, 2500);
+        setTimeout(function () {
+            smallCallout1.animate({
+                "width": "5%",
+                "height": "5%",
                 "opacity": "1"
-            }, 200, 'easeOutElastic', function () {
-                smallCallout3.animate({
-                    "width": "15%",
-                    "height": "15%",
+            }, 100, 'easeOutElastic', function () {
+                smallCallout2.animate({
+                    "width": "10%",
+                    "height": "10%",
                     "opacity": "1"
-                }, 300, 'easeOutElastic', function () {
-                    mainCallout.animate({
-                        "width": "100%",
-                        "height": "100%",
+                }, 200, 'easeOutElastic', function () {
+                    smallCallout3.animate({
+                        "width": "15%",
+                        "height": "15%",
                         "opacity": "1"
-                    }, 400, 'easeOutElastic', function () {
-                        var letSpaceVal = "2vw";
-                        var padLeftVal = "4vw";
-                        var fSizeVal = "10vw";
-
-                        if (screen.width >= 620) {
-                            fSizeVal = "5vw";
-                            letSpaceVal = "1vw";
-                            padLeftVal = "0vw";
-                        }
-
-                        if (screen.width >= 960) {
-                            fSizeVal = "6vw";
-                        }
-
-                        mainCalloutMsg.animate({
-                            "letter-spacing": letSpaceVal,
-                            "padding-left": padLeftVal,
-                            "font-size": fSizeVal,
+                    }, 300, 'easeOutElastic', function () {
+                        mainCallout.animate({
+                            "width": "100%",
+                            "height": "100%",
                             "opacity": "1"
-                        }, 200, 'easeOutElastic', function () {
-                            var iamLeft = "14vw";
-                            var firstRight = "2vh";
-                            var lastRight = "14vh";
+                        }, 400, 'easeOutElastic', function () {
+                            var letSpaceVal = "2vw";
+                            var padLeftVal = "4vw";
+                            var fSizeVal = "10vw";
+
                             if (screen.width >= 620) {
-                                iamLeft = "39.5vw";
-                                firstRight = "10vw";
-                                lastRight = "20vw";
+                                fSizeVal = "5vw";
+                                letSpaceVal = "1vw";
+                                padLeftVal = "0vw";
                             }
+
                             if (screen.width >= 960) {
-                                iamLeft = "34.5vw";
+                                fSizeVal = "6vw";
                             }
-                            iam.css({
-                                "animation": "iam-anim 1s",
-                                "left": iamLeft,
-                                "transform": "scale(1.2,1.5) skewX(-10deg)",
+
+                            mainCalloutMsg.animate({
+                                "letter-spacing": letSpaceVal,
+                                "padding-left": padLeftVal,
+                                "font-size": fSizeVal,
                                 "opacity": "1"
-                            });
-
-                            // ***************** NAME ENTRY ANIMATION ****************
-                            setTimeout(function () {
-                                firstname.css({
-                                    "opacity": "1",
-                                    "right": firstRight,
-                                    "animation": "firstname-anim 1s"
-                                });
-                                lastname.css({
-                                    "opacity": "1",
-                                    "right": lastRight,
-                                    "animation": "lastname-anim 1.5s",
-                                });
-                            }, 500);
-
-                            // ******************** BAFFLE ANIMATION ***********************
-                            let b = baffle('#firstname,#lastname', {
-                                characters: '░▓░▒▓█░▒█▓█░░█▓▒█▒▓░▒░▒█░▒░▓░█▒▓▒░█░▒░▓█▒░▒▓▒█░░░▓▒███▓▓▒▓▒▒░▒█▓░░▓▓█▓▒▒░█▓▒▒██▓▓▓█▓▒▒▒▒███▒▓███░▒░░▒▓█░▒█▓▓',
-                                speed: 50
-                            });
-                            setInterval(function () {
-                                b.start();
-                                b.reveal(1000, 800);
-                            }, 5000);
-
-                            // ******************** TAGLINES *****************************
-                            setTimeout(function () {
-                                taglines.fadeIn(800);
-                                var phrases = [
-                                    'an Enthusiastic Coder',
-                                    'an Android App Developer',
-                                    'an Opportunity Seeker',
-                                    'a Web Developer',
-                                    'a Creative Designer',
-                                    'a Travelling Lover'];
-                                var index = -1;
-                                (function loopAnimation() {
-                                    index = (index + 1) % phrases.length;
-                                    var length = phrases[index].length;
-                                    bubbleText({
-                                        element: taglines,
-                                        newText: phrases[index],
-                                        letterSpeed: 70,
-                                        callback: function () {
-                                            setTimeout(loopAnimation, 2000);
-                                        },
-                                    });
-                                })();
-                            }, 2000);
-
-                            // ********************* REVEALING OF SOCIAL LINKS **************
-                            var c = 1;
-                            var reveal = function () {
-                                var img = $("#social-links ul li:nth-child(" + c + ") a img");
-
-                                img.css({
-                                    "transform": "translate(0,0)",
-                                    "opacity": "1",
-                                    "filter": "none"
-                                });
-                                c++;
-                                if (c <= 7) {
-                                    setTimeout(reveal, 200);
+                            }, 200, 'easeOutElastic', function () {
+                                var iamLeft = "14vw";
+                                var firstRight = "2vh";
+                                var lastRight = "14vh";
+                                if (screen.width >= 620) {
+                                    iamLeft = "39.5vw";
+                                    firstRight = "10vw";
+                                    lastRight = "20vw";
                                 }
-                            };
+                                if (screen.width >= 960) {
+                                    iamLeft = "34.5vw";
+                                }
+                                iam.css({
+                                    "animation": "iam-anim 1s",
+                                    "left": iamLeft,
+                                    "transform": "scale(1.2,1.5) skewX(-10deg)",
+                                    "opacity": "1"
+                                });
 
-                            setTimeout(reveal, 2000);
-                            //                            setTimeout(function () {
-                            //
-                            //                            }, 3900);
-                            // **************** SOCIAL LINKS BORDER ANIMATION *******************
-                            setTimeout(function () {
-                                $(".top-slider, .bottom-slider").css("animation", "social-border-width 5s infinite");
-                                $(".left-slider, .right-slider").css("animation", "social-border-height 5s infinite");
-                                $("#social-links").css("animation", "social-gradient 5s infinite");
-                            }, 3000);
+                                // ***************** NAME ENTRY ANIMATION ****************
+                                setTimeout(function () {
+                                    firstname.css({
+                                        "opacity": "1",
+                                        "right": firstRight,
+                                        "animation": "firstname-anim 1s"
+                                    });
+                                    lastname.css({
+                                        "opacity": "1",
+                                        "right": lastRight,
+                                        "animation": "lastname-anim 1.5s",
+                                    });
+                                }, 500);
 
+                                // ******************** BAFFLE ANIMATION ***********************
+                                let b = baffle('#firstname,#lastname', {
+                                    characters: '░▓░▒▓█░▒█▓█░░█▓▒█▒▓░▒░▒█░▒░▓░█▒▓▒░█░▒░▓█▒░▒▓▒█░░░▓▒███▓▓▒▓▒▒░▒█▓░░▓▓█▓▒▒░█▓▒▒██▓▓▓█▓▒▒▒▒███▒▓███░▒░░▒▓█░▒█▓▓',
+                                    speed: 50
+                                });
+                                setInterval(function () {
+                                    b.start();
+                                    b.reveal(1000, 800);
+                                }, 5000);
+
+                                // ******************** TAGLINES *****************************
+                                setTimeout(function () {
+                                    taglines.fadeIn(800);
+                                    var phrases = [
+                                        'an Enthusiastic Coder',
+                                        'an Android App Developer',
+                                        'an Opportunity Seeker',
+                                        'a Web Developer',
+                                        'a Creative Designer',
+                                        'a Travelling Lover'];
+                                    var index = -1;
+                                    (function loopAnimation() {
+                                        index = (index + 1) % phrases.length;
+                                        var length = phrases[index].length;
+                                        bubbleText({
+                                            element: taglines,
+                                            newText: phrases[index],
+                                            letterSpeed: 70,
+                                            callback: function () {
+                                                setTimeout(loopAnimation, 2000);
+                                            },
+                                        });
+                                    })();
+                                }, 2000);
+
+                                // ********************* REVEALING OF SOCIAL LINKS **************
+                                var c = 1;
+                                var reveal = function () {
+                                    var img = $("#social-links ul li:nth-child(" + c + ") a img");
+
+                                    img.css({
+                                        "transform": "translate(0,0)",
+                                        "opacity": "1",
+                                        "filter": "none"
+                                    });
+                                    c++;
+                                    if (c <= 7) {
+                                        setTimeout(reveal, 200);
+                                    }
+                                };
+                                setTimeout(reveal, 2000);
+                                firstTimeLoad = false;
+                                setTimeout(function () {
+                                    $(".top-slider, .bottom-slider").css("animation", "social-border-width 5s infinite");
+                                    $(".left-slider, .right-slider").css("animation", "social-border-height 5s infinite");
+                                    $("#social-links").css("animation", "social-gradient 5s infinite");
+                                }, 3000);
+
+                            });
                         });
                     });
                 });
             });
+        }, 3500);
+
+    };
+    HomePageLoader();
+
+    var StaticHomePageLoader = function () {
+
+        prevWidth = screen.width;
+        $("#preloader-bg").css("display", "none");
+        $(".main-container").css("display", "block");
+
+        $('#menu-icon').click(function () {
+            $(this).toggleClass('open');
         });
-    }, 3500);
+        var logo = $("#logo");
+        var me = $("#me");
+        var menuOpen = false;
+
+        var mainContainer = $(".main-container");
+        var gradient = $(".gradient");
+        var mainCallout = $("#main-callout");
+        var smallCallout3 = $("#small-callout-3");
+        var smallCallout2 = $("#small-callout-2");
+        var smallCallout1 = $("#small-callout-1");
+        var mainCalloutMsg = $("#main-callout h1");
+        var callout = $(".callout");
+        var iam = $("#iam");
+        var firstname = $("#firstname");
+        var lastname = $("#lastname");
+        var taglines = $("#taglines");
+        var menuContainer = $("#menu-container");
+        var menuIcon = $("#menu-icon");
+        var menuCircleLayer = $("#menu-circle-layer");
+
+        var height = "70vh";
+        var cHeight = "80vh"
+        var width = "80vh";
+        if (screen.width >= 620) {
+            height = "75vh";
+            cHeight = "85vh";
+            width = "90vh";
+        }
+
+        // ************************** ONCLICKLISTENER FOR MENU BUTTON ***************************
+        menuIcon.click(function () {
+            if (!menuOpen) {
+                menuContainer.animate({
+                    "height": height,
+                    "width": width,
+                    "opacity": "0.8"
+                }, 800, 'easeOutElastic', function () {
+                    menuOpen = true;
+                });
+                menuCircleLayer.animate({
+                    "height": cHeight,
+                    "width": width,
+                    "opacity": "0.8"
+                }, 800, 'easeOutElastic');
+                $("#menu-icon span").css("background", "white");
+            } else {
+                menuContainer.animate({
+                    "height": "0vh",
+                    "width": "0vh",
+                    "opacity": "0"
+                }, 500, 'easeOutElastic', function () {
+                    menuOpen = false;
+                });
+                menuCircleLayer.animate({
+                    "height": "0vh",
+                    "width": "0vh",
+                    "opacity": "0"
+                }, 500, 'easeOutElastic');
+                $("#menu-icon span").css("background", "#111");
+            }
+        });
+
+        // *********************** MOVEMENT ON MOUSEMOVE *************************
+        if (screen.width >= 960) {
+
+            mainContainer.mousemove(function (e) {
+                var xVal = e.pageX * -1;
+                var yVal = e.pageY * -1;
+
+                logo.css({
+                    'transform': 'translate3d(' + xVal / 80 + 'px, ' + yVal / 80 + 'px,0)'
+                });
+
+                me.css({
+                    'transform': 'translate3d(' + xVal / 120 + 'px, ' + yVal / 120 + 'px,0)'
+                });
+
+                callout.css({
+                    'transform': 'translate3d(' + xVal / -100 + 'px, ' + yVal / -100 + 'px,0)'
+                });
+
+                mainCalloutMsg.css({
+                    'transform': 'translate(70%,70%) translate3d(' + xVal / 20 + 'px, ' + yVal / 20 + 'px,0)'
+                });
+
+            });
+        }
+
+
+        me.css("display", "block");
+        smallCallout1.css({
+            "width": "5%",
+            "height": "5%",
+            "opacity": "1"
+        });
+        smallCallout2.css({
+            "width": "10%",
+            "height": "10%",
+            "opacity": "1"
+        });
+        smallCallout3.css({
+            "width": "15%",
+            "height": "15%",
+            "opacity": "1"
+        });
+        mainCallout.css({
+            "width": "100%",
+            "height": "100%",
+            "opacity": "1"
+        });
+        var letSpaceVal = "2vw";
+        var padLeftVal = "4vw";
+        var fSizeVal = "10vw";
+        mainCalloutMsg.css({
+            "letter-spacing": "calc(0.5 * " + letSpaceVal + ")",
+            "padding-left": "calc(0.5 * " + padLeftVal + ")",
+            "font-size": "calc(0.5 * " + fSizeVal + ")",
+            "opacity": "1"
+        });
+        var iamLeft = "14vw";
+        var firstRight = "2vh";
+        var lastRight = "14vh";
+        if (screen.width >= 620) {
+            iamLeft = "39.5vw";
+            firstRight = "10vw";
+            lastRight = "20vw";
+        }
+        if (screen.width >= 960) {
+            iamLeft = "34.5vw";
+        }
+        iam.css({
+            "left": iamLeft,
+            "transform": "scale(1.2,1.5) skewX(-10deg)",
+            "opacity": "1"
+        });
+        firstname.css({
+            "opacity": "1",
+            "right": firstRight,
+        });
+        lastname.css({
+            "opacity": "1",
+            "right": lastRight,
+        });
+        // ******************** BAFFLE ANIMATION ***********************
+        let b = baffle('#firstname,#lastname', {
+            characters: '░▓░▒▓█░▒█▓█░░█▓▒█▒▓░▒░▒█░▒░▓░█▒▓▒░█░▒░▓█▒░▒▓▒█░░░▓▒███▓▓▒▓▒▒░▒█▓░░▓▓█▓▒▒░█▓▒▒██▓▓▓█▓▒▒▒▒███▒▓███░▒░░▒▓█░▒█▓▓',
+            speed: 50
+        });
+        setInterval(function () {
+            b.start();
+            b.reveal(1000, 800);
+        }, 5000);
+        taglines.css("display", "block");
+        var phrases = [
+            'an Enthusiastic Coder',
+            'an Android App Developer',
+            'an Opportunity Seeker',
+            'a Web Developer',
+            'a Creative Designer',
+            'a Travelling Lover'];
+        var index = -1;
+        (function loopAnimation() {
+            index = (index + 1) % phrases.length;
+            var length = phrases[index].length;
+            bubbleText({
+                element: taglines,
+                newText: phrases[index],
+                letterSpeed: 70,
+                callback: function () {
+                    setTimeout(loopAnimation, 2000);
+                },
+            });
+        })();
+        var c = 1;
+        var img = $("#social-links ul li a img");
+        img.css({
+            "transform": "translate(0,0)",
+            "opacity": "1",
+            "filter": "none"
+        });
+        //        var reveal = function () {
+        //            var img = $("#social-links ul li:nth-child(" + c + ") a img");
+        //
+        //            img.css({
+        //                "transform": "translate(0,0)",
+        //                "opacity": "1",
+        //                "filter": "none"
+        //            });
+        //            c++;
+        //            if (c <= 7) {
+        //                setTimeout(reveal, 200);
+        //            }
+        //        };
+        $(".top-slider, .bottom-slider").css("animation", "social-border-width 5s infinite");
+        $(".left-slider, .right-slider").css("animation", "social-border-height 5s infinite");
+        $("#social-links").css("animation", "social-gradient 5s infinite");
+
+    };
+
+    var Homepage = Barba.BaseView.extend({
+        namespace: 'homepage',
+        onEnter: function () {
+            // The new Container is ready and attached to the DOM.
+        },
+        onEnterCompleted: function () {
+            // The Transition has just finished.
+            if (!firstTimeLoad) {
+                StaticHomePageLoader();
+            }
+        },
+        onLeave: function () {
+            // A new Transition toward a new page has just started.
+        },
+        onLeaveCompleted: function () {
+            // The Container has just been removed from the DOM.
+        }
+    });
+
+    // Don't forget to init the view!
+    Homepage.init();
+
+    var About = Barba.BaseView.extend({
+        namespace: 'about',
+        onEnter: function () {
+            // The new Container is ready and attached to the DOM.
+        },
+        onEnterCompleted: function () {
+            // The Transition has just finished.
+            //            HomePageLoader();
+        },
+        onLeave: function () {
+            // A new Transition toward a new page has just started.
+        },
+        onLeaveCompleted: function () {
+            // The Container has just been removed from the DOM.
+        }
+    });
+
+    // Don't forget to init the view!
+    About.init();
+
+    Barba.Pjax.start();
+
+    Barba.Pjax.cacheEnabled = false;
+
+    Barba.Prefetch.init();
+
+    //    var FadeTransition = Barba.BaseTransition.extend({
+    //        start: function () {
+    //            /**
+    //             * This function is automatically called as soon the Transition starts
+    //             * this.newContainerLoading is a Promise for the loading of the new container
+    //             * (Barba.js also comes with an handy Promise polyfill!)
+    //             */
+    //
+    //            // As soon the loading is finished and the old page is faded out, let's fade the new page
+    //            Promise
+    //                .all([this.newContainerLoading, this.fadeOut()])
+    //                .then(this.fadeIn.bind(this));
+    //        },
+    //
+    //        fadeOut: function () {
+    //            /**
+    //             * this.oldContainer is the HTMLElement of the old Container
+    //             */
+    //
+    //            return $(this.oldContainer).animate({
+    //                opacity: 0
+    //            }).promise();
+    //        },
+    //
+    //        fadeIn: function () {
+    //            /**
+    //             * this.newContainer is the HTMLElement of the new Container
+    //             * At this stage newContainer is on the DOM (inside our #barba-container and with visibility: hidden)
+    //             * Please note, newContainer is available just after newContainerLoading is resolved!
+    //             */
+    //
+    //            var _this = this;
+    //            var $el = $(this.newContainer);
+    //
+    //            $(this.oldContainer).hide();
+    //
+    //            $el.css({
+    //                visibility: 'visible',
+    //                opacity: 0
+    //            });
+    //
+    //            $el.animate({
+    //                opacity: 1
+    //            }, 400, function () {
+    //                /**
+    //                 * Do not forget to call .done() as soon your transition is finished!
+    //                 * .done() will automatically remove from the DOM the old Container
+    //                 */
+    //
+    //                _this.done();
+    //            });
+    //        }
+    //    });
+    //
+    //    Barba.Pjax.getTransition = function () {
+    //        /**
+    //         * Here you can use your own logic!
+    //         * For example you can use different Transition based on the current page or link...
+    //         */
+    //
+    //        return FadeTransition;
+    //    };
+    //
+    //    Barba.Dispatcher.on('newPageReady', function (currentStatus, oldStatus, container) {
+    //
+    //    });
+
+
 
 });
 

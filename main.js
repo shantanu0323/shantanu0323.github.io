@@ -541,6 +541,73 @@ $(window).load(function () {
     // Don't forget to init the view!
     About.init();
 
+    var Contact = Barba.BaseView.extend({
+        namespace: 'contact',
+        onEnter: function () {
+            // The new Container is ready and attached to the DOM.
+            //            alert("About | onEnter");
+            $("#overlay-container").animate({
+                "left": "150vw"
+            }, 1000, function () {
+                $("#overlay-container").css("display", "none");
+            });
+        },
+        onEnterCompleted: function () {
+            // The Transition has just finished.
+            //            alert("About | onEnterCompleted");
+        },
+        onLeave: function () {
+            // A new Transition toward a new page has just started.
+            //            alert("About | onLeave");
+            $("#overlay-container").css("display", "block");
+            $("#overlay-container").animate({
+                "left": "-25vw"
+            }, 1000);
+
+        },
+        onLeaveCompleted: function () {
+            // The Container has just been removed from the DOM.
+            //            alert("About | onLeaveCompleted");
+        }
+    });
+
+    // Don't forget to init the view!
+    Contact.init();
+
+    var Projects = Barba.BaseView.extend({
+        namespace: 'projects',
+        onEnter: function () {
+            // The new Container is ready and attached to the DOM.
+            //            alert("About | onEnter");
+            $("#overlay-container").animate({
+                "left": "150vw"
+            }, 1000, function () {
+                $("#overlay-container").css("display", "none");
+            });
+        },
+        onEnterCompleted: function () {
+            // The Transition has just finished.
+            //            alert("About | onEnterCompleted");
+        },
+        onLeave: function () {
+            // A new Transition toward a new page has just started.
+            //            alert("About | onLeave");
+            $("#overlay-container").css("display", "block");
+            $("#overlay-container").animate({
+                "left": "-25vw"
+            }, 1000);
+
+        },
+        onLeaveCompleted: function () {
+            // The Container has just been removed from the DOM.
+            //            alert("About | onLeaveCompleted");
+        }
+    });
+
+    // Don't forget to init the view!
+    Projects.init();
+
+
     Barba.Pjax.start();
 
     Barba.Pjax.cacheEnabled = false;

@@ -9,6 +9,7 @@
     <link rel="stylesheet" type="text/css" href="assets/css/main.css" />
     <link rel="stylesheet" type="text/css" href="assets/css/menu.css" />
     <link rel="stylesheet" href="assets/css/magic.css">
+    <link rel="stylesheet" href="assets/css/about_style.css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <noscript>
@@ -22,98 +23,112 @@
 </head>
 
 <body>
-    <div id="preloader-bg">
-        <div id="preloader-container">
-            <!--            <div id="preloader-anim"></div>-->
-            <div id="cup"></div>
-            <div id="preloader-text" class="glitch"></div>
-        </div>
-    </div>
-    <div class="main-container" id="particles-js">
-        <img src="assets/images/logo.png" id="logo">
-        <img src="assets/images/me_gray_bevel.png" id="me">
-        <div class="callouts">
-            <div class="callout" id="main-callout">
-                <div class="gradient"></div>
-                <h1>Hi!</h1>
-            </div>
-            <div class="callout" id="small-callout-3">
-            </div>
-            <div class="callout" id="small-callout-2">
-            </div>
-            <div class="callout" id="small-callout-1">
+    <div id="barba-wrapper">
+
+        <div id="preloader-bg">
+            <div id="preloader-container">
+                <!--            <div id="preloader-anim"></div>-->
+                <div id="cup"></div>
+                <div id="preloader-text" class="glitch"></div>
             </div>
         </div>
+        <div class="main-container barba-container" data-namespace="homepage" id="particles-js">
+            <img src="assets/images/logo.png" id="logo">
+            <img src="assets/images/me_gray_bevel.png" id="me">
+            <div class="callouts">
+                <div class="callout" id="main-callout">
+                    <div class="gradient"></div>
+                    <h1>Hi!</h1>
+                </div>
+                <div class="callout" id="small-callout-3">
+                </div>
+                <div class="callout" id="small-callout-2">
+                </div>
+                <div class="callout" id="small-callout-1">
+                </div>
+            </div>
 
-        <div id="iam">I'm</div>
-        <div id="firstname">Shantanu</div>
-        <div id="lastname">Pramanik</div>
-        <div id="taglines"></div>
+            <div id="iam">I'm</div>
+            <div id="firstname">Shantanu</div>
+            <div id="lastname">Pramanik</div>
+            <div id="taglines"></div>
 
-        <div id="menu-icon">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
+            <div id="menu-icon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
 
-        <div id="menu-container">
-            <div id="menu">
+            <div id="menu-container">
+                <div id="menu">
+                    <ul>
+                        <li><a id="home" class="menu-item" href="/">HOME</a></li>
+                        <li><a id="about" class="menu-item" href="/about/">ABOUT</a></li>
+                        <li><a id="contact" class="menu-item" href="/contact/">CONTACT</a></li>
+                        <li><a id="projects" class="menu-item" href="/projects/">PROJECTS</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div id="menu-circle-layer">
+            </div>
+
+            <div id="social-links">
+                <div class="left-slider slider"></div>
+                <div class="top-slider slider"></div>
+                <div class="bottom-slider slider"></div>
+                <div class="right-slider slider"></div>
                 <ul>
-                    <li><a href="/">HOME</a></li>
-                    <li><a href="/about/">ABOUT</a></li>
-                    <li><a href="/contact/">CONTACT</a></li>
-                    <li><a href="/projects/">PROJECTS</a></li>
+                    <li>
+                        <a href="https://play.google.com/store/apps/dev?id=6387983729774763986" target="_blank">
+                            <img src="assets/images/play_icon.png">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/shantanu0323/" target="_blank">
+                            <img src="assets/images/github_icon.png">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.linkedin.com/in/shantanu-pramanik-6653a2109" target="_blank">
+                            <img src="assets/images/linkedin_icon.png">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.facebook.com/shantanu.pramanik1" target="_blank">
+                            <img src="assets/images/facebook_icon.png">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://plus.google.com/+ShantanuPramanikSRSshaan" target="_blank">
+                            <img src="assets/images/gplus_icon.png">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://twitter.com/shantanu0323" target="_blank">
+                            <img src="assets/images/twitter_icon.png">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://shantanu0323.wordpress.com
+                             " target="_blank">
+                            <img src="assets/images/wordpress_icon.png">
+                        </a>
+                    </li>
                 </ul>
             </div>
-        </div>
-        <div id="menu-circle-layer">
-        </div>
 
-        <div id="social-links">
-            <div class="left-slider slider"></div>
-            <div class="top-slider slider"></div>
-            <div class="bottom-slider slider"></div>
-            <div class="right-slider slider"></div>
-            <ul>
-                <li>
-                    <a href="https://play.google.com/store/apps/dev?id=6387983729774763986" target="_blank">
-                        <img src="assets/images/play_icon.png">
-                    </a>
-                </li>
-                <li>
-                    <a href="https://github.com/shantanu0323/" target="_blank">
-                        <img src="assets/images/github_icon.png">
-                    </a>
-                </li>
-                <li>
-                    <a href="https://www.linkedin.com/in/shantanu-pramanik-6653a2109" target="_blank">
-                        <img src="assets/images/linkedin_icon.png">
-                    </a>
-                </li>
-                <li>
-                    <a href="https://www.facebook.com/shantanu.pramanik1" target="_blank">
-                        <img src="assets/images/facebook_icon.png">
-                    </a>
-                </li>
-                <li>
-                    <a href="https://plus.google.com/+ShantanuPramanikSRSshaan" target="_blank">
-                        <img src="assets/images/gplus_icon.png">
-                    </a>
-                </li>
-                <li>
-                    <a href="https://twitter.com/shantanu0323" target="_blank">
-                        <img src="assets/images/twitter_icon.png">
-                    </a>
-                </li>
-                <li>
-                    <a href="https://shantanu0323.wordpress.com
-                             " target="_blank">
-                        <img src="assets/images/wordpress_icon.png">
-                    </a>
-                </li>
-            </ul>
         </div>
-
+        <div id="overlay-container">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
     </div>
 
     <script src="https://code.jquery.com/jquery.min.js"></script>
@@ -124,6 +139,7 @@
     <script type="text/javascript" src="main.js"></script>
     <script type="text/javascript" src="assets/libraries/particles.js"></script>
     <script type="text/javascript" src="assets/libraries/app.js"></script>
+    <script src="assets/libraries/node_modules/barba.js/dist/barba.min.js" type="text/javascript"></script>
 
 </body>
 

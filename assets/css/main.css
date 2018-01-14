@@ -27,6 +27,94 @@ body {
     width: 100vw;
     background: url('../images/main_bg.jpg');
 }
+#overlay-container {
+    position: absolute;
+    height: 100vh;
+    width: 150vw;
+    left: -150vw;
+    z-index: 9999;
+    top: 0;
+}
+#overlay-container span:nth-child(1) {
+    position: absolute;
+    width: 130vw;
+    height: 10vh;
+    left: 10vw;
+    background: #39ff14;
+    z-index: 99999;
+}
+#overlay-container span:nth-child(2) {
+    position: absolute;
+    width: 120vw;
+    height: 5vh;
+    top: 10vh;
+    left: 15vw;
+    z-index: 99999;
+    background: #39ff14;
+}
+#overlay-container span:nth-child(3) {
+    position: absolute;
+    width: 140vw;
+    height: 15vh;
+    top: 15vh;
+    left: 5vw;
+    z-index: 99999;
+    background: #39ff14;
+}
+#overlay-container span:nth-child(4) {
+    position: absolute;
+    width: 116vw;
+    height: 8vh;
+    top: 30vh;
+    left: 17vw;
+    z-index: 99999;
+    background: #39ff14;
+}
+#overlay-container span:nth-child(5) {
+    position: absolute;
+    width: 132vw;
+    height: 22vh;
+    top: 38vh;
+    left: 9vw;
+    z-index: 99999;
+    background: #39ff14;
+}
+#overlay-container span:nth-child(6) {
+    position: absolute;
+    width: 100vw;
+    height: 9vh;
+    top: 60vh;
+    left: 25vw;
+    z-index: 99999;
+    background: #39ff14;
+}
+#overlay-container span:nth-child(7) {
+    position: absolute;
+    width: 126vw;
+    height: 11vh;
+    top: 69vh;
+    left: 12vw;
+    z-index: 99999;
+    background: #39ff14;
+}
+#overlay-container span:nth-child(8) {
+    position: absolute;
+    width: 134vw;
+    height: 7vh;
+    top: 80vh;
+    left: 8vw;
+    z-index: 99999;
+    background: #39ff14;
+}
+#overlay-container span:nth-child(9) {
+    position: absolute;
+    width: 126vw;
+    height: 13vh;
+    top: 87vh;
+    left: 12vw;
+    z-index: 99999;
+    background: #39ff14;
+}
 
 /*-----------------------------------------------------------------------------------------*/
 
@@ -501,6 +589,7 @@ body {
     height: 100vh;
     width: auto;
     display: none;
+    z-index: 29;
 }
 .callouts {
     position: absolute;
@@ -559,6 +648,7 @@ body {
     transform: scale(1.2, 1.5);
     letter-spacing: 1vw;
     text-shadow: 2px 2px #39ff14;
+    z-index: 30;
 }
 #firstname {
     font-family: megapolis;

@@ -529,7 +529,7 @@ $(window).load(function () {
         namespace: 'about',
         onEnter: function () {
             // The new Container is ready and attached to the DOM.
-            //            alert("About | onEnter");
+//                        alert("About | onEnter");
             $("#overlay-container").animate({
                 "left": "150vw"
             }, 1000, function () {
@@ -538,7 +538,8 @@ $(window).load(function () {
         },
         onEnterCompleted: function () {
             // The Transition has just finished.
-            //            alert("About | onEnterCompleted");
+                        alert("About | onEnterCompleted");
+            $("#about-me-title").css("color", "red");  
         },
         onLeave: function () {
             // A new Transition toward a new page has just started.

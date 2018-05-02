@@ -527,6 +527,7 @@ $(window).load(function () {
 
 
     var AboutScript = function () {
+        $("body").css("height", "3000px");
         var menuOpen = false;
         var menuContainer = $("#menu-container");
         var menuIcon = $("#menu-icon");

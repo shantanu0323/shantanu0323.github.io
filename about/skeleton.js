@@ -75,11 +75,49 @@ $(window).load(function () {
         }
     });
 
+    var smoothScrollTo = function (target) {
+        $('html, body').animate({
+            scrollTop: target.offset().top
+        }, 1000, function () {
+            // Callback after animation
+            // Must change focus!
+            var $target = $(target);
+            $target.focus();
+            if ($target.is(":focus")) { // Checking if the target was focused
+                return false;
+            } else {
+                $target.attr('tabindex', '-1'); // Adding tabindex for elements not focusable
+                $target.focus(); // Set focus again
+            };
+        });
+    }
 
-
+    $(function () {
+        $('#scrollBtnToVincent').on('click', function (e) {
+            e.preventDefault();
+            smoothScrollTo($("#vincent"));
+        });
+    });
+    
+    $(function () {
+        $('#scrollBtnToHemSheela').on('click', function (e) {
+            e.preventDefault();
+            smoothScrollTo($("#hemsheela"));
+        });
+    });
+    
+    $(function () {
+        $('#scrollBtnToVit').on('click', function (e) {
+            e.preventDefault();
+            smoothScrollTo($("#vit"));
+        });
+    });
+    
+    $(window).scrollTop();
     var titleLeft0 = 38;
     var titleTop0 = 48;
     var titleFontSize0 = 10;
+    var scrollOpacity0 = 1;
     $(window).scroll(function () {
         var scrollPos = $(window).scrollTop();
 
@@ -89,6 +127,7 @@ $(window).load(function () {
             var titleTop = titleTop0 - 38 * (scrollPos / screenHeight);
             var titleLeft = titleLeft0 - 13 * (scrollPos / screenHeight);
             var titleFontSize = titleFontSize0 - 5 * (scrollPos / screenHeight);
+            var scrollOpacity = scrollOpacity0 - 5 * (scrollPos / screenHeight);
             $('#titleTop').html(titleTop);
             $('#titleLeft').html(titleLeft);
             $('#titleFontSize').html(titleFontSize);
@@ -97,7 +136,7 @@ $(window).load(function () {
                 "left": titleLeft + "vw",
                 "font-size": titleFontSize + "vw"
             });
+            $("#scrollBtnToVincent").css("opacity", "" + scrollOpacity);
         }
     });
-
 });

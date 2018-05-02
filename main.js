@@ -654,20 +654,90 @@ $(window).load(function () {
 
             $('#scrollPos').html(scrollPos);
 
+            var factor, leftcard, leftValue, topValue, opacityValue, rightcard, imgSchool;
             if (scrollPos <= screenHeight) {
-                var titleTop = titleTop0 - 38 * (scrollPos / screenHeight);
-                var titleLeft = titleLeft0 - 13 * (scrollPos / screenHeight);
-                var titleFontSize = titleFontSize0 - 5 * (scrollPos / screenHeight);
-                var scrollOpacity = scrollOpacity0 - 5 * (scrollPos / screenHeight);
-                $('#titleTop').html(titleTop);
-                $('#titleLeft').html(titleLeft);
+                factor = (scrollPos / screenHeight);
+                var titleTop = titleTop0 - 38 * factor;
+                var titleLeft = titleLeft0 - 13 * factor;
+                var titleFontSize = titleFontSize0 - 5 * factor;
+                var scrollOpacity = scrollOpacity0 - 5 * factor;
                 $('#titleFontSize').html(titleFontSize);
                 title.css({
                     "top": titleTop + "vh",
                     "left": titleLeft + "vw",
                     "font-size": titleFontSize + "vw"
                 });
+
                 $("#scrollBtnToVincent").css("opacity", "" + scrollOpacity);
+
+                leftcard = $('#vincent .left-card');
+                leftValue = 30 * factor;
+                topValue = -43 + 100 * factor;
+                opacityValue = -1 + 2 * factor;
+                $('#titleTop').html(topValue);
+                $('#titleLeft').html(leftValue);
+                leftcard.css({
+                    "left": leftValue + "%",
+                    "top": topValue + "%",
+                    "opacity": opacityValue
+                });
+                rightcard = $('#vincent .right-card');
+                leftValue = 125 - 70 * factor;
+                rightcard.css({
+                    "left": leftValue + "%",
+                    "top": topValue + "%",
+                    "opacity": opacityValue
+                });
+                imgSchool = $("#vincent .img-school");
+                opacityValue = -4 + 5 * factor;
+                imgSchool.css("opacity", opacityValue);
+
+            } else if (scrollPos > screenHeight && scrollPos <= (screenHeight * 2)) {
+                factor = (scrollPos - screenHeight) / screenHeight;
+                leftcard = $('#hemsheela .left-card');
+                leftValue = 30 * factor;
+                topValue = -43 + 100 * factor;
+                opacityValue = -1 + 2 * factor;
+                $('#titleTop').html(topValue);
+                $('#titleLeft').html(leftValue);
+                leftcard.css({
+                    "left": leftValue + "%",
+                    "top": topValue + "%",
+                    "opacity": opacityValue
+                });
+                rightcard = $('#hemsheela .right-card');
+                leftValue = 125 - 70 * factor;
+                rightcard.css({
+                    "left": leftValue + "%",
+                    "top": topValue + "%",
+                    "opacity": opacityValue
+                });
+                imgSchool = $("#hemsheela .img-school");
+                opacityValue = -4 + 5 * factor;
+                imgSchool.css("opacity", opacityValue);
+            } else if (scrollPos > (screenHeight * 2) && scrollPos <= (screenHeight * 3)) {
+                factor = (scrollPos - (screenHeight * 2)) / screenHeight;
+                leftcard = $('#vit .left-card');
+                leftValue = 30 * factor;
+                topValue = -43 + 100 * factor;
+                opacityValue = -1 + 2 * factor;
+                $('#titleTop').html(topValue);
+                $('#titleLeft').html(leftValue);
+                leftcard.css({
+                    "left": leftValue + "%",
+                    "top": topValue + "%",
+                    "opacity": opacityValue
+                });
+                rightcard = $('#vit .right-card');
+                leftValue = 125 - 70 * factor;
+                rightcard.css({
+                    "left": leftValue + "%",
+                    "top": topValue + "%",
+                    "opacity": opacityValue
+                });
+                imgSchool = $("#vit .img-school");
+                opacityValue = -4 + 5 * factor;
+                imgSchool.css("opacity", opacityValue);
             }
         });
 

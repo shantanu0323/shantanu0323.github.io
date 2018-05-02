@@ -59,13 +59,13 @@ $(window).load(function () {
         });
 
 
-        var height = "70vh";
-        var cHeight = "80vh"
-        var width = "80vh";
+        var height = "50vh";
+        var cHeight = "60vh"
+        var width = "60vh";
         if (screen.width >= 620) {
-            height = "75vh";
-            cHeight = "85vh";
-            width = "90vh";
+            height = "50vh";
+            cHeight = "60vh";
+            width = "60vh";
         }
 
         // ************************** ONCLICKLISTENER FOR MENU BUTTON ***************************
@@ -100,7 +100,24 @@ $(window).load(function () {
                 $("#menu-icon span").css("background", "#111");
             }
         });
-
+        $(window).click(function () {
+            if (menuOpen) {
+                $('#menu-icon').toggleClass('open');
+                $("#menu-container").animate({
+                    "height": "0vh",
+                    "width": "0vh",
+                    "opacity": "0"
+                }, 500, 'easeOutElastic', function () {
+                    menuOpen = false;
+                });
+                menuCircleLayer.animate({
+                    "height": "0vh",
+                    "width": "0vh",
+                    "opacity": "0"
+                }, 500, 'easeOutElastic');
+                $("#menu-icon span").css("background", "#111");
+            }
+        });
         menuClickListener();
 
         // *********************** MOVEMENT ON MOUSEMOVE *************************

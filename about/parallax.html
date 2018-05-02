@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parallax</title>
+    <script src="../assets/libraries/rellax.min.js"></script>
+    <link href="main.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <div class="rellax d1">
+        I'm Slow and smooth
+    </div>
+    <div class="rellax d2" data-rellax-speed="7">
+        I’m extra slow and smooth
+    </div>
+</body>
+<script>
+    var rellax = new Rellax('.rellax', {
+       callback: function(position) {
+           
+       } 
+    });
+    </script>
+</html>

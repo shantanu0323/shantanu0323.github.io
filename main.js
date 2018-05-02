@@ -492,6 +492,7 @@ $(window).load(function () {
         onEnter: function () {
             // The new Container is ready and attached to the DOM.
             //            alert("Home | onEnter");
+            $("body").css("height", "auto");
             setTimeout(function () {
                 $("#overlay-container").animate({
                     "left": "-150vw"
@@ -669,6 +670,7 @@ $(window).load(function () {
         onEnter: function () {
             // The new Container is ready and attached to the DOM.
             //            alert("About | onEnter");
+            $("body").css("height", "auto");
             $("#overlay-container").animate({
                 "left": "150vw"
             }, 1000, function () {
@@ -702,6 +704,7 @@ $(window).load(function () {
         onEnter: function () {
             // The new Container is ready and attached to the DOM.
             //            alert("About | onEnter");
+            $("body").css("height", "auto");
             $("#overlay-container").animate({
                 "left": "150vw"
             }, 1000, function () {

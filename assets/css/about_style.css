@@ -8,7 +8,7 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
-    height: 400vh;
+    height: 500vh;
 }
 
 #under-construction {
@@ -60,7 +60,7 @@ body {
     height: 50%;
 }
 
-#to-hemsheela, #to-vit {
+#to-hemsheela, #to-vit, #to-desc {
     position: absolute;
     width: 5%;
     overflow: hidden;
@@ -434,10 +434,59 @@ a {
     top: 300vh;    
 }
 
+.desc-container {
+    top: 400vh;
+    width: 75vw;
+    height: 100vh;
+    right: 0;
+    z-index: 10000;
+    position: absolute;
+    overflow-x: hidden;
+    overflow-y: visible;
+}
 
+#tagline {
+    font-family: springtime;
+    font-size: 30px;
+    position: absolute;
+    top: 23%;
+    text-align: center;
+    margin-left: 5%;
+    margin-right: 5%;
+    color: #c63f17;
+}
 
+.quotes {
+    position: absolute;
+    top: -10%;
+    font-family: decalled;
+    font-size: 120px;
+    color: #b91400;
+}
 
+#tagline span:nth-child(1) {
+    left: -5px;
+    transform: scaleX(-1);
+}
 
+#tagline span:nth-child(2) {
+    right: -5px;
+}
+
+#languages {
+    position: absolute;
+    text-align: center;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%,0);
+    font-family: springtime;
+    font-size: 30px;
+    width: 100%;
+}
+
+#languages span:nth-child(1),#languages span:nth-child(3),#languages span:nth-child(5){
+    color: #c63f17;
+}
 
 
 

@@ -113,6 +113,13 @@ $(window).load(function () {
         });
     });
 
+    $(function () {
+        $('#scrollBtnToDesc').on('click', function (e) {
+            e.preventDefault();
+            smoothScrollTo($("#desc"));
+        });
+    });
+
     $(window).scrollTop();
     var titleLeft0 = 38;
     var titleTop0 = 48;
@@ -207,6 +214,32 @@ $(window).load(function () {
             imgSchool = $("#vit .img-school");
             opacityValue = -4 + 5 * factor;
             imgSchool.css("opacity", opacityValue);
+        } else if (scrollPos > (screenHeight * 3) && scrollPos <= (screenHeight * 4)) {
+            factor = (scrollPos - (screenHeight * 3)) / screenHeight;
+            opacityValue = -5 + 6 * factor;
+            tagline = $("#tagline");
+            topValue = 23 * factor;
+            tagline.css({
+                "top": topValue + "%",
+                "opacity": factor
+            });
+            leftQuotes = $("#tagline span:nth-child(1)");
+            rightQuotes = $("#tagline span:nth-child(2)");
+            offsetValue = -100 + 85 * factor;
+            leftQuotes.css({
+                "left": offsetValue + "px",
+                "opacity": opacityValue
+            });
+            rightQuotes.css({
+                "right": offsetValue + "px",
+                "opacity": opacityValue
+            });
+            languages = $('#languages');
+            english = $('#languages span:nth-child(1)');
+            comma = $('#languages span:nth-child(2)');
+            hindi = $('#languages span:nth-child(3)');
+            and = $('#languages span:nth-child(4)');
+            bengali = $('#languages span:nth-child(5)');
         }
     });
 });

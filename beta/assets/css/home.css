@@ -3,10 +3,75 @@
     padding: 0;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 .bg-cover {
     background: url("../images/cover.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
     height: 100vh;
+}
+
+.navbar {
+    height: auto;
+    transition: all 0.3s;
+}
+
+.navbar-brand {
+    transition: all 0.2s;
+}
+
+.img-thumb {
+    left:50%;
+    transform: translate(-50%,0%);
+    background: rgb(250, 250, 250);
+    border-radius: 10px;
+    border: 1px solid #666;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.6);
+    padding: 5%;
+}
+
+.navbar .nav-item .nav-link {
+    border-top: 2px solid rgba(0, 0, 0, 0);
+    border-bottom: 2px solid rgba(0, 0, 0, 0);
+    padding-top: 0;
+    padding-bottom: 0;
+    transition: all 0.5s;
+}
+
+.navbar .active .nav-link {
+    border-top: 2px solid #94081d;
+    border-bottom: 2px solid #94081d;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.navbar .navbar-collapse {
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 5px;
+}
+
+.top-nav-collapse {
+    background: #94081d;
+    height: 50px;
+}
+
+.top-nav-collapse .nav-item .nav-link{
+    border-top: 2px solid rgba(0, 0, 0, 0);
+    border-bottom: 2px solid rgba(0, 0, 0, 0);
+}
+
+.top-nav-collapse .active .nav-link{
+    border-top: 2px solid rgb(250, 250, 250);
+    border-bottom: 2px solid rgb(250, 250, 250);
+}
+
+.top-nav-collapse .navbar-collapse {
+    background: #94081d;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
 }

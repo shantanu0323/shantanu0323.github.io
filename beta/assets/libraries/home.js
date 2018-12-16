@@ -79,6 +79,7 @@ $(document).ready(function () {
         typeSpeed: 40,
         backSpeed: 30,
         backDelay: 300,
+        startDelay: 0,
         loop: true,
         showCursor: false,
         loopCount: Infinity,
@@ -93,7 +94,7 @@ $(document).ready(function () {
         }
     }
 
-    var typed = new Typed(".tagline-container", options);
+    var typed = new Typed(".tagline", options);
 });
 
 $(".navbar-toggler").click(function () {

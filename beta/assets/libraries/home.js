@@ -1,20 +1,28 @@
+var collapseNavBar = function () {
+    $(".navbar").addClass("top-nav-collapse");
+    $(".navbar-brand").addClass("col-lg-6");
+    $(".navbar-brand").addClass("col-md-12");
+    $(".navbar-brand").addClass("col-sm-6");
+    $(".navbar-brand").addClass("col-12");
+    $(".navbar-brand").addClass("img-thumb");
+    $(".nav-link").addClass("text-light");
+};
+
+var expandNavBar = function () {
+    $(".navbar").removeClass("top-nav-collapse");
+    $(".navbar-brand").removeClass("img-thumb");
+    $(".navbar-brand").removeClass("col-lg-6");
+    $(".navbar-brand").removeClass("col-md-12");
+    $(".navbar-brand").removeClass("col-sm-6");
+    $(".navbar-brand").removeClass("col-12");
+    $(".nav-link").removeClass("text-light");
+};
+
 $(window).scroll(function () {
     if ($('.navbar').offset().top > 50) {
-        $(".navbar").addClass("top-nav-collapse");
-        $(".navbar-brand").addClass("col-lg-6");
-        $(".navbar-brand").addClass("col-md-12");
-        $(".navbar-brand").addClass("col-sm-6");
-        $(".navbar-brand").addClass("col-12");
-        $(".navbar-brand").addClass("img-thumb");
-        $(".nav-link").addClass("text-light");
+        collapseNavBar();
     } else {
-        $(".navbar").removeClass("top-nav-collapse");
-        $(".navbar-brand").removeClass("img-thumb");
-        $(".navbar-brand").removeClass("col-lg-6");
-        $(".navbar-brand").removeClass("col-md-12");
-        $(".navbar-brand").removeClass("col-sm-6");
-        $(".navbar-brand").removeClass("col-12");
-        $(".nav-link").removeClass("text-light");
+        expandNavBar();
     }
 });
 
@@ -45,16 +53,49 @@ $(document).scroll(function () {
 
     if (scrollPos < (aboutPos - halfScr)) {
         setActive(navHome);
-    } else if (scrollPos >= aboutPos && scrollPos < (servicesPos  - halfScr)) {
+    } else if (scrollPos >= aboutPos && scrollPos < (servicesPos - halfScr)) {
         setActive(navAbout);
-    } else if (scrollPos >= servicesPos && scrollPos < (projectsPos  - halfScr)) {
+    } else if (scrollPos >= servicesPos && scrollPos < (projectsPos - halfScr)) {
         setActive(navServices);
-    } else if (scrollPos >= projectsPos && scrollPos < (achievementsPos  - halfScr)) {
+    } else if (scrollPos >= projectsPos && scrollPos < (achievementsPos - halfScr)) {
         setActive(navProjects);
-    } else if (scrollPos >= achievementsPos && scrollPos < (contactPos  - halfScr)) {
+    } else if (scrollPos >= achievementsPos && scrollPos < (contactPos - halfScr)) {
         setActive(navAchievements);
     } else if (scrollPos >= contactPos) {
         setActive(navContact);
     }
 
 });
+
+$(document).ready(function () {
+    particlesJS.load('home', '../assets/others/particles.json', function () {
+        console.log('callback - particles.js config loaded');
+    });
+
+    $(".tagline-container").hide();
+
+    var options = {
+        strings: ["", "Enthusiastic Coder", "Android Developer", "Opportunity Seeker", "Web Developer", "Creative Designer"],
+        typeSpeed: 40,
+        backSpeed: 30,
+        backDelay: 300,
+        loop: true,
+        showCursor: false,
+        loopCount: Infinity,
+        onLastStringBackspaced: (self) => {
+            $(".tagline-container").hide();
+        },
+        preStringTyped: (arrayPos, self) => {
+            if (arrayPos == 1) {
+                //                alert("trigger 1");
+                $(".tagline-container").show();
+            }
+        }
+    }
+
+    var typed = new Typed(".tagline-container", options);
+});
+
+$(".navbar-toggler").click(function () {
+    collapseNavBar();
+})

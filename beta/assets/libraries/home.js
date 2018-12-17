@@ -137,7 +137,7 @@ $(document).ready(function () {
 });
 
 $(".navbar-toggler").click(function () {
-    collapseNavBar();
+//    collapseNavBar();
 })
 
 $(".scroll-down-button").click(function () {

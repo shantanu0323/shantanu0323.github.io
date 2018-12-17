@@ -36,6 +36,8 @@ var setActive = function (anchor) {
     anchor.parent().addClass("active");
 };
 
+var alreadyCounted = false;
+
 $(document).scroll(function () {
     var scrollPos = $(document).scrollTop();
     var aboutPos = $("#about").position().top;
@@ -56,6 +58,23 @@ $(document).scroll(function () {
     } else {
         $(".scroll-down-button").show();
     }
+
+    if (!alreadyCounted && scrollPos >= ($("#services-counter-bg").position().top - halfScr)) {
+        $(".count").css("opacity", "1");
+        $('.count').each(function () {
+            $(this).prop('Counter', 0).animate({
+                Counter: $(this).text()
+            }, {
+                duration: 4000,
+                easing: 'swing',
+                step: function (now) {
+                    $(this).text(Math.ceil(now));
+                }
+            });
+        });
+        alreadyCounted = true;
+    }
+
     if (scrollPos == 0) {
         $(".navbar .active").removeClass("active");
     } else if (scrollPos > 0 && scrollPos < (aboutPos - halfScr)) {
@@ -101,6 +120,7 @@ $(document).ready(function () {
         }
     }
 
+    $(".count").css("opacity", "0");
 
     var leftTargetFirstName = "-10%";
     var leftTargetLastName = "20%";
@@ -134,10 +154,31 @@ $(document).ready(function () {
         var typed = new Typed(".tagline", options);
 
     }, 1000);
+
+    $(document).ready(function () {
+        $(".owl-carousel").owlCarousel({
+            loop: true,
+            margin: 10,
+            autoplay: true,
+            slideBy: 1,
+            autoplayTimeout: 2500,
+            autoplayHoverPause: true,
+            responsiveClass: true,
+            nav: false,
+            responsive: {
+                0: {
+                    items: 1
+                },
+                576: {
+                    items: 3
+                }
+            }
+        });
+    });
 });
 
 $(".navbar-toggler").click(function () {
-//    collapseNavBar();
+    //    collapseNavBar();
 })
 
 $(".scroll-down-button").click(function () {

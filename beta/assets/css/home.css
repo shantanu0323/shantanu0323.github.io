@@ -26,6 +26,10 @@ html {
     background: linear-gradient(to top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
 }
 
+section > .container:nth-child(1) {
+    padding-top: 50px;
+}
+
 .navbar {
     height: auto;
     transition: all 0.3s;
@@ -46,8 +50,8 @@ html {
 }
 
 .navbar .nav-item .nav-link {
-    border-top: 2px solid rgba(0, 0, 0, 0);
-    border-bottom: 2px solid rgba(0, 0, 0, 0);
+    border-top: 1px solid rgba(0, 0, 0, 0);
+    border-bottom: 1px solid rgba(0, 0, 0, 0);
     padding-top: 0;
     padding-bottom: 0;
     transition: all 0.2s;
@@ -55,8 +59,8 @@ html {
 
 .navbar .active .nav-link,
 .navbar .nav-item .nav-link:hover {
-    border-top: 2px solid #94081d;
-    border-bottom: 2px solid #94081d;
+    border-top: 1px solid #94081d;
+    border-bottom: 1px solid #94081d;
     padding-top: 0;
     padding-bottom: 0;
 }
@@ -71,17 +75,18 @@ html {
 .top-nav-collapse {
     background: #94081d;
     height: 50px;
+    box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.2);
 }
 
 .top-nav-collapse .nav-item .nav-link {
-    border-top: 2px solid rgba(0, 0, 0, 0);
-    border-bottom: 2px solid rgba(0, 0, 0, 0);
+    border-top: 1px solid rgba(0, 0, 0, 0);
+    border-bottom: 1px solid rgba(0, 0, 0, 0);
 }
 
 .top-nav-collapse .active .nav-link,
 .top-nav-collapse .nav-item .nav-link:hover {
-    border-top: 2px solid rgb(250, 250, 250);
-    border-bottom: 2px solid rgb(250, 250, 250);
+    border-top: 1px solid rgb(250, 250, 250);
+    border-bottom: 1px solid rgb(250, 250, 250);
 }
 
 .top-nav-collapse .navbar-collapse {
@@ -211,6 +216,10 @@ html {
     color: #94081d;
 }
 
+.about-skills {
+    padding-bottom: 30px;    
+}
+
 .about-skills > div {
     width: 100%;
 }
@@ -310,6 +319,116 @@ a:focus {
     color: rgb(250, 250, 250);
 }
 
+
+.owl-theme .owl-dots .owl-dot span {
+    background: #999;
+}
+
+.owl-theme .owl-dots .owl-dot.active span {
+    background: #94081d;
+}
+
+.owl-theme .owl-dots .owl-dot:hover span {
+    background: rgba(148, 8, 29, 0.5);
+}
+
+section#services {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.services-heading {
+    margin-top: 40px;
+    position: relative;
+    display: inline-block;
+    padding-top: 10px;
+    padding-bottom: 15px;
+}
+
+.services-heading::before {
+    position: absolute;
+    content: "";
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 8%;
+    height: 100%;
+    /*    z-index: -1;*/
+    border-top: 1px solid #94081d;
+    border-bottom: 1px solid #94081d;
+}
+
+.services-carousel {
+    margin-top: 40px;
+    padding-bottom: 40px;
+}
+
+.owl-carousel .item {
+    padding: 20px 20px 10px 20px;
+    margin: 0px 10px 0px 10px;
+}
+
+.owl-carousel .item .icon {
+    margin-bottom: 50px;
+    margin-top: 30px;
+}
+
+.owl-carousel .item .icon i {
+    font-size: 2.5em;
+    color: #94081d;
+    width: 50px;
+    height: 50px;
+    transition: all 0.6s ease-out;
+}
+
+.owl-carousel .item:hover .icon i {
+    color: black;
+    transform: rotate(360deg);
+}
+
+.owl-carousel .item h5 {
+    transition: 0.3s;
+    text-transform: uppercase;
+}
+
+.owl-carousel .item:hover h5 {
+    color: #94081d;
+}
+
+#services-counter-bg {
+    background: #94081d;
+    width: 100vw;
+}
+
+.services-counter {
+    color: rgb(250, 250, 250);
+    padding-top: 60px;
+}
+
+.services-counter .item {
+    padding-bottom: 60px;
+}
+
+.services-counter .icon {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.services-counter .count {
+    font-weight: bold;
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.services-counter .label {
+    font-size: 20px;
+}
+
+
+
+
+
+
+
 /*
 ******************** FOR DEVICES MORE THAN XS **************************
 */
@@ -346,13 +465,13 @@ a:focus {
     }
 
     #about::before {
-        background: rgba(0, 0, 0, 0.2);
+        background: rgba(0, 0, 0, 0.1);
         content: "";
         width: 80%;
         height: 300%;
         transition: 0.6s;
         position: absolute;
-        filter: blur(30px);
+        /*        filter: blur(30px);*/
         transform: skewX(40deg) translateX(15%);
     }
 

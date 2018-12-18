@@ -85,7 +85,7 @@ $(document).scroll(function () {
         $(".services-heading").animate({
             "opacity": "1",
             "top": "0px"
-        }, 1500, "easeOutExpo");
+        }, 1000);
         alreadyRevealedServices = true;
     }
 
@@ -93,7 +93,7 @@ $(document).scroll(function () {
         $(".projects-heading").animate({
             "opacity": "1",
             "top": "0px"
-        }, 1500, "easeOutExpo");
+        }, 1000);
         alreadyRevealedProjects = true;
     }
 

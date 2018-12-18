@@ -427,7 +427,13 @@ section#services {
     font-size: 20px;
 }
 
-
+.projects-gallery {
+    margin-top: 40px;
+}
+.projects-gallery .item {
+    height: 300px;
+    padding: 0;
+}
 
 
 

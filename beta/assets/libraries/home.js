@@ -43,6 +43,7 @@ $(".services-heading, .projects-heading").css({
     "opacity": "0",
     "top": "-80px"
 });
+
 $(document).scroll(function () {
     var scrollPos = $(document).scrollTop();
     var aboutPos = $("#about").position().top;
@@ -95,6 +96,23 @@ $(document).scroll(function () {
         }, 1500, "easeOutExpo");
         alreadyRevealedProjects = true;
     }
+
+    //    console.log("scrollPos : " + scrollPos + " ; project : " + ($(".projects-gallery .item").position().top - halfScr));
+    //    if (scrollPos >= ($(".projects-gallery .item").position().top - halfScr)) {
+    //        console.log("trigger : ");
+    //    } else {
+    //        console.log("sink : " );
+    //    }
+
+    $(".projects-gallery .item .project").each(function (index, value) {
+        if (scrollPos >= ($(this).parent().position().top - halfScr)) {
+            console.log("trigger : " + index);
+            $(this).addClass("project-active");
+        } else {
+            console.log("sink : " + index);
+            $(this).removeClass("project-active");
+        }
+    });
 
     if (scrollPos == 0) {
         $(".navbar .active").removeClass("active");

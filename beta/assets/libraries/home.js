@@ -37,7 +37,12 @@ var setActive = function (anchor) {
 };
 
 var alreadyCounted = false;
-
+var alreadyRevealedServices = false;
+var alreadyRevealedProjects = false;
+$(".services-heading, .projects-heading").css({
+    "opacity": "0",
+    "top": "-80px"
+});
 $(document).scroll(function () {
     var scrollPos = $(document).scrollTop();
     var aboutPos = $("#about").position().top;
@@ -59,7 +64,7 @@ $(document).scroll(function () {
         $(".scroll-down-button").show();
     }
 
-    if (!alreadyCounted && scrollPos >= ($("#services-counter-bg").position().top - halfScr)) {
+    if (!alreadyCounted && scrollPos >= ($("#services-counter-bg").position().top - (halfScr*1.75))) {
         $(".count").css("opacity", "1");
         $('.count').each(function () {
             $(this).prop('Counter', 0).animate({
@@ -73,6 +78,22 @@ $(document).scroll(function () {
             });
         });
         alreadyCounted = true;
+    }
+    
+    if (!alreadyRevealedServices && scrollPos >= ($(".services-heading").position().top - (halfScr * 1.65))) {
+        $(".services-heading").animate({
+            "opacity": "1",
+            "top": "0px"
+        }, 1500, "easeOutExpo");
+        alreadyRevealedServices = true;
+    }
+
+    if (!alreadyRevealedProjects && scrollPos >= ($(".projects-heading").position().top - (halfScr * 1.65))) {
+        $(".projects-heading").animate({
+            "opacity": "1",
+            "top": "0px"
+        }, 1500, "easeOutExpo");
+        alreadyRevealedProjects = true;
     }
 
     if (scrollPos == 0) {

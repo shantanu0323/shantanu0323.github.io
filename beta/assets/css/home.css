@@ -205,6 +205,7 @@ section > .container:nth-child(1) {
 }
 
 .about-desc {
+    padding-top: 36px;
     padding-bottom: 36px;
 }
 

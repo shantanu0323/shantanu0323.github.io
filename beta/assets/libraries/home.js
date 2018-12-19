@@ -180,7 +180,18 @@ $(document).ready(function () {
             isProjectExpanded = false;
         }
     });
+    
+    
+    $('body').backDetect(function () {
+        // Callback function
+        alert("Look forward to the future, not the past!");
+        if (isProjectExpanded) {
+            projectExpanded.css("display", "none");
+            isProjectExpanded = false;
+        }
+    });
 });
+
 
 $(window).on('popstate', function (event) {
     if (isProjectExpanded) {

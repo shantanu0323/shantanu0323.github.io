@@ -18,19 +18,6 @@ var expandNavBar = function () {
     $(".nav-link").removeClass("text-light");
 };
 
-$(window).scroll(function () {
-    if ($('.navbar').offset().top > 50) {
-        collapseNavBar();
-    } else {
-        expandNavBar();
-    }
-});
-
-$(".nav-link").click(function () {
-    var anchor = $(this);
-    setActive(anchor);
-});
-
 var setActive = function (anchor) {
     $(".navbar .active").removeClass("active");
     anchor.parent().addClass("active");
@@ -39,12 +26,146 @@ var setActive = function (anchor) {
 var alreadyCounted = false;
 var alreadyRevealedServices = false;
 var alreadyRevealedProjects = false;
-$(".services-heading, .projects-heading").css({
-    "opacity": "0",
-    "top": "-80px"
+var isProjectExpanded = false;
+
+$(document).ready(function () {
+
+    particlesJS.load('home', '../assets/others/particles.json', function () {
+        //        console.log('callback - particles.js config loaded');
+    });
+
+    $(".services-heading, .projects-heading").css({
+        "opacity": "0",
+        "top": "-80px"
+    });
+
+    $(".nav-link").click(function () {
+        var anchor = $(this);
+        setActive(anchor);
+    });
+
+    $(".navbar-toggler").click(function () {
+        //    collapseNavBar();
+    })
+
+    $(".scroll-down-button").click(function () {
+        $("html, body").animate({
+            scrollTop: $("#about").offset().top
+        });
+    })
+
+    $(".tagline-container").hide();
+
+    var options = {
+        strings: ["", "Enthusiastic Coder", "Android Developer", "Opportunity Seeker", "Web Developer", "Creative Designer"],
+        typeSpeed: 40,
+        backSpeed: 30,
+        backDelay: 300,
+        startDelay: 0,
+        loop: true,
+        showCursor: false,
+        loopCount: Infinity,
+        onLastStringBackspaced: (self) => {
+            $(".tagline-container").hide();
+        },
+        preStringTyped: (arrayPos, self) => {
+            if (arrayPos == 1) {
+                //                alert("trigger 1");
+                $(".tagline-container").show();
+            }
+        }
+    }
+
+    $(".count").css("opacity", "0");
+
+    var leftTargetFirstName = "-10%";
+    var leftTargetLastName = "20%";
+    if ($(window).width() > 480) {
+        leftTargetFirstName = "-60%";
+        leftTargetLastName = "30%";
+    }
+
+    $(".first-name").css({
+        "opacity": "0",
+        "left": "50%"
+    });
+
+    $(".last-name").css({
+        "opacity": "0",
+        "left": "-40%"
+    });
+
+    setTimeout(function () {
+        $(".first-name").animate({
+            "opacity": "1",
+            "left": leftTargetFirstName
+        }, 1000);
+
+
+        $(".last-name").animate({
+            "opacity": "1",
+            "left": leftTargetLastName
+        }, 1000);
+
+        var typed = new Typed(".tagline", options);
+
+    }, 1000);
+
+    $(document).ready(function () {
+        $(".owl-carousel").owlCarousel({
+            loop: true,
+            margin: 10,
+            autoplay: true,
+            slideBy: 1,
+            autoplayTimeout: 2500,
+            autoplayHoverPause: true,
+            responsiveClass: true,
+            nav: false,
+            responsive: {
+                0: {
+                    items: 1
+                },
+                576: {
+                    items: 3
+                }
+            }
+        });
+    });
+
+    $(".project").hover3d({
+        selector: ".project__card",
+        shine: true,
+        perspective: 2000,
+        sensitivity: 8
+    });
+
+    var projectExpanded = $(".project-expanded");
+    projectExpanded.css("display", "none");
+
+    $(".project").each(function (index, value) {
+        $(this).click(function () {
+            if (!isProjectExpanded) {
+                projectExpanded.css("display", "block");
+                isProjectExpanded = true;
+            }
+        })
+    });
+    
+    $(".project-expanded").click(function() {
+        if(isProjectExpanded) {
+            projectExpanded.css("display", "none");
+            isProjectExpanded = false;
+        } 
+    });
 });
 
 $(document).scroll(function () {
+    if ($('.navbar').offset().top > 50) {
+        collapseNavBar();
+    } else {
+        expandNavBar();
+    }
+
     var scrollPos = $(document).scrollTop();
     var aboutPos = $("#about").position().top;
     var servicesPos = $("#services").position().top;
@@ -131,104 +252,3 @@ $(document).scroll(function () {
     }
 
 });
-
-$(document).ready(function () {
-    particlesJS.load('home', '../assets/others/particles.json', function () {
-        //        console.log('callback - particles.js config loaded');
-    });
-
-    $(".tagline-container").hide();
-
-    var options = {
-        strings: ["", "Enthusiastic Coder", "Android Developer", "Opportunity Seeker", "Web Developer", "Creative Designer"],
-        typeSpeed: 40,
-        backSpeed: 30,
-        backDelay: 300,
-        startDelay: 0,
-        loop: true,
-        showCursor: false,
-        loopCount: Infinity,
-        onLastStringBackspaced: (self) => {
-            $(".tagline-container").hide();
-        },
-        preStringTyped: (arrayPos, self) => {
-            if (arrayPos == 1) {
-                //                alert("trigger 1");
-                $(".tagline-container").show();
-            }
-        }
-    }
-
-    $(".count").css("opacity", "0");
-
-    var leftTargetFirstName = "-10%";
-    var leftTargetLastName = "20%";
-    if ($(window).width() > 480) {
-        leftTargetFirstName = "-60%";
-        leftTargetLastName = "30%";
-    }
-
-    $(".first-name").css({
-        "opacity": "0",
-        "left": "50%"
-    });
-
-    $(".last-name").css({
-        "opacity": "0",
-        "left": "-40%"
-    });
-
-    setTimeout(function () {
-        $(".first-name").animate({
-            "opacity": "1",
-            "left": leftTargetFirstName
-        }, 1000);
-
-
-        $(".last-name").animate({
-            "opacity": "1",
-            "left": leftTargetLastName
-        }, 1000);
-
-        var typed = new Typed(".tagline", options);
-
-    }, 1000);
-
-    $(document).ready(function () {
-        $(".owl-carousel").owlCarousel({
-            loop: true,
-            margin: 10,
-            autoplay: true,
-            slideBy: 1,
-            autoplayTimeout: 2500,
-            autoplayHoverPause: true,
-            responsiveClass: true,
-            nav: false,
-            responsive: {
-                0: {
-                    items: 1
-                },
-                576: {
-                    items: 3
-                }
-            }
-        });
-    });
-
-    $(".project").hover3d({
-        selector: ".project__card",
-        shine: true,
-        perspective: 2000,
-        sensitivity: 8
-    });
-});
-
-$(".navbar-toggler").click(function () {
-    //    collapseNavBar();
-})
-
-$(".scroll-down-button").click(function () {
-    $("html, body").animate({
-        scrollTop: $("#about").offset().top
-    });
-})

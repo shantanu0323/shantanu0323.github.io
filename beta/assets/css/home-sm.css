@@ -1,0 +1,51 @@
+/*
+******************** FOR DEVICES MORE THAN XS **************************
+*/
+@media screen and (min-width: 480px) {
+    .name {
+        top: 50%;
+    }
+
+    .first-name,
+    .last-name {
+        font-size: 72px;
+        letter-spacing: 10px;
+    }
+
+    .first-name {
+        left: -60%;
+
+    }
+
+    .last-name {
+        left: 30%;
+        top: 75px;
+    }
+
+    .tagline-container {
+        top: 75%;
+        font-size: 24px;
+    }
+
+    #about {
+        overflow: hidden;
+        display: block;
+        position: relative;
+    }
+
+    #about::before {
+        background: rgba(0, 0, 0, 0.1);
+        content: "";
+        width: 80%;
+        height: 300%;
+        transition: 0.6s;
+        position: absolute;
+        /*        filter: blur(30px);*/
+        transform: skewX(40deg) translateX(15%);
+    }
+
+    #about:hover::before {
+        transform: skewX(40deg) translate(113%);
+    }
+
+}

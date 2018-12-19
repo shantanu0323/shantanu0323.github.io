@@ -30,12 +30,12 @@ var loadData = function (project, projectExpanded) {
     var coverSrc = project.find(".project__image img").attr("src");
     var desc = project.find(".project-content .desc").html();
     var keywords = project.find(".project-content .keywords").html();
-    console.log("title : " + title);
-    console.log("catergory :" + category);
-    console.log("iconSrc :" + iconSrc);
-    console.log("coverSrc :" + coverSrc);
-    console.log("desc :" + desc);
-    console.log("keywords :" + keywords);
+    //    console.log("title : " + title);
+    //    console.log("catergory :" + category);
+    //    console.log("iconSrc :" + iconSrc);
+    //    console.log("coverSrc :" + coverSrc);
+    //    console.log("desc :" + desc);
+    //    console.log("keywords :" + keywords);
 
     projectExpanded.find(".title h4").html(title);
     projectExpanded.find(".category span").html(category);
@@ -180,6 +180,13 @@ $(document).ready(function () {
             isProjectExpanded = false;
         }
     });
+});
+
+$(window).on('popstate', function (event) {
+    if (isProjectExpanded) {
+        projectExpanded.css("display", "none");
+        isProjectExpanded = false;
+    }
 });
 
 $(document).scroll(function () {

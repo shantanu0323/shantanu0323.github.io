@@ -23,6 +23,28 @@ var setActive = function (anchor) {
     anchor.parent().addClass("active");
 };
 
+var loadData = function (project, projectExpanded) {
+    var title = project.find(".project__title a").html();
+    var category = project.find(".project__category a").html();
+    var iconSrc = project.find(".project-content .icon").html();
+    var coverSrc = project.find(".project__image img").attr("src");
+    var desc = project.find(".project-content .desc").html();
+    var keywords = project.find(".project-content .keywords").html();
+    console.log("title : " + title);
+    console.log("catergory :" + category);
+    console.log("iconSrc :" + iconSrc);
+    console.log("coverSrc :" + coverSrc);
+    console.log("desc :" + desc);
+    console.log("keywords :" + keywords);
+
+    projectExpanded.find(".title h4").html(title);
+    projectExpanded.find(".category span").html(category);
+    projectExpanded.find(".icon img").attr("src", iconSrc);
+    projectExpanded.find(".cover img").attr("src", coverSrc);
+    projectExpanded.find(".desc p").html(desc);
+    projectExpanded.find(".keywords p").html(keywords);
+};
+
 var alreadyCounted = false;
 var alreadyRevealedServices = false;
 var alreadyRevealedProjects = false;
@@ -145,17 +167,18 @@ $(document).ready(function () {
     $(".project").each(function (index, value) {
         $(this).click(function () {
             if (!isProjectExpanded) {
+                loadData($(this), projectExpanded);
                 projectExpanded.css("display", "block");
                 isProjectExpanded = true;
             }
         })
     });
-    
-    $(".project-expanded").click(function() {
-        if(isProjectExpanded) {
+
+    $(".project-expanded").click(function () {
+        if (isProjectExpanded) {
             projectExpanded.css("display", "none");
             isProjectExpanded = false;
-        } 
+        }
     });
 });
 
@@ -227,10 +250,10 @@ $(document).scroll(function () {
 
     $(".projects-gallery .item .project").each(function (index, value) {
         if (scrollPos >= ($(this).parent().position().top - halfScr)) {
-            console.log("trigger : " + index);
+            //            console.log("trigger : " + index);
             $(this).addClass("project-active");
         } else {
-            console.log("sink : " + index);
+            //            console.log("sink : " + index);
             $(this).removeClass("project-active");
         }
     });

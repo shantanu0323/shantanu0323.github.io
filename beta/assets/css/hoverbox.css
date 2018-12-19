@@ -108,17 +108,24 @@
         transform: translateY(40px) scale(0);
         will-change: transform;
     }
-    
+
     .project__category a {
-        color: rgba(255, 255, 255, 0.8);
+        color: #94081d;
+        text-shadow: 0px 0px 1px black;
         font-size: 1.3em;
     }
 
+    .project-active {
+        overflow: hidden;
+    }
     .project-active .project__image {
-        transition: filter 0.8s;
+        transition: filter 0.3s;
     }
 
-    .project-active .project__image {}
+    .project-active .project__image {
+        filter: blur(2px);
+    }
+
 }
 
 

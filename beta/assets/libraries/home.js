@@ -1,3 +1,8 @@
+var alreadyCounted = false;
+var alreadyRevealedServices = false;
+var alreadyRevealedProjects = false;
+var isProjectExpanded = false;
+
 var collapseNavBar = function () {
     $(".navbar").addClass("top-nav-collapse");
     $(".navbar-brand").addClass("col-lg-6");
@@ -30,12 +35,13 @@ var loadData = function (project, projectExpanded) {
     var coverSrc = project.find(".project__image img").attr("src");
     var desc = project.find(".project-content .desc").html();
     var keywords = project.find(".project-content .keywords").html();
-    //    console.log("title : " + title);
-    //    console.log("catergory :" + category);
-    //    console.log("iconSrc :" + iconSrc);
-    //    console.log("coverSrc :" + coverSrc);
-    //    console.log("desc :" + desc);
-    //    console.log("keywords :" + keywords);
+    var urlToImage = "url('" + coverSrc + "')";
+    //        console.log("title : " + title);
+    //        console.log("catergory :" + category);
+    //        console.log("iconSrc :" + iconSrc);
+    //        console.log("coverSrc :" + coverSrc);
+    //        console.log("desc :" + desc);
+    //        console.log("keywords :" + keywords);
 
     projectExpanded.find(".title h4").html(title);
     projectExpanded.find(".category span").html(category);
@@ -43,12 +49,200 @@ var loadData = function (project, projectExpanded) {
     projectExpanded.find(".cover img").attr("src", coverSrc);
     projectExpanded.find(".desc p").html(desc);
     projectExpanded.find(".keywords p").html(keywords);
+
 };
 
-var alreadyCounted = false;
-var alreadyRevealedServices = false;
-var alreadyRevealedProjects = false;
-var isProjectExpanded = false;
+var revealProjectExpanded = function (projectExpanded) {
+    projectExpanded.css("display", "block");
+    var icon = projectExpanded.find(".icon");
+    var cover = projectExpanded.find(".cover");
+    var btnGoto = projectExpanded.find(".btn-goto");
+    var title = projectExpanded.find(".title");
+    var category = projectExpanded.find(".category");
+    var desc = projectExpanded.find(".desc");
+    var keywords = projectExpanded.find(".keywords");
+    var close = projectExpanded.find(".close");
+    var projectContainer = projectExpanded.find(".project-container");
+
+    icon.css({
+        "top": "-10%",
+        "left": "-10%",
+        "opacity": "0"
+    });
+    cover.css({
+        "left": "50%",
+        "opacity": "0"
+    });
+    btnGoto.css({
+        "transform": "scale(0,0) translateY(-50%)",
+        "opacity": "1",
+        "transition": "transform 0.3s"
+    });
+    title.css({
+        "left": "50%",
+        "opacity": "0"
+    });
+    category.css({
+        "left": "50%",
+        "opacity": "0"
+    });
+    desc.css({
+        "top": "100%",
+        "opacity": "0"
+    });
+    keywords.css({
+        "bottom": "-10%",
+        "opacity": "0"
+    });
+    close.css({
+        "opacity": "0"
+    });
+    projectContainer.css({
+        "box-shadow": "none",
+        "transition": "0.8s"
+        //        "opacity": "0",
+        //        "width" : "0",
+        //        "height" : "0"
+    });
+
+//    projectContainer.before().css({
+//        "top": "0%"
+//    })
+
+    icon.animate({
+        "top": "0",
+        "left": "0",
+        "opacity": "1"
+    }, 800);
+
+    setTimeout(function () {
+        cover.animate({
+            "left": "0%",
+            "opacity": "1"
+        }, 500);
+    }, 100);
+
+    setTimeout(function () {
+        btnGoto.css({
+            "transform": "scale(1,1) translateY(-50%)",
+            "opacity": "1"
+        });
+    }, 300);
+
+    setTimeout(function () {
+        title.animate({
+            "left": "15px",
+            "opacity": "1"
+        }, 500);
+    }, 200);
+
+    setTimeout(function () {
+        category.animate({
+            "left": "15px",
+            "opacity": "1"
+        }, 500);
+    }, 300);
+
+    setTimeout(function () {
+        desc.animate({
+            "top": "50%",
+            "opacity": "1"
+        }, 500);
+    }, 200);
+
+    setTimeout(function () {
+        keywords.animate({
+            "bottom": "0%",
+            "opacity": "1"
+        }, 500);
+    }, 300);
+
+    setTimeout(function () {
+        close.animate({
+            "opacity": "1"
+        }, 200);
+    }, 600);
+
+    setTimeout(function () {
+        projectContainer.css({
+            "box-shadow": "0px 0px 1000px 10px rgba(0, 0, 0, 0.9)"
+        });
+    }, 600);
+//
+//    setTimeout(function () {
+//        projectContainer.before().animate({
+//            "top": "50%"
+//        }, 500);
+//    }, 200);
+
+    isProjectExpanded = true;
+};
+
+var dismissProjectExpanded = function (projectExpanded) {
+    var icon = projectExpanded.find(".icon");
+    var cover = projectExpanded.find(".cover");
+    var btnGoto = projectExpanded.find(".btn-goto");
+    var title = projectExpanded.find(".title");
+    var category = projectExpanded.find(".category");
+    var desc = projectExpanded.find(".desc");
+    var keywords = projectExpanded.find(".keywords");
+    var close = projectExpanded.find(".close");
+    var projectContainer = projectExpanded.find(".project-container");
+
+    projectContainer.css({
+        "box-shadow": "none",
+        "transition": "0.8s"
+    });
+    setTimeout(function () {
+        icon.animate({
+            "top": "-20%",
+            "left": "-20%"
+        }, 1000);
+
+        cover.animate({
+            "left": "50%",
+            "opacity": "0"
+        }, 500);
+
+        btnGoto.css({
+            "transform": "scale(0,0) translateY(-50%)",
+            "opacity": "1",
+            "transition": "transform 0.3s"
+        });
+
+        title.animate({
+            "left": "50%",
+            "opacity": "0"
+        }, 500);
+
+        category.animate({
+            "left": "50%",
+            "opacity": "0"
+        }, 500);
+
+        desc.animate({
+            "top": "100%",
+            "opacity": "0"
+        }, 500);
+
+        keywords.animate({
+            "bottom": "-10%",
+            "opacity": "0"
+        }, 500);
+
+        close.animate({
+            "opacity": "0"
+        }, 500);
+
+        setTimeout(function () {
+            projectExpanded.css({
+                "display": "none"
+            });
+            isProjectExpanded = false;
+        }, 500);
+
+    }, 200);
+};
 
 $(document).ready(function () {
 
@@ -168,26 +362,24 @@ $(document).ready(function () {
         $(this).click(function () {
             if (!isProjectExpanded) {
                 loadData($(this), projectExpanded);
-                projectExpanded.css("display", "block");
-                isProjectExpanded = true;
+                revealProjectExpanded(projectExpanded);
             }
         })
     });
 
     $(".project-expanded").click(function () {
         if (isProjectExpanded) {
-            projectExpanded.css("display", "none");
-            isProjectExpanded = false;
+            dismissProjectExpanded(projectExpanded);
         }
     });
-    
-    
-    $('body').backDetect(function () {
+
+
+    $('body').backDetect(function (event) {
         // Callback function
         alert("Look forward to the future, not the past!");
         if (isProjectExpanded) {
-            projectExpanded.css("display", "none");
-            isProjectExpanded = false;
+            dismissProjectExpanded(projectExpanded);
+            event.preventDefault();
         }
     });
 });

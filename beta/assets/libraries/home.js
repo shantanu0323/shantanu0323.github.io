@@ -49,6 +49,12 @@ var loadData = function (project, projectExpanded) {
     projectExpanded.find(".cover img").attr("src", coverSrc);
     projectExpanded.find(".desc p").html(desc);
     projectExpanded.find(".keywords p").html(keywords);
+    projectExpanded.find(".blurred").css({
+        "background": urlToImage,
+        "background-repeat": "no-repeat",
+        "background-size": "cover",
+        "background-position": "bottom right"
+    });
 
 };
 
@@ -63,6 +69,8 @@ var revealProjectExpanded = function (projectExpanded) {
     var keywords = projectExpanded.find(".keywords");
     var close = projectExpanded.find(".close");
     var projectContainer = projectExpanded.find(".project-container");
+    var blurred = projectExpanded.find(".blurred");
+    var tint = projectExpanded.find(".tint");
 
     icon.css({
         "top": "-10%",
@@ -109,9 +117,18 @@ var revealProjectExpanded = function (projectExpanded) {
         "transition": "0.8s"
     });
 
-    //    projectContainer.before().css({
-    //        "top": "0%"
-    //    })
+    blurred.css({
+        "top": "-110%",
+        "transform": "translate(-50%,-50%) scale(1)",
+        "transition": "0.5s",
+        "opacity": "0"
+    });
+
+    tint.css({
+        "bottom": "-100",
+        "opacity": "0",
+        "transition": "0.5s"
+    });
 
     icon.css({
         "top": "0",
@@ -125,6 +142,18 @@ var revealProjectExpanded = function (projectExpanded) {
             "opacity": "1"
         });
     }, 100);
+
+    setTimeout(function () {
+        blurred.css({
+            "top": "50%",
+            "transform": "translate(-50%,-50%) scale(2)",
+            "opacity": "1"
+        });
+        tint.css({
+            "bottom": "0%",
+            "opacity": "1"
+        })
+    }, 200);
 
     setTimeout(function () {
         btnGoto.css({
@@ -186,6 +215,8 @@ var dismissProjectExpanded = function (projectExpanded) {
     var keywords = projectExpanded.find(".keywords");
     var close = projectExpanded.find(".close");
     var projectContainer = projectExpanded.find(".project-container");
+    var blurred = projectExpanded.find(".blurred");
+    var tint = projectExpanded.find(".tint");
 
     projectContainer.css({
         "box-shadow": "none",
@@ -202,6 +233,19 @@ var dismissProjectExpanded = function (projectExpanded) {
             "transition": "0.5s",
             "left": "50%",
             "opacity": "0"
+        });
+
+        blurred.css({
+            "top": "-110%",
+            "transform": "translate(-50%,-50%) scale(1)",
+            "transition": "0.5s",
+            "opacity": "0"
+        });
+
+        tint.css({
+            "bottom": "-100",
+            "opacity": "0",
+            "transition": "0.5s"
         });
 
         btnGoto.css({
@@ -464,7 +508,7 @@ $(document).scroll(function () {
     //    }
 
     $(".projects-gallery .item .project").each(function (index, value) {
-        if (scrollPos >= ($(this).parent().position().top - halfScr)) {
+        if (scrollPos >= ($(this).parent().position().top - (halfScr * 1.5))) {
             //            console.log("trigger : " + index);
             $(this).addClass("project-active");
         } else {

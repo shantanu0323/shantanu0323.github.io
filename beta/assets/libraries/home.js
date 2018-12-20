@@ -67,11 +67,13 @@ var revealProjectExpanded = function (projectExpanded) {
     icon.css({
         "top": "-10%",
         "left": "-10%",
-        "opacity": "0"
+        "opacity": "0",
+        "transition": "0.8s"
     });
     cover.css({
         "left": "50%",
-        "opacity": "0"
+        "opacity": "0",
+        "transition": "0.5s"
     });
     btnGoto.css({
         "transform": "scale(0,0) translateY(-50%)",
@@ -80,46 +82,48 @@ var revealProjectExpanded = function (projectExpanded) {
     });
     title.css({
         "left": "50%",
-        "opacity": "0"
+        "opacity": "0",
+        "transition": "0.5s"
     });
     category.css({
         "left": "50%",
-        "opacity": "0"
+        "opacity": "0",
+        "transition": "0.5s"
     });
     desc.css({
         "top": "100%",
-        "opacity": "0"
+        "opacity": "0",
+        "transition": "0.5s"
     });
     keywords.css({
         "bottom": "-10%",
-        "opacity": "0"
+        "opacity": "0",
+        "transition": "0.5s"
     });
     close.css({
-        "opacity": "0"
+        "opacity": "0",
+        "transition": "0.2s"
     });
     projectContainer.css({
         "box-shadow": "none",
         "transition": "0.8s"
-        //        "opacity": "0",
-        //        "width" : "0",
-        //        "height" : "0"
     });
 
-//    projectContainer.before().css({
-//        "top": "0%"
-//    })
+    //    projectContainer.before().css({
+    //        "top": "0%"
+    //    })
 
-    icon.animate({
+    icon.css({
         "top": "0",
         "left": "0",
         "opacity": "1"
-    }, 800);
+    });
 
     setTimeout(function () {
-        cover.animate({
+        cover.css({
             "left": "0%",
             "opacity": "1"
-        }, 500);
+        });
     }, 100);
 
     setTimeout(function () {
@@ -130,37 +134,37 @@ var revealProjectExpanded = function (projectExpanded) {
     }, 300);
 
     setTimeout(function () {
-        title.animate({
+        title.css({
             "left": "15px",
             "opacity": "1"
-        }, 500);
+        });
     }, 200);
 
     setTimeout(function () {
-        category.animate({
+        category.css({
             "left": "15px",
             "opacity": "1"
-        }, 500);
+        });
     }, 300);
 
     setTimeout(function () {
-        desc.animate({
+        desc.css({
             "top": "50%",
             "opacity": "1"
-        }, 500);
+        });
     }, 200);
 
     setTimeout(function () {
-        keywords.animate({
+        keywords.css({
             "bottom": "0%",
             "opacity": "1"
-        }, 500);
+        });
     }, 300);
 
     setTimeout(function () {
-        close.animate({
+        close.css({
             "opacity": "1"
-        }, 200);
+        });
     }, 600);
 
     setTimeout(function () {
@@ -168,12 +172,6 @@ var revealProjectExpanded = function (projectExpanded) {
             "box-shadow": "0px 0px 1000px 10px rgba(0, 0, 0, 0.9)"
         });
     }, 600);
-//
-//    setTimeout(function () {
-//        projectContainer.before().animate({
-//            "top": "50%"
-//        }, 500);
-//    }, 200);
 
     isProjectExpanded = true;
 };
@@ -194,15 +192,17 @@ var dismissProjectExpanded = function (projectExpanded) {
         "transition": "0.8s"
     });
     setTimeout(function () {
-        icon.animate({
+        icon.css({
+            "transition": "1s",
             "top": "-20%",
             "left": "-20%"
-        }, 1000);
+        });
 
-        cover.animate({
+        cover.css({
+            "transition": "0.5s",
             "left": "50%",
             "opacity": "0"
-        }, 500);
+        });
 
         btnGoto.css({
             "transform": "scale(0,0) translateY(-50%)",
@@ -210,29 +210,34 @@ var dismissProjectExpanded = function (projectExpanded) {
             "transition": "transform 0.3s"
         });
 
-        title.animate({
+        title.css({
+            "transition": "0.5s",
             "left": "50%",
             "opacity": "0"
-        }, 500);
+        });
 
-        category.animate({
+        category.css({
+            "transition": "0.5s",
             "left": "50%",
             "opacity": "0"
-        }, 500);
+        });
 
-        desc.animate({
+        desc.css({
+            "transition": "0.5s",
             "top": "100%",
             "opacity": "0"
-        }, 500);
+        });
 
-        keywords.animate({
+        keywords.css({
+            "transition": "0.5s",
             "bottom": "-10%",
             "opacity": "0"
-        }, 500);
+        });
 
-        close.animate({
+        close.css({
+            "transition": "0.5s",
             "opacity": "0"
-        }, 500);
+        });
 
         setTimeout(function () {
             projectExpanded.css({

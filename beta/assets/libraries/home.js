@@ -1,5 +1,10 @@
-window.onload = function() {
-    alert("hola"); 
+window.onload = function () {
+    setTimeout(function () {
+        $(".loading-screen").css({
+            "opacity": "0",
+            "transition": "0.3s"
+        });
+    }, 1000);
 };
 var alreadyCounted = false;
 var alreadyRevealedServices = false;
@@ -378,7 +383,7 @@ $(document).ready(function () {
 
         var typed = new Typed(".tagline", options);
 
-    }, 1000);
+    }, 1500);
 
     $(document).ready(function () {
         $(".owl-carousel").owlCarousel({
@@ -526,16 +531,16 @@ $(document).scroll(function () {
         }
     });
 
-    var anchor = $(".about-skills").position().top -halfScr;
+    var anchor = $(".about-skills").position().top - halfScr;
     if ($(window).width() >= 480) {
         anchor = aboutPos - halfScr;
     }
-    
+
     if (!alreadyRevealedSkills && scrollPos >= anchor) {
-//        alert("Hi");
+        //        alert("Hi");
         $(".progress-bar").each(function (index, value) {
             var widthVal = $(this).attr("title");
-//            console.log(widthVal);
+            //            console.log(widthVal);
             $(this).css({
                 "transition": "0.5s",
                 "width": widthVal

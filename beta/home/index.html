@@ -14,10 +14,19 @@
     <link rel="stylesheet" href="../assets/css/home-xs.css">
     <link rel="stylesheet" href="../assets/css/home-sm.css">
     <link rel="stylesheet" href="../assets/css/hoverbox.css">
+    <link rel="stylesheet" href="../assets/css/loading-screen.css">
 </head>
 
 <body>
-
+    <div class="loading-screen">
+        <div class="square-container">
+            <div class="square sq-1"><div></div></div>
+            <div class="square sq-2"><div></div></div>
+            <div class="square sq-3"><div></div></div>
+            <div class="square sq-4"><div></div></div>
+            <div class="square sq-5"><div></div></div>
+        </div>
+    </div>
     <section id="home" class="bg-cover" style="height: 100vh; weight:100vw">
         <!-- NAV BAR-->
         <div class="container-fluid">
@@ -369,7 +378,10 @@
                 </div>
                 <div class="btn-goto"><button><a href="">Go to Project</a></button></div>
                 <div class="close align-middle text-center"><button class="align-middle"><i class="fas fa-times"></i></button></div>
-                <div class="bg"><div class="blurred"></div><div class="tint"></div></div>
+                <div class="bg">
+                    <div class="blurred"></div>
+                    <div class="tint"></div>
+                </div>
             </div>
         </div>
     </section>

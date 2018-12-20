@@ -1,3 +1,6 @@
+window.onload = function() {
+    alert("hola"); 
+};
 var alreadyCounted = false;
 var alreadyRevealedServices = false;
 var alreadyRevealedProjects = false;

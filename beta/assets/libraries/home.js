@@ -1,10 +1,71 @@
 window.onload = function () {
+    $(".first-name").css({
+                "opacity": "0",
+                "left": "50%"
+            });
+
+            $(".last-name").css({
+                "opacity": "0",
+                "left": "-40%"
+            });
+
     setTimeout(function () {
         $(".loading-screen").css({
             "opacity": "0",
             "transition": "0.3s"
         });
-    }, 1000);
+        setTimeout(function () {
+            $(".loading-screen").css("display", "none");
+            $(".tagline-container").hide();
+            $(".count").css("opacity", "0");
+
+            var options = {
+                strings: ["", "Enthusiastic Coder", "Android Developer", "Opportunity Seeker", "Web Developer", "Creative Designer"],
+                typeSpeed: 40,
+                backSpeed: 30,
+                backDelay: 300,
+                startDelay: 0,
+                loop: true,
+                showCursor: false,
+                loopCount: Infinity,
+                onLastStringBackspaced: (self) => {
+                    $(".tagline-container").hide();
+                },
+                preStringTyped: (arrayPos, self) => {
+                    if (arrayPos == 1) {
+                        //                alert("trigger 1");
+                        $(".tagline-container").show();
+                    }
+                }
+            }
+
+
+            var leftTargetFirstName = "-10%";
+            var leftTargetLastName = "20%";
+            if ($(window).width() > 480) {
+                leftTargetFirstName = "-60%";
+                leftTargetLastName = "30%";
+            }
+
+            setTimeout(function () {
+                $(".first-name").animate({
+                    "opacity": "1",
+                    "left": leftTargetFirstName
+                }, 1000);
+
+
+                $(".last-name").animate({
+                    "opacity": "1",
+                    "left": leftTargetLastName
+                }, 1000);
+
+                var typed = new Typed(".tagline", options);
+
+            }, 0);
+
+        }, 300);
+
+    }, 600);
 };
 var alreadyCounted = false;
 var alreadyRevealedServices = false;
@@ -328,62 +389,7 @@ $(document).ready(function () {
         });
     })
 
-    $(".tagline-container").hide();
 
-    var options = {
-        strings: ["", "Enthusiastic Coder", "Android Developer", "Opportunity Seeker", "Web Developer", "Creative Designer"],
-        typeSpeed: 40,
-        backSpeed: 30,
-        backDelay: 300,
-        startDelay: 0,
-        loop: true,
-        showCursor: false,
-        loopCount: Infinity,
-        onLastStringBackspaced: (self) => {
-            $(".tagline-container").hide();
-        },
-        preStringTyped: (arrayPos, self) => {
-            if (arrayPos == 1) {
-                //                alert("trigger 1");
-                $(".tagline-container").show();
-            }
-        }
-    }
-
-    $(".count").css("opacity", "0");
-
-    var leftTargetFirstName = "-10%";
-    var leftTargetLastName = "20%";
-    if ($(window).width() > 480) {
-        leftTargetFirstName = "-60%";
-        leftTargetLastName = "30%";
-    }
-
-    $(".first-name").css({
-        "opacity": "0",
-        "left": "50%"
-    });
-
-    $(".last-name").css({
-        "opacity": "0",
-        "left": "-40%"
-    });
-
-    setTimeout(function () {
-        $(".first-name").animate({
-            "opacity": "1",
-            "left": leftTargetFirstName
-        }, 1000);
-
-
-        $(".last-name").animate({
-            "opacity": "1",
-            "left": leftTargetLastName
-        }, 1000);
-
-        var typed = new Typed(".tagline", options);
-
-    }, 1500);
 
     $(document).ready(function () {
         $(".owl-carousel").owlCarousel({

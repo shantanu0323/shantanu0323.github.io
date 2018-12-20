@@ -1,6 +1,7 @@
 var alreadyCounted = false;
 var alreadyRevealedServices = false;
 var alreadyRevealedProjects = false;
+var alreadyRevealedSkills = false;
 var isProjectExpanded = false;
 
 var collapseNavBar = function () {
@@ -431,6 +432,11 @@ $(document).ready(function () {
             event.preventDefault();
         }
     });
+
+    $(".progress-bar").each(function (index, value) {
+        $(this).css("width", "0");
+    });
+
 });
 
 
@@ -517,6 +523,24 @@ $(document).scroll(function () {
         }
     });
 
+    var anchor = $(".about-skills").position().top -halfScr;
+    if ($(window).width() >= 480) {
+        anchor = aboutPos - halfScr;
+    }
+    
+    if (!alreadyRevealedSkills && scrollPos >= anchor) {
+//        alert("Hi");
+        $(".progress-bar").each(function (index, value) {
+            var widthVal = $(this).attr("title");
+//            console.log(widthVal);
+            $(this).css({
+                "transition": "0.5s",
+                "width": widthVal
+            });
+        });
+        alreadyRevealedSkills = true;
+    }
+
     if (scrollPos == 0) {
         $(".navbar .active").removeClass("active");
     } else if (scrollPos > 0 && scrollPos < (aboutPos - halfScr)) {
@@ -532,5 +556,6 @@ $(document).scroll(function () {
     } else if (scrollPos >= contactPos) {
         setActive(navContact);
     }
+
 
 });

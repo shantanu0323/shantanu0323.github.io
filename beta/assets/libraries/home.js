@@ -72,6 +72,7 @@ var alreadyCounted = false;
 var alreadyRevealedServices = false;
 var alreadyRevealedProjects = false;
 var alreadyRevealedAchievements = false;
+var alreadyRevealedContact = false;
 var alreadyRevealedSkills = false;
 var isProjectExpanded = false;
 var projectExpanded = $(".project-expanded");
@@ -594,7 +595,7 @@ $(document).ready(function () {
         //        console.log('callback - particles.js config loaded');
     });
 
-    $(".services-heading, .projects-heading, .achievements-heading").css({
+    $(".services-heading, .projects-heading, .achievements-heading, .contact-heading").css({
         "opacity": "0",
         "top": "-80px"
     });
@@ -602,6 +603,7 @@ $(document).ready(function () {
     $(".nav-link").click(function () {
         var anchor = $(this);
         setActive(anchor);
+        $(".navbar-collapse").collapse("hide");
     });
 
     $(".navbar-toggler").click(function () {
@@ -763,12 +765,19 @@ $(document).scroll(function () {
     }
 
     if (!alreadyRevealedAchievements && scrollPos >= ($(".achievements-heading").offset().top - (halfScr * 1.65))) {
-//        alert($(".achievements-heading").offset().top);
         $(".achievements-heading").animate({
             "opacity": "1",
             "top": "0px"
         }, 1000);
         alreadyRevealedAchievements = true;
+    }
+
+    if (!alreadyRevealedContact && scrollPos >= ($(".contact-heading").offset().top - (halfScr * 1.65))) {
+        $(".contact-heading").animate({
+            "opacity": "1",
+            "top": "0px"
+        }, 1000);
+        alreadyRevealedContact = true;
     }
 
     //    console.log("scrollPos : " + scrollPos + " ; project : " + ($(".projects-gallery .item").position().top - halfScr));
@@ -818,7 +827,7 @@ $(document).scroll(function () {
         setActive(navProjects);
     } else if (scrollPos >= achievementsPos && scrollPos < (contactPos - halfScr)) {
         setActive(navAchievements);
-    } else if (scrollPos >= contactPos) {
+    } else if (scrollPos >= contactPos - halfScr) {
         setActive(navContact);
     }
 

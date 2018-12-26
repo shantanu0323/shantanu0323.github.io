@@ -454,7 +454,7 @@ section#services {
     background-repeat: no-repeat;
     background-position: center;
     margin-top: 20px;
-/*    padding-top: 50px;*/
+    /*    padding-top: 50px;*/
 }
 
 #achievements::before {
@@ -463,7 +463,7 @@ section#services {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.6);
+    background: rgba(0, 0, 0, 0.6);
     content: "";
     z-index: 0;
 }
@@ -482,7 +482,7 @@ section#services {
     margin: 0px 0px 0px 0px;
 }
 
-.achievements-carousel .owl-carousel .item > div{ 
+.achievements-carousel .owl-carousel .item > div {
     margin: 0px;
     padding: 0px;
 }
@@ -492,20 +492,21 @@ section#services {
     margin-top: 0px;
 }
 
-.achievements-carousel .badge{
+.achievements-carousel .badge {
     padding: 10px;
 }
-.achievements-carousel .badge img{
+
+.achievements-carousel .badge img {
     width: 100%;
     height: auto;
 }
 
 .achievements-carousel .title-content {
-/*    height: 100%;*/
+    /*    height: 100%;*/
     position: absolute;
     top: 50%;
     left: 0%;
-    transform: translate(0%,-50%);
+    transform: translate(0%, -50%);
     text-align: left;
     padding-left: 10px;
     padding-right: 10px;
@@ -515,6 +516,172 @@ section#services {
 .achievements-carousel .title-content span {
     font-size: 0.7em;
     color: #ccc;
+}
+
+#contact {
+    position: relative;
+    background: url("../images/proj-exp-cover.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 100;
+    overflow: hidden;
+}
+
+#contact::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    content: "";
+    z-index: -1;
+}
+
+.contact-heading {
+    color: white;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+}
+
+.contact-form .submit input {
+    width: auto;
+}
+
+.contact-form .message-input textarea {
+    height: 150px;
+}
+
+.contact-contents {
+    margin-top: 80px;
+    padding-bottom: 80px;
+}
+
+.contact-form label {
+    color: rgb(250, 250, 250);
+}
+
+.my-info {
+    text-align: left;
+    position: relative;
+}
+
+.my-info-contents {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.my-email a {
+    text-decoration: none;
+    color: rgb(250, 250, 250);
+}
+
+.my-info .my-email,
+.my-info .my-phone,
+.my-info .my-location {
+    margin-bottom: 10px;
+    width: auto;
+    padding-left: 40px;
+    color: rgb(250, 250, 250);
+    text-shadow: 1px 1px 0px rgba(147, 8, 29, 0.9);
+}
+
+.my-info .my-email i,
+.my-info .my-phone i,
+.my-info .my-location i {
+    padding-right: 10px;
+    color: #94081d;
+    text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.3);
+}
+
+.social-links {
+    padding-left: 30px;
+    margin-top: 20px;
+}
+
+.social-links a:hover i {
+    transition: 0.3s;
+    color: #94081d;
+    cursor: pointer;
+    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.4);
+}
+
+.social-links i {
+    font-size: 2em;
+    color: white;
+    text-shadow: 1px 1px 0px #94081d;
+}
+
+.contact-form .submit button {
+    background: none;
+    color: white;
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 5px 15px 5px 15px;
+    letter-spacing: 1px;
+}
+
+.contact-form .submit button {
+    position: relative;
+    /*    display: inline-block;*/
+    /*    background: white;*/
+    overflow: hidden;
+    transition: all 0.5s;
+    /*    width: auto;*/
+    z-index: 1;
+
+}
+
+.contact-form .submit button:hover {
+    /*    color: #94081d;*/
+    /*    border: 1px solid #94081d;*/
+    cursor: pointer;
+    z-index: 1;
+    /*    background: white;*/
+}
+
+.contact-form .submit button::before {
+    position: absolute;
+    display: block;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+    background: #94081d;
+    content: "";
+    width: 200%;
+    height: 0%;
+    z-index: -1;
+    transition: 0.5s;
+}
+
+.contact-form .submit button:hover::before {
+    height: 300%;
+}
+
+#footer {
+    padding: 30px 50px 30px 50px;
+    background: #111;
+    color: #bbbbbb;
+}
+
+#footer i {
+    color: #94081d;
+    font-size: 1.2em
+}
+
+#footer span {
+    color: white;
+    transition: 0.3s;
+}
+
+#footer span:hover {
+    text-shadow: 0px 0px 1px rgba(0, 100, 255, 1);
+    cursor: pointer;
 }
 
 @media screen and (max-width: 479px) {
@@ -777,5 +944,35 @@ section#services {
         font-size: 1.5em;
         color: #ccc;
     }
-    
+
+    .contact-form .message-input textarea {
+        height: 100px;
+    }
+
+    .contact-contents {
+        margin-top: 30px;
+    }
+
+    .contact-form label {
+        margin-left: 5px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        margin-bottom: 10px;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        background: rgba(255, 255, 255, 0.4);
+        color: black;
+    }
+
+    .contact-form input::placeholder,
+    .contact-form textarea::placeholder {
+        color: #111;
+    }
+
+    .my-info {
+        margin-top: 20px;
+    }
 }

@@ -124,7 +124,7 @@
         left: 0;
         background: rgba(0, 0, 0, 0.65);
         border-radius: 0px 15px 30px 0px;
-/*        z-index: 2;*/
+        /*        z-index: 2;*/
     }
 
     .project-expanded .close {
@@ -313,7 +313,7 @@
         padding-right: 30px;
         padding-left: 80px;
         font-size: 14px;
-/*        background: green;*/
+        /*        background: green;*/
         z-index: -1;
     }
 
@@ -328,12 +328,40 @@
     }
 
     .keywords p {
-                font-size: 1.5em;
+        font-size: 1.5em;
     }
+
     .keywords strong {
         font-size: 1.6em;
         color: #94081d;
         text-shadow: 0px 1px 2px white;
     }
 
+    #achievements {
+        margin-top: 120px;
+    }
+
+    .achievements-carousel .badge {
+        padding: 10px;
+        height: 50%;
+    }
+
+    .achievements-carousel .badge img {
+        width: auto;
+        height: 80%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .achievements-carousel .title {
+        height: 50%;
+    }
+
+    .achievements-carousel .title-content {
+        text-align: center;
+        margin-left: 5px;
+        font-size: 2em;
+    }
 }

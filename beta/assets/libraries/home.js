@@ -71,6 +71,7 @@ window.onload = function () {
 var alreadyCounted = false;
 var alreadyRevealedServices = false;
 var alreadyRevealedProjects = false;
+var alreadyRevealedAchievements = false;
 var alreadyRevealedSkills = false;
 var isProjectExpanded = false;
 var projectExpanded = $(".project-expanded");
@@ -137,14 +138,14 @@ var loadData = function (project, projectExpanded) {
     projectExpanded.find(".cover img").attr("src", coverSrc);
     projectExpanded.find(".desc p").html(desc);
     projectExpanded.find(".keywords p").html(keywords);
-    projectExpanded.find(".btn-goto button a").attr("href",urlToProject);
+    projectExpanded.find(".btn-goto button a").attr("href", urlToProject);
     projectExpanded.find(".blurred").css({
         "background": urlToImage,
         "background-repeat": "no-repeat",
         "background-size": "cover",
         "background-position": "bottom right"
     });
-    
+
 
 };
 
@@ -153,7 +154,7 @@ var setInitialPosition = function () {
     projectExpanded.css({
         "opacity": "1"
     });
-    
+
     cover.css({
         "left": "-20%",
         "opacity": "0",
@@ -593,7 +594,7 @@ $(document).ready(function () {
         //        console.log('callback - particles.js config loaded');
     });
 
-    $(".services-heading, .projects-heading").css({
+    $(".services-heading, .projects-heading, .achievements-heading").css({
         "opacity": "0",
         "top": "-80px"
     });
@@ -613,7 +614,7 @@ $(document).ready(function () {
         });
     })
 
-    $(".owl-carousel").owlCarousel({
+    $(".services-carousel .owl-carousel").owlCarousel({
         loop: true,
         margin: 10,
         autoplay: true,
@@ -628,6 +629,23 @@ $(document).ready(function () {
             },
             576: {
                 items: 3
+            }
+        }
+
+    });
+
+    $(".achievements-carousel .owl-carousel").owlCarousel({
+        loop: true,
+        margin: 10,
+        autoplay: true,
+        slideBy: 1,
+        autoplayTimeout: 2500,
+        autoplayHoverPause: true,
+        responsiveClass: true,
+        nav: false,
+        responsive: {
+            0: {
+                items: 1
             }
         }
 
@@ -742,6 +760,15 @@ $(document).scroll(function () {
             "top": "0px"
         }, 1000);
         alreadyRevealedProjects = true;
+    }
+
+    if (!alreadyRevealedAchievements && scrollPos >= ($(".achievements-heading").offset().top - (halfScr * 1.65))) {
+//        alert($(".achievements-heading").offset().top);
+        $(".achievements-heading").animate({
+            "opacity": "1",
+            "top": "0px"
+        }, 1000);
+        alreadyRevealedAchievements = true;
     }
 
     //    console.log("scrollPos : " + scrollPos + " ; project : " + ($(".projects-gallery .item").position().top - halfScr));

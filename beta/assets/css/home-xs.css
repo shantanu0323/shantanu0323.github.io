@@ -369,17 +369,17 @@ section#services {
     padding-bottom: 40px;
 }
 
-.owl-carousel .item {
+.services-carousel .owl-carousel .item {
     padding: 20px 20px 10px 20px;
     margin: 0px 10px 0px 10px;
 }
 
-.owl-carousel .item .icon {
+.services-carousel .owl-carousel .item .icon {
     margin-bottom: 50px;
     margin-top: 30px;
 }
 
-.owl-carousel .item .icon i {
+.services-carousel .owl-carousel .item .icon i {
     font-size: 2.5em;
     color: #94081d;
     width: 50px;
@@ -387,17 +387,17 @@ section#services {
     transition: all 0.6s ease-out;
 }
 
-.owl-carousel .item:hover .icon i {
+.services-carousel .owl-carousel .item:hover .icon i {
     color: black;
     transform: rotate(360deg);
 }
 
-.owl-carousel .item h5 {
+.services-carousel .owl-carousel .item h5 {
     transition: 0.3s;
     text-transform: uppercase;
 }
 
-.owl-carousel .item:hover h5 {
+.services-carousel .owl-carousel .item:hover h5 {
     color: #94081d;
 }
 
@@ -444,6 +444,77 @@ section#services {
 
 .project .project-content {
     display: none;
+}
+
+#achievements {
+    position: relative;
+    width: 100%;
+    background: url("../images/bg-achievements.jpeg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-top: 20px;
+/*    padding-top: 50px;*/
+}
+
+#achievements::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    content: "";
+    z-index: 0;
+}
+
+.achievements-heading {
+    color: white;
+}
+
+.achievements-carousel {
+    margin-top: 40px;
+    padding: 0px 20px 40px 20px;
+}
+
+.achievements-carousel .owl-carousel .item {
+    padding: 0px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
+}
+
+.achievements-carousel .owl-carousel .item > div{ 
+    margin: 0px;
+    padding: 0px;
+}
+
+.achievements-carousel .owl-carousel .item .icon {
+    margin-bottom: 0px;
+    margin-top: 0px;
+}
+
+.achievements-carousel .badge{
+    padding: 10px;
+}
+.achievements-carousel .badge img{
+    width: 100%;
+    height: auto;
+}
+
+.achievements-carousel .title-content {
+/*    height: 100%;*/
+    position: absolute;
+    top: 50%;
+    left: 0%;
+    transform: translate(0%,-50%);
+    text-align: left;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-shadow: 1px 1px 0px #94081d;
+}
+
+.achievements-carousel .title-content span {
+    font-size: 0.7em;
+    color: #ccc;
 }
 
 @media screen and (max-width: 479px) {
@@ -706,4 +777,5 @@ section#services {
         font-size: 1.5em;
         color: #ccc;
     }
+    
 }

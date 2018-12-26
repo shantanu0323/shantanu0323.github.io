@@ -1,13 +1,13 @@
 window.onload = function () {
     $(".first-name").css({
-                "opacity": "0",
-                "left": "50%"
-            });
+        "opacity": "0",
+        "left": "50%"
+    });
 
-            $(".last-name").css({
-                "opacity": "0",
-                "left": "-40%"
-            });
+    $(".last-name").css({
+        "opacity": "0",
+        "left": "-40%"
+    });
 
     setTimeout(function () {
         $(".loading-screen").css({
@@ -67,11 +67,25 @@ window.onload = function () {
 
     }, 600);
 };
+
 var alreadyCounted = false;
 var alreadyRevealedServices = false;
 var alreadyRevealedProjects = false;
 var alreadyRevealedSkills = false;
 var isProjectExpanded = false;
+var projectExpanded = $(".project-expanded");
+var icon = projectExpanded.find(".icon");
+var cover = projectExpanded.find(".cover");
+var btnGoto = projectExpanded.find(".btn-goto");
+var title = projectExpanded.find(".title");
+var category = projectExpanded.find(".category");
+var desc = projectExpanded.find(".desc");
+var keywords = projectExpanded.find(".keywords");
+var close = projectExpanded.find(".close");
+var projectContainer = projectExpanded.find(".project-container");
+var bg = projectExpanded.find(".bg");
+var blurred = projectExpanded.find(".blurred");
+var tint = projectExpanded.find(".tint");
 
 var collapseNavBar = function () {
     $(".navbar").addClass("top-nav-collapse");
@@ -128,181 +142,108 @@ var loadData = function (project, projectExpanded) {
 
 };
 
-var revealProjectExpanded = function (projectExpanded) {
-    projectExpanded.css("display", "block");
-    var icon = projectExpanded.find(".icon");
-    var cover = projectExpanded.find(".cover");
-    var btnGoto = projectExpanded.find(".btn-goto");
-    var title = projectExpanded.find(".title");
-    var category = projectExpanded.find(".category");
-    var desc = projectExpanded.find(".desc");
-    var keywords = projectExpanded.find(".keywords");
-    var close = projectExpanded.find(".close");
-    var projectContainer = projectExpanded.find(".project-container");
-    var blurred = projectExpanded.find(".blurred");
-    var tint = projectExpanded.find(".tint");
+var setInitialPosition = function () {
+
+    cover.css({
+        "left": "-20%",
+        "opacity": "0",
+        "width": "0",
+        "height": "0",
+        "transition": "0.5s"
+    });
 
     icon.css({
-        "top": "-10%",
-        "left": "-10%",
-        "opacity": "0",
-        "transition": "0.8s"
-    });
-    cover.css({
-        "left": "50%",
-        "opacity": "0",
-        "transition": "0.5s"
-    });
-    btnGoto.css({
-        "transform": "scale(0,0) translateY(-50%)",
-        "opacity": "1",
-        "transition": "transform 0.3s"
-    });
-    title.css({
-        "left": "50%",
-        "opacity": "0",
-        "transition": "0.5s"
-    });
-    category.css({
-        "left": "50%",
-        "opacity": "0",
-        "transition": "0.5s"
-    });
-    desc.css({
-        "top": "100%",
-        "opacity": "0",
-        "transition": "0.5s"
-    });
-    keywords.css({
-        "bottom": "-10%",
-        "opacity": "0",
-        "transition": "0.5s"
-    });
-    close.css({
-        "opacity": "0",
-        "transition": "0.2s"
-    });
-    projectContainer.css({
-        "box-shadow": "none",
-        "transition": "0.8s"
-    });
-
-    blurred.css({
-        "top": "-110%",
-        "transform": "translate(-50%,-50%) scale(1)",
-        "transition": "0.5s",
+        "top": "150px",
+        "left": "150px",
         "opacity": "0"
     });
 
-    tint.css({
-        "bottom": "-100",
+    bg.css({
+        "left": "30%",
+        "width": "0",
+        "opacity": "0.7"
+    });
+
+    title.css({
+        "left": "40%",
+        "opacity": "0"
+    });
+
+    category.css({
+        "left": "40%",
+        "opacity": "0"
+    });
+
+    desc.css({
+        "top": "290px",
         "opacity": "0",
-        "transition": "0.5s"
     });
 
-    icon.css({
-        "top": "0",
-        "left": "0",
-        "opacity": "1"
+    keywords.css({
+        "bottom": "150px",
+        "opacity": "0",
     });
 
-    setTimeout(function () {
-        cover.css({
-            "left": "0%",
-            "opacity": "1"
-        });
-    }, 100);
-
-    setTimeout(function () {
-        blurred.css({
-            "top": "50%",
-            "transform": "translate(-50%,-50%) scale(2)",
-            "opacity": "1"
-        });
-        tint.css({
-            "bottom": "0%",
-            "opacity": "1"
-        })
-    }, 200);
-
-    setTimeout(function () {
-        btnGoto.css({
-            "transform": "scale(1,1) translateY(-50%)",
-            "opacity": "1"
-        });
-    }, 300);
-
-    setTimeout(function () {
-        title.css({
-            "left": "15px",
-            "opacity": "1"
-        });
-    }, 200);
-
-    setTimeout(function () {
-        category.css({
-            "left": "15px",
-            "opacity": "1"
-        });
-    }, 300);
-
-    setTimeout(function () {
-        desc.css({
-            "top": "50%",
-            "opacity": "1"
-        });
-    }, 200);
-
-    setTimeout(function () {
-        keywords.css({
-            "bottom": "0%",
-            "opacity": "1"
-        });
-    }, 300);
-
-    setTimeout(function () {
-        close.css({
-            "opacity": "1"
-        });
-    }, 600);
-
-    setTimeout(function () {
-        projectContainer.css({
-            "box-shadow": "0px 0px 1000px 10px rgba(0, 0, 0, 0.9)"
-        });
-    }, 600);
-
-    isProjectExpanded = true;
-};
-
-var dismissProjectExpanded = function (projectExpanded) {
-    var icon = projectExpanded.find(".icon");
-    var cover = projectExpanded.find(".cover");
-    var btnGoto = projectExpanded.find(".btn-goto");
-    var title = projectExpanded.find(".title");
-    var category = projectExpanded.find(".category");
-    var desc = projectExpanded.find(".desc");
-    var keywords = projectExpanded.find(".keywords");
-    var close = projectExpanded.find(".close");
-    var projectContainer = projectExpanded.find(".project-container");
-    var blurred = projectExpanded.find(".blurred");
-    var tint = projectExpanded.find(".tint");
-
-    projectContainer.css({
-        "box-shadow": "none",
-        "transition": "0.8s"
+    btnGoto.css({
+        "width": "0",
+        "height": "0",
+        "opacity": "0"
     });
-    setTimeout(function () {
+
+    close.css({
+        "opacity": "0",
+        "top": "60px",
+        "transition": "0.3s"
+    });
+}
+
+var revealProjectExpanded = function (projectExpanded) {
+    projectExpanded.css("display", "block");
+
+    if ($(window).width() < 480) {
         icon.css({
-            "transition": "1s",
-            "top": "-20%",
-            "left": "-20%"
+            "top": "-10%",
+            "left": "-10%",
+            "opacity": "0",
+            "transition": "0.8s"
         });
-
         cover.css({
-            "transition": "0.5s",
             "left": "50%",
-            "opacity": "0"
+            "opacity": "0",
+            "transition": "0.5s"
+        });
+        btnGoto.css({
+            "transform": "scale(0,0) translateY(-50%)",
+            "opacity": "1",
+            "transition": "transform 0.3s"
+        });
+        title.css({
+            "left": "50%",
+            "opacity": "0",
+            "transition": "0.5s"
+        });
+        category.css({
+            "left": "50%",
+            "opacity": "0",
+            "transition": "0.5s"
+        });
+        desc.css({
+            "top": "100%",
+            "opacity": "0",
+            "transition": "0.5s"
+        });
+        keywords.css({
+            "bottom": "-10%",
+            "opacity": "0",
+            "transition": "0.5s"
+        });
+        close.css({
+            "opacity": "0",
+            "transition": "0.2s"
+        });
+        projectContainer.css({
+            "box-shadow": "none",
+            "transition": "0.8s"
         });
 
         blurred.css({
@@ -318,49 +259,297 @@ var dismissProjectExpanded = function (projectExpanded) {
             "transition": "0.5s"
         });
 
-        btnGoto.css({
-            "transform": "scale(0,0) translateY(-50%)",
+        icon.css({
+            "top": "0",
+            "left": "0",
+            "opacity": "1"
+        });
+
+        setTimeout(function () {
+            cover.css({
+                "left": "0%",
+                "opacity": "1"
+            });
+        }, 100);
+
+        setTimeout(function () {
+            blurred.css({
+                "top": "50%",
+                "transform": "translate(-50%,-50%) scale(2)",
+                "opacity": "1"
+            });
+            tint.css({
+                "bottom": "0%",
+                "opacity": "1"
+            })
+        }, 200);
+
+        setTimeout(function () {
+            btnGoto.css({
+                "transform": "scale(1,1) translateY(-50%)",
+                "opacity": "1"
+            });
+        }, 300);
+
+        setTimeout(function () {
+            title.css({
+                "left": "15px",
+                "opacity": "1"
+            });
+        }, 200);
+
+        setTimeout(function () {
+            category.css({
+                "left": "15px",
+                "opacity": "1"
+            });
+        }, 300);
+
+        setTimeout(function () {
+            desc.css({
+                "top": "50%",
+                "opacity": "1"
+            });
+        }, 200);
+
+        setTimeout(function () {
+            keywords.css({
+                "bottom": "0%",
+                "opacity": "1"
+            });
+        }, 300);
+
+        setTimeout(function () {
+            close.css({
+                "opacity": "1"
+            });
+        }, 600);
+
+        setTimeout(function () {
+            projectContainer.css({
+                "box-shadow": "0px 0px 1000px 10px rgba(0, 0, 0, 0.9)"
+            });
+        }, 600);
+    } else {
+        // FOR LARGER SCREENS
+
+        cover.css({
+            "left": "0%",
             "opacity": "1",
-            "transition": "transform 0.3s"
+            "width": "50%",
+            "height": "100%"
         });
 
-        title.css({
-            "transition": "0.5s",
-            "left": "50%",
-            "opacity": "0"
-        });
+        setTimeout(function () {
+            icon.css({
+                "transition": "0.5s",
+                "top": "10px",
+                "left": "10px",
+                "opacity": "1"
+            });
+        }, 500);
 
-        category.css({
-            "transition": "0.5s",
-            "left": "50%",
-            "opacity": "0"
-        });
+        setTimeout(function () {
+            bg.css({
+                "transition": "0.5s",
+                "left": "49%",
+                "width": "51%",
+                "opacity": "1"
+            });
+        }, 200);
 
-        desc.css({
-            "transition": "0.5s",
-            "top": "100%",
-            "opacity": "0"
-        });
+        setTimeout(function () {
+            title.css({
+                "transition": "0.5s",
+                "left": "50%",
+                "opacity": "1"
+            });
+        }, 600);
 
-        keywords.css({
-            "transition": "0.5s",
-            "bottom": "-10%",
-            "opacity": "0"
-        });
+        setTimeout(function () {
+            category.css({
+                "transition": "0.5s",
+                "left": "50%",
+                "opacity": "1"
+            });
+        }, 500);
 
-        close.css({
-            "transition": "0.5s",
-            "opacity": "0"
-        });
+        setTimeout(function () {
+            desc.css({
+                "transition": "0.5s",
+                "top": "180px",
+                "opacity": "1"
+            })
+        }, 700);
 
+        setTimeout(function () {
+            keywords.css({
+                "bottom": "50px",
+                "opacity": "1",
+                "transition": "0.5s"
+            });
+        }, 900);
+
+        setTimeout(function () {
+            btnGoto.css({
+                "width": "100px",
+                "height": "100px",
+                "opacity": "1",
+                "transition": "0.3s"
+            });
+            close.css({
+                "opacity": "1",
+                "top": "0",
+                "transition": "0.3s"
+            });
+        }, 1400);
+    }
+
+    isProjectExpanded = true;
+};
+
+var dismissProjectExpanded = function (projectExpanded) {
+
+
+    if ($(window).width() < 480) {
+
+        projectContainer.css({
+            "box-shadow": "none",
+            "transition": "0.8s"
+        });
+        setTimeout(function () {
+            icon.css({
+                "transition": "1s",
+                "top": "-20%",
+                "left": "-20%"
+            });
+
+            cover.css({
+                "transition": "0.5s",
+                "left": "50%",
+                "opacity": "0"
+            });
+
+            blurred.css({
+                "top": "-110%",
+                "transform": "translate(-50%,-50%) scale(1)",
+                "transition": "0.5s",
+                "opacity": "0"
+            });
+
+            tint.css({
+                "bottom": "-100",
+                "opacity": "0",
+                "transition": "0.5s"
+            });
+
+            btnGoto.css({
+                "transform": "scale(0,0) translateY(-50%)",
+                "opacity": "1",
+                "transition": "transform 0.3s"
+            });
+
+            title.css({
+                "transition": "0.5s",
+                "left": "50%",
+                "opacity": "0"
+            });
+
+            category.css({
+                "transition": "0.5s",
+                "left": "50%",
+                "opacity": "0"
+            });
+
+            desc.css({
+                "transition": "0.5s",
+                "top": "100%",
+                "opacity": "0"
+            });
+
+            keywords.css({
+                "transition": "0.5s",
+                "bottom": "-10%",
+                "opacity": "0"
+            });
+
+            close.css({
+                "transition": "0.5s",
+                "opacity": "0"
+            });
+
+            setTimeout(function () {
+                projectExpanded.css({
+                    "display": "none"
+                });
+                isProjectExpanded = false;
+            }, 500);
+
+        }, 200);
+    } else {
+        // For Larger Screens
+        setTimeout(function () {
+            btnGoto.css({
+                "width": "0px",
+                "height": "0px",
+                "opacity": "0",
+                "transition": "0.3s"
+            });
+            close.css({
+                "opacity": "0",
+                "top": "60px",
+                "transition": "0.3s"
+            });
+        }, 0);
+        
+        setTimeout(function () {
+            keywords.css({
+                "bottom": "150px",
+                "opacity": "0",
+                "transition": "0.5s"
+            });
+        }, 50);
+        
+        setTimeout(function () {
+            desc.css({
+                "transition": "0.5s",
+                "top": "290px",
+                "opacity": "0"
+            })
+        }, 100);
+        
+        setTimeout(function () {
+            category.css({
+                "transition": "0.5s",
+                "left": "50%",
+                "opacity": "0"
+            });
+        }, 150);
+        
+        setTimeout(function () {
+            title.css({
+                "transition": "0.5s",
+                "left": "50%",
+                "opacity": "0"
+            });
+        }, 600);
+        
+        
+        
+        
+        
+        
+        
+        
+        
         setTimeout(function () {
             projectExpanded.css({
                 "display": "none"
             });
+            setInitialPosition();
             isProjectExpanded = false;
-        }, 500);
-
-    }, 200);
+        }, 2000);
+    }
 };
 
 $(document).ready(function () {
@@ -389,27 +578,24 @@ $(document).ready(function () {
         });
     })
 
-
-
-    $(document).ready(function () {
-        $(".owl-carousel").owlCarousel({
-            loop: true,
-            margin: 10,
-            autoplay: true,
-            slideBy: 1,
-            autoplayTimeout: 2500,
-            autoplayHoverPause: true,
-            responsiveClass: true,
-            nav: false,
-            responsive: {
-                0: {
-                    items: 1
-                },
-                576: {
-                    items: 3
-                }
+    $(".owl-carousel").owlCarousel({
+        loop: true,
+        margin: 10,
+        autoplay: true,
+        slideBy: 1,
+        autoplayTimeout: 2500,
+        autoplayHoverPause: true,
+        responsiveClass: true,
+        nav: false,
+        responsive: {
+            0: {
+                items: 1
+            },
+            576: {
+                items: 3
             }
-        });
+        }
+
     });
 
     $(".project").hover3d({
@@ -419,9 +605,12 @@ $(document).ready(function () {
         sensitivity: 8
     });
 
-    var projectExpanded = $(".project-expanded");
     projectExpanded.css("display", "none");
-
+    
+    if($(window).width >= 480) {
+        setInitialPosition();
+    }
+    
     $(".project").each(function (index, value) {
         $(this).click(function () {
             if (!isProjectExpanded) {

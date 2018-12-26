@@ -511,40 +511,6 @@ section#services {
         z-index: 2;
     }
 
-    /*
-    .project-container::before {
-        position: absolute;
-        top: 50%;
-        left: 0;
-        width: 100%;
-        height: 50%;
-        background: url("../images/proj-exp-cover.jpg");
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: bottom right;
-        filter: blur(3px);
-        content: "";
-        border-top-left-radius: 0px;
-        border-top-right-radius: 0px;
-        border-bottom-left-radius: 15px;
-        border-bottom-right-radius: 15px;
-        z-index: -1;
-    }
-
-    .project-container::after {
-        position: absolute;
-        top: 50%;
-        left: 0;
-        width: 100%;
-        height: 50%;
-        background: rgba(0, 0, 0, 0.8);
-        content: "";
-        border-bottom-left-radius: 15px;
-        border-bottom-right-radius: 15px;
-        z-index: -1;
-    }
-*/
-
     .project-container .cover {
         position: relative;
         top: 0;

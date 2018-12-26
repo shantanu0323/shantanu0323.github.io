@@ -86,6 +86,9 @@ var projectContainer = projectExpanded.find(".project-container");
 var bg = projectExpanded.find(".bg");
 var blurred = projectExpanded.find(".blurred");
 var tint = projectExpanded.find(".tint");
+var ht = $(window).height() - 190;
+var marginTop = 0.05 * ht;
+var height = ht - 100 - marginTop;
 
 var collapseNavBar = function () {
     $(".navbar").addClass("top-nav-collapse");
@@ -119,6 +122,7 @@ var loadData = function (project, projectExpanded) {
     var coverSrc = project.find(".project__image img").attr("src");
     var desc = project.find(".project-content .desc").html();
     var keywords = project.find(".project-content .keywords").html();
+    var urlToProject = project.find(".project-content .url").html();
     var urlToImage = "url('" + coverSrc + "')";
     //        console.log("title : " + title);
     //        console.log("catergory :" + category);
@@ -133,17 +137,23 @@ var loadData = function (project, projectExpanded) {
     projectExpanded.find(".cover img").attr("src", coverSrc);
     projectExpanded.find(".desc p").html(desc);
     projectExpanded.find(".keywords p").html(keywords);
+    projectExpanded.find(".btn-goto button a").attr("href",urlToProject);
     projectExpanded.find(".blurred").css({
         "background": urlToImage,
         "background-repeat": "no-repeat",
         "background-size": "cover",
         "background-position": "bottom right"
     });
+    
 
 };
 
 var setInitialPosition = function () {
 
+    projectExpanded.css({
+        "opacity": "1"
+    });
+    
     cover.css({
         "left": "-20%",
         "opacity": "0",
@@ -161,6 +171,8 @@ var setInitialPosition = function () {
     bg.css({
         "left": "30%",
         "width": "0",
+        "height": height,
+        "margin-top": marginTop,
         "opacity": "0.7"
     });
 
@@ -402,7 +414,7 @@ var revealProjectExpanded = function (projectExpanded) {
                 "top": "0",
                 "transition": "0.3s"
             });
-        }, 1400);
+        }, 1100);
     }
 
     isProjectExpanded = true;
@@ -501,7 +513,7 @@ var dismissProjectExpanded = function (projectExpanded) {
                 "transition": "0.3s"
             });
         }, 0);
-        
+
         setTimeout(function () {
             keywords.css({
                 "bottom": "150px",
@@ -509,7 +521,7 @@ var dismissProjectExpanded = function (projectExpanded) {
                 "transition": "0.5s"
             });
         }, 50);
-        
+
         setTimeout(function () {
             desc.css({
                 "transition": "0.5s",
@@ -517,7 +529,7 @@ var dismissProjectExpanded = function (projectExpanded) {
                 "opacity": "0"
             })
         }, 100);
-        
+
         setTimeout(function () {
             category.css({
                 "transition": "0.5s",
@@ -525,7 +537,7 @@ var dismissProjectExpanded = function (projectExpanded) {
                 "opacity": "0"
             });
         }, 150);
-        
+
         setTimeout(function () {
             title.css({
                 "transition": "0.5s",
@@ -533,22 +545,45 @@ var dismissProjectExpanded = function (projectExpanded) {
                 "opacity": "0"
             });
         }, 600);
-        
-        
-        
-        
-        
-        
-        
-        
-        
+
+        setTimeout(function () {
+            bg.css({
+                "left": "30%",
+                "width": "0",
+                "height": height,
+                "margin-top": marginTop,
+                "opacity": "0"
+            });
+        }, 700);
+
+        setTimeout(function () {
+            cover.css({
+                "left": "-50%",
+                "opacity": "0",
+                "transition": "0.5s"
+            });
+        }, 900);
+
+        setTimeout(function () {
+            icon.css({
+                "left": "-150px",
+                "opacity": "0"
+            });
+        }, 800);
+
+        setTimeout(function () {
+            projectExpanded.css({
+                "opacity": "0",
+                "transition": "0.3s"
+            });
+        }, 1200);
         setTimeout(function () {
             projectExpanded.css({
                 "display": "none"
             });
             setInitialPosition();
             isProjectExpanded = false;
-        }, 2000);
+        }, 1600);
     }
 };
 
@@ -606,11 +641,11 @@ $(document).ready(function () {
     });
 
     projectExpanded.css("display", "none");
-    
-    if($(window).width >= 480) {
+
+    if ($(window).width >= 480) {
         setInitialPosition();
     }
-    
+
     $(".project").each(function (index, value) {
         $(this).click(function () {
             if (!isProjectExpanded) {

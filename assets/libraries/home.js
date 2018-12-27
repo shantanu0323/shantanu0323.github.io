@@ -616,44 +616,46 @@ $(document).ready(function () {
         });
     })
 
-    if ($(window).width() < 568) {
-        $(".services-carousel .owl-carousel").owlCarousel({
-            loop: true,
-            margin: 10,
-            autoplay: true,
-            slideBy: 1,
-            autoplayTimeout: 2500,
-            autoplayHoverPause: true,
-            responsiveClass: true,
-            nav: false,
-            responsive: {
-                0: {
-                    items: 1
-                }
+    //    if ($(window).width() < ) {
+    //        $(".services-carousel .owl-carousel").owlCarousel({
+    //            loop: true,
+    //            margin: 10,
+    //            autoplay: true,
+    //            slideBy: 1,
+    //            autoplayTimeout: 2500,
+    //            autoplayHoverPause: true,
+    //            responsiveClass: true,
+    //            nav: false,
+    //            responsive: {
+    //                0: {
+    //                    items: 1
+    //                }
+    //            }
+    //
+    //        });
+    //    } else {
+    $(".services-carousel .owl-carousel").owlCarousel({
+        loop: true,
+        margin: 10,
+        autoplay: true,
+        slideBy: 1,
+        autoplayTimeout: 2500,
+        autoplayHoverPause: true,
+        responsiveClass: true,
+        nav: false,
+        responsive: {
+            0: {
+                items: 1
+            },
+            768: {
+                items: 2
+            },
+            1024: {
+                items: 3
             }
+        }
+    });
 
-        });
-    } else {
-        $(".services-carousel .owl-carousel").owlCarousel({
-            loop: true,
-            margin: 10,
-            autoplay: true,
-            slideBy: 1,
-            autoplayTimeout: 2500,
-            autoplayHoverPause: true,
-            responsiveClass: true,
-            nav: false,
-            responsive: {
-                0: {
-                    items: 1
-                },
-                568: {
-                    items: 3
-                }
-            }
-        });
-
-    }
 
     $(".achievements-carousel .owl-carousel").owlCarousel({
         loop: true,

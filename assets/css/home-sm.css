@@ -2,6 +2,10 @@
 ******************** FOR DEVICES MORE THAN XS **************************
 */
 @media screen and (min-width: 480px) {
+    .scroll-progress-container {
+        height: 2.5px;
+    }
+    
     .name {
         top: 50%;
     }

@@ -14,6 +14,7 @@ window.onload = function () {
             "opacity": "0",
             "transition": "0.3s"
         });
+
         setTimeout(function () {
             $(".loading-screen").css("display", "none");
             $(".tagline-container").hide();
@@ -591,6 +592,8 @@ var dismissProjectExpanded = function (projectExpanded) {
 
 $(document).ready(function () {
 
+    $(".scroll-progress").hide();
+
     particlesJS.load('home', '../assets/others/particles.json', function () {
         //        console.log('callback - particles.js config loaded');
     });
@@ -739,9 +742,18 @@ $(window).on('popstate', function (event) {
 $(document).scroll(function () {
     if ($('.navbar').offset().top > 50) {
         collapseNavBar();
+        $(".scroll-progress").show();
+        var bottom = $("#footer").position().top + $("#footer").height() - $(window).height();
+        var widthValue = ($(window).scrollTop()) / bottom * 100;
+        if (widthValue > 100) {
+            widthValue = 100;
+        }
+        $(".scroll-progress").css("width", widthValue + "%")
     } else {
         expandNavBar();
+        $(".scroll-progress").hide();
     }
+
 
     var scrollPos = $(document).scrollTop();
     var aboutPos = $("#about").position().top;

@@ -30,6 +30,7 @@ html {
 }
 
 .bg-cover {
+    position: relative;
     background: url("../images/cover.jpg");
     background-size: cover;
     background-repeat: no-repeat;

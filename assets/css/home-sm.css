@@ -338,7 +338,7 @@
     }
 
     #achievements {
-        margin-top: 120px;
+        margin-top: 50px;
     }
 
     .achievements-carousel .badge {
@@ -434,6 +434,10 @@
 
     #footer .quote {
         letter-spacing: 2px;
+    }
+
+    .btn-github-holder {
+        padding: 50px 0px 0px 0px;
     }
 
 }
